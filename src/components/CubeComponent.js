@@ -49,11 +49,13 @@ class Cube extends Component {
             var isFront = (faceName === 'front')?true:false;
 
             return(
-                <div className="radio-container">
+                <div className="d-inline-block d-md-block radio-container">
                     <input onChange={this.handleChange}
                      defaultChecked={isFront} value={faceName} type = "radio" id = {`radio-${faceName}`} name="selectFace" />
-                    <label htmlFor={`radio-${faceName}`}>{faceName.capitalize()}</label>
-                    <span className="fa fa-cube"></span>
+                    <label className="mr-2" htmlFor={`radio-${faceName}`}>
+                        <span className="d-none d-md-inline-block fa fa-cube"></span> 
+                        {faceName.capitalize()}
+                    </label>
                 </div>
             );
         });
@@ -68,7 +70,8 @@ class Cube extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="offset-1 col-sm-4">
+                    <div className="d-block d-sm-none col mt-5"></div>
+                    <div className="col-sm-4">
                         <div className="form-box">
                             {renderLabels}
                         </div>
