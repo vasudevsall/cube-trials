@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { COLORS } from '../shared/colors';
 import Cube from './CubeComponent';
+import Header from './HeaderComponent';
+import { Switch, Router, Redirect, withRouter, Route } from 'react-router-dom';
 
 class Main extends Component {
 
@@ -14,7 +16,12 @@ class Main extends Component {
     render(){
         return(
             <>
-                <Cube colors = {this.state.colors.filter((color) => color.id === 1)[0]}/>
+                <Header />
+                <Switch>
+                    <Route path="/home" component={() => <Cube colors = {this.state.colors.filter((color) => color.id === 1)[0]}/>} />
+                    <Route path="/tutorial" component={() => <Cube colors = {this.state.colors.filter((color) => color.id === 1)[0]}/> } />
+                    <Redirect to="/home" />
+                </Switch>
             </>
         );
     }

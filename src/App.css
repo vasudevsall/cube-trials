@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
 
+body {
+  padding-top: 86px;
+}
+
 .cube-face {
   display: grid;
   grid-template-columns: auto auto auto;
