@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
+
+.cube-face {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: rgba(0,0,0,0.8);
+  padding: 5px;
+
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  opacity: 0.8;
+}
+
+.grid-item {
+  border: 2px solid rgba(0,0,0,0.8);
+  background-color: rgba(255, 255, 255, 0.4);
+  font-size: 30px;
+  text-align: center;
+}
+
+.cube-div {
+  position: relative;
+  background-color: #a6a6a6aa;
+  padding: 50px;
+}
+
+.scene {
+  display: block;
+  left: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  perspective: 600px;
+}
+
+.cube {
+  display: inline-block;
+  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  width: inherit;
+  height: inherit;
+  position: relative;
+
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(15deg);
+}
+
+.cube-div label {
+  font-family: 'Solway', serif;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.cube-face-front {
+  transform: translate3d(0, 0, 75px);
+}
+
+.cube-face-back {
+  transform: rotateY(180deg) translate3d(0, 0, 75px);
+}
+
+.cube-face-left {
+  transform: rotateY(-90deg) translate3d(0, 0, 75px);
+}
+
+.cube-face-right {
+  transform: rotateY(90deg) translate3d(0, 0, 75px);
+}
+
+.cube-face-top {
+  transform: rotateX(90deg) translate3d(0, 0, 75px);
+}
+
+.cube-face-bottom {
+  transform: rotateX(-90deg) translate3d(0, 0, 75px);
+}
+
+.cube-back {
+  transform: rotateY(180deg);
+}
+
+.cube-left {
+  transform: rotateY(90deg);
+}
+
+.cube-right {
+  transform: rotateY(-90deg);
+}
+
+.cube-top {
+  transform: rotateX(-90deg);
+}
+
+.cube-bottom {
+  transform: rotateX(90deg);
+}
+
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-container input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-container input ~ span{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.radio-container input:checked ~ span, .radio-container input:checked ~ label {
+  color: seagreen;
+}
