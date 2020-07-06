@@ -61,7 +61,7 @@ class Cube extends Component {
         });
 
         return(
-            <div className = "container cube-div">
+            <div className = "container cube-div mb-2">
                 <div className = "row">
                     <div className="col-sm-7">
                         <div className="scene">

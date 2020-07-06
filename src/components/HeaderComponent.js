@@ -29,7 +29,7 @@ class Header extends Component {
                             <img src="../images/CubeTute.png" height="60" alt="Cube Trials" />
                         </NavbarBrand>
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
-                            <Nav navbar className = "ml-auto">
+                            <Nav navbar className = "ml-auto mr-4">
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
                                         <span className="fa fa-home fa-lg"></span> Home
