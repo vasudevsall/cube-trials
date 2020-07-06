@@ -24,12 +24,12 @@ class Header extends Component {
             <>
                 <Navbar className="bg-dark" fixed="top" dark expand="md">
                     <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
+                        <NavbarToggler className="mr-2" onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/">
                             <img src="../images/CubeTute.png" height="60" alt="Cube Trials" />
                         </NavbarBrand>
-                        <Collapse className="ml-auto" isOpen = {this.state.isNavOpen} navbar>
-                            <Nav navbar>
+                        <Collapse isOpen = {this.state.isNavOpen} navbar>
+                            <Nav navbar className = "ml-auto">
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
                                         <span className="fa fa-home fa-lg"></span> Home
