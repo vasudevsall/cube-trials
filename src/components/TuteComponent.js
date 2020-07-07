@@ -27,7 +27,7 @@ function TutePage(props) {
                     </div>
                 </div>
             </Jumbotron>
-            <div className="container">
+            <div className="fluid-container">
                 <div className="row justify-content-center">
                     {renderCards}
                 </div>

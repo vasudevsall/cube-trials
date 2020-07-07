@@ -18,12 +18,22 @@ class Main extends Component {
     }
 
     render(){
+
+        const Trial = ({match}) => {
+            return(
+                <>
+                    {this.state.tutorials.filter((tute) => tute.id === parseInt(match.params.tuteId, 10))[0].tuteComponent}
+                </>
+            );
+        }
+
         return(
             <>
                 <Header />
                 <Switch>
                     <Route path="/home" component={() => <HomePage cubeData={this.state.colors.filter((color) => color.id === 1)[0]}/> } />
-                    <Route path="/tutorial" component={() => <TutePage colors={this.state.colors} tutorials={this.state.tutorials}/> } />
+                    <Route exact path="/tutorial" component={() => <TutePage colors={this.state.colors} tutorials={this.state.tutorials}/> } />
+                    <Route path="/tutorial/:tuteId" component={Trial} />
                     <Redirect to="/home" />
                 </Switch>
                 <Footer />

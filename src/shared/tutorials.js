@@ -1,3 +1,6 @@
+import React from 'react';
+import Beginner from '../components/BeginnerComponent';
+
 export const TUTORIALS = [
     {
         id: 1,
@@ -5,7 +8,8 @@ export const TUTORIALS = [
         badgeClasses: 'badge badge-success',
         difficuilty: 'Easy',
         description: 'The Beginners Method',
-        image: 'images/cube-5.jpg'
+        image: 'images/cube-5.jpg',
+        tuteComponent: <Beginner />
     },
     {
         id: 2,
