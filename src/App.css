@@ -25,6 +25,7 @@ body {
   background-color: rgba(108, 117, 125, 1);
   font-family: 'Acme', sans-serif;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .footer-link {
@@ -186,4 +187,60 @@ body {
 #radio-bottom:checked ~ label {
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 1px 1px #232323;
+}
+
+.card-container {
+  color: white;
+  position: relative;
+  width: 350px;
+  min-height: 500px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #393e46;
+  border: 2px solid #00adb5;
+  border-radius: 20px;
+  box-shadow: 0 0 2px 5px #222831;
+  box-shadow: 0 0 2px 5px #00adb5;
+  margin: 25px;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+}
+
+.custom-card-title {
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px #00adb5;
+}
+
+.card-img-div {
+  position: relative;
+  width: 95%;
+  height: 300px;
+  display: block;
+  margin:  10px auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  box-shadow: 0 0 1px 5px white;
+}
+
+.badge-container {
+  text-align: right;
+  display: block;
+  margin: 10px auto;
+  width: 95%;
+}
+
+.description-div {
+  width: 95%;
+  margin: 10px auto;
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
+.custom-card-img {
+  border-radius: 10px;
 }
