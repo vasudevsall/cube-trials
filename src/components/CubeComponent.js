@@ -14,8 +14,9 @@ export const CubeFace = (props) => {
     );
 }
 
-String.prototype.capitalize = function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
+function Capatilize(face) {
+    var name = face.charAt(0).toUpperCase() + face.slice(1);
+    return name;
 }
 
 class Cube extends Component {
@@ -54,7 +55,7 @@ class Cube extends Component {
                      defaultChecked={isFront} value={faceName} type = "radio" id = {`radio-${faceName}`} name="selectFace" />
                     <label className="mr-2" htmlFor={`radio-${faceName}`}>
                         <span className="d-none d-md-inline-block fa fa-cube"></span> 
-                        {faceName.capitalize()}
+                        {Capatilize(faceName)}
                     </label>
                 </div>
             );
