@@ -4,6 +4,7 @@ import Cube from './CubeComponent';
 import Header from './HeaderComponent';
 import { HomePage } from './HomeComponent';
 import { Switch, Redirect, Route } from 'react-router-dom';
+import Footer from './FooterComponent';
 
 class Main extends Component {
 
@@ -23,6 +24,7 @@ class Main extends Component {
                     <Route path="/tutorial" component={() => <Cube colors = {this.state.colors.filter((color) => color.id === 1)[0]}/> } />
                     <Redirect to="/home" />
                 </Switch>
+                <Footer />
             </>
         );
     }

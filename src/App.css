@@ -21,6 +21,16 @@ body {
   font-family: 'Acme', sans-serif;
 }
 
+.footer {
+  background-color: rgba(108, 117, 125, 1);
+  font-family: 'Acme', sans-serif;
+  padding: 20px;
+}
+
+.footer-link {
+  color: floralwhite;
+}
+
 .cube-face {
   display: grid;
   grid-template-columns: auto auto auto;
