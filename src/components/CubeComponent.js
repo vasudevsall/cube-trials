@@ -16,7 +16,7 @@ export const CubeFace = (props) => {
     );
 }
 
-function Capatilize(face) {
+function Capitalize(face) {
     var name = face.charAt(0).toUpperCase() + face.slice(1);
     return name;
 }
@@ -37,7 +37,7 @@ function Cube(props){
                     value = {faceName}
                     onClick={props.onClick} className={`d-inline-block d-md-block btn btn-primary button-${faceName}`}
                 >
-                    <span className="fa fa-cube"></span> {Capatilize(faceName)}
+                    {Capitalize(faceName)}
                 </button>
             );
         });
@@ -45,6 +45,9 @@ function Cube(props){
         return(
             <div className = "container cube-div mb-2">
                 <div className = "row">
+                    <div className="col-12 text-center mb-3">
+                        <h2>Current Face: {Capitalize(props.cubeTitle)}</h2>
+                    </div>
                     <div className="col-sm-7">
                         <div className="scene">
                             <div className={props.cubeClasses}>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 body {
   padding-top: 86px;
@@ -295,4 +296,9 @@ body {
 
 .custom-card-img {
   border-radius: 10px;
+}
+
+/**Beginner**/
+.beginner-div {
+  font-family: 'Righteous', cursive;
 }

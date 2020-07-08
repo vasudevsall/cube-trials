@@ -8,6 +8,9 @@ class HomePage extends Component {
         this.state = {
             cubeClasses: {
                 'id1' : 'cube'
+            },
+            cubeTitles: {
+                'id1' : 'front'
             }
         };
         this.handleCubeClick = this.handleCubeClick.bind(this);
@@ -17,7 +20,8 @@ class HomePage extends Component {
         var target = event.target;
         console.log(target.value + " " +id);
         this.setState({
-            cubeClasses: {...this.state.cubeClasses, [id]: `cube cube-${target.value}`}
+            cubeClasses: {...this.state.cubeClasses, [id]: `cube cube-${target.value}`},
+            cubeTitles: {...this.state.cubeTitles, [id]: target.value}
         });
     }
 
@@ -69,6 +73,7 @@ class HomePage extends Component {
                     <Cube key="id1" cubeId="id1"
                         onClick= {(e)=> {this.handleCubeClick(e, 'id1')}}
                         cubeClasses={this.state.cubeClasses.id1}
+                        cubeTitle={this.state.cubeTitles.id1}
                         colors={this.props.cubeData}
                     />
                 </div>
