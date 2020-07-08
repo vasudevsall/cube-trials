@@ -160,7 +160,59 @@ body {
   color: seagreen;
 } */
 
-#radio-front:checked ~ label{
+.btn {
+  border: 1px solid black;
+  transition: background-color 0.5s;
+}
+.btn:hover{
+  transition: background-color 0.5s;
+}
+
+.button-front {
+  background-color: rgba(2, 164, 211, 0.4);
+}
+.button-front:hover {
+  background-color: rgb(2, 164, 211);;
+}
+
+.button-back {
+  background-color: rgba(25, 179, 133, 0.4);
+}
+.button-back:hover {
+  background-color: rgba(25, 179, 133, 1);
+}
+
+.button-left {
+  background-color: rgba(255, 53, 94, 0.4);
+}
+.button-left:hover {
+  background-color: rgba(255, 53, 94, 1);
+}
+
+.button-right {
+  background-color: rgba(255, 127, 73, 0.4);
+}
+.button-right:hover {
+  background-color: rgba(255, 127, 73, 1);
+}
+
+.button-top {
+  background-color: rgba(255, 219, 0, 0.4);
+}
+.button-top:hover {
+  background-color: rgba(255, 219, 0, 1);
+}
+
+.button-bottom {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: black;
+}
+.button-bottom:hover {
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
+}
+
+/* #radio-front:checked ~ label{
   color: rgba(2, 164, 211, 0.6);
   text-shadow: 0 1px 1px #232323;
 }
@@ -188,7 +240,7 @@ body {
 #radio-bottom:checked ~ label {
   color: rgba(255, 255, 255, 0.85);
   text-shadow: 0 1px 1px #232323;
-}
+} */
 
 .card-container {
   color: white;

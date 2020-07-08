@@ -3,7 +3,7 @@ import { COLORS } from '../shared/colors';
 import { TUTORIALS } from '../shared/tutorials';
 import TutePage from './TuteComponent';
 import Header from './HeaderComponent';
-import { HomePage } from './HomeComponent';
+import HomePage from './HomeComponent';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import Footer from './FooterComponent';
 
@@ -19,7 +19,7 @@ class Main extends Component {
 
     render(){
 
-        const Trial = ({match}) => {
+        const TutorialComponent = ({match}) => {
             return(
                 <>
                     {this.state.tutorials.filter((tute) => tute.id === parseInt(match.params.tuteId, 10))[0].tuteComponent}
@@ -33,7 +33,7 @@ class Main extends Component {
                 <Switch>
                     <Route path="/home" component={() => <HomePage cubeData={this.state.colors.filter((color) => color.id === 1)[0]}/> } />
                     <Route exact path="/tutorial" component={() => <TutePage colors={this.state.colors} tutorials={this.state.tutorials}/> } />
-                    <Route path="/tutorial/:tuteId" component={Trial} />
+                    <Route path="/tutorial/:tuteId" component={TutorialComponent} />
                     <Redirect to="/home" />
                 </Switch>
                 <Footer />

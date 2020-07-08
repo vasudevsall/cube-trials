@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export const CubeFace = (props) => {
+    var i = 0;
     const colors = props.colors.map((color) => {
+        i = i+1;
         return(
-            <div className="grid-item" style={{backgroundColor: color}}></div>
+            <div key={`${props.id}-${props.face}-${i}`} className="grid-item" style={{backgroundColor: color}}></div>
         );
     });
 
@@ -19,45 +21,24 @@ function Capatilize(face) {
     return name;
 }
 
-class Cube extends Component {
+function Cube(props){
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            cubeClasses : "cube"
-        }
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    handleChange(event) {
-        var target = event.target;
-        this.setState({
-            cubeClasses: `cube cube-${target.value}`
-        });
-    }
-
-    render() {
-
-        const faceKeys = Object.keys(this.props.colors.faces);
+        const faceKeys = Object.keys(props.colors.faces);
         const renderFaces = faceKeys.map((faceName) => {
             return(
-                <CubeFace face = {faceName} colors= {this.props.colors.faces[faceName]} />
+                <CubeFace key={`${props.colors.id}-${faceName}`}
+                    id={props.colors.id} face = {faceName} colors= {props.colors.faces[faceName]} />
             );
         });
 
         const renderLabels = faceKeys.map((faceName) => {
-            var isFront = (faceName === 'front')?true:false;
-
             return(
-                <div className="d-inline-block d-md-block radio-container">
-                    <input onChange={this.handleChange}
-                     defaultChecked={isFront} value={faceName} type = "radio" id = {`radio-${faceName}`} name="selectFace" />
-                    <label className="mr-2" htmlFor={`radio-${faceName}`}>
-                        <span className="d-none d-md-inline-block fa fa-cube"></span> 
-                        {Capatilize(faceName)}
-                    </label>
-                </div>
+                <button key={`${props.cubeId}-${faceName}-labe`}
+                    value = {faceName}
+                    onClick={props.onClick} className={`d-inline-block d-md-block btn btn-primary button-${faceName}`}
+                >
+                    <span className="fa fa-cube"></span> {Capatilize(faceName)}
+                </button>
             );
         });
 
@@ -66,21 +47,23 @@ class Cube extends Component {
                 <div className = "row">
                     <div className="col-sm-7">
                         <div className="scene">
-                            <div className={this.state.cubeClasses}>
+                            <div className={props.cubeClasses}>
                                 {renderFaces}
                             </div>
                         </div>
                     </div>
                     <div className="d-block d-sm-none col mt-5"></div>
                     <div className="col-sm-4">
-                        <div className="form-box">
+                        <div className="d-none d-md-inline-block btn-group-vertical">
+                            {renderLabels}
+                        </div>
+                        <div className="d-block d-md-none btn-group">
                             {renderLabels}
                         </div>
                     </div>
                 </div>
             </div>
         );
-    }
 }
 
 export default Cube;
