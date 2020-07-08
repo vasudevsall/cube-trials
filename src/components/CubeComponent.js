@@ -55,7 +55,7 @@ class Cube extends Component{
             return(
                 <button key={`${this.props.cubeId}-${faceName}-labe`}
                     value = {faceName}
-                    onClick={this.handleButtonClick} className={`d-inline-block d-md-block btn btn-primary button-${faceName}`}
+                    onClick={this.handleButtonClick} className={`d-inline-block d-md-block btn button-${faceName}`}
                 >
                     {Capitalize(faceName)}
                 </button>

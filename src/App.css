@@ -161,9 +161,11 @@ body {
 .btn {
   border: 1px solid black;
   transition: background-color 0.5s;
+  color: white;
 }
 .btn:hover{
   transition: background-color 0.5s;
+  color: white;
 }
 
 .button-front {
@@ -172,12 +174,20 @@ body {
 .button-front:hover {
   background-color: rgb(2, 164, 211);;
 }
+.button-front:active {
+  background-color: rgb(2, 164, 211);
+  border: 2px solid blue;
+}
 
 .button-back {
   background-color: rgba(25, 179, 133, 0.4);
 }
 .button-back:hover {
   background-color: rgba(25, 179, 133, 1);
+}
+.button-back:active {
+  background-color: rgb(25, 179, 133);
+  border: 2px solid green;
 }
 
 .button-left {
@@ -186,6 +196,10 @@ body {
 .button-left:hover {
   background-color: rgba(255, 53, 94, 1);
 }
+.button-left:active {
+  background-color: rgb(255, 53, 94);
+  border: 2px solid red;
+}
 
 .button-right {
   background-color: rgba(255, 127, 73, 0.4);
@@ -193,12 +207,20 @@ body {
 .button-right:hover {
   background-color: rgba(255, 127, 73, 1);
 }
+.button-right:active {
+  background-color: rgb(255, 127, 73);
+  border: 2px solid orange;
+}
 
 .button-top {
   background-color: rgba(255, 219, 0, 0.4);
 }
 .button-top:hover {
   background-color: rgba(255, 219, 0, 1);
+}
+.button-top:active {
+  background-color: rgb(255, 219, 0);
+  border: 2px solid yellow;
 }
 
 .button-bottom {
@@ -209,36 +231,13 @@ body {
   background-color: rgba(255, 255, 255, 1);
   color: black;
 }
-
-/* #radio-front:checked ~ label{
-  color: rgba(2, 164, 211, 0.6);
-  text-shadow: 0 1px 1px #232323;
+.button-bottom:active {
+  background-color: white;
+  color: black;
+  border: 2px solid floralwhite;
 }
 
-#radio-back:checked ~ label {
-  color: rgba(26, 179, 133, 0.6);
-  text-shadow: 0 1px 1px #232323;
-}
-
-#radio-left:checked ~ label {
-  color: rgba(255, 53, 94, 0.6);
-  text-shadow: 0 1px 1px #232323;
-}
-
-#radio-right:checked ~ label {
-  color: rgba(255, 127, 73, 0.6);
-  text-shadow: 0 1px 1px #232323;
-}
-
-#radio-top:checked ~ label {
-  color: rgba(255, 219, 0, 0.6);
-  text-shadow: 0 1px 1px #232323;
-}
-
-#radio-bottom:checked ~ label {
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 1px 1px #232323;
-} */
+/**Card Styles**/
 
 .card-container {
   color: white;
