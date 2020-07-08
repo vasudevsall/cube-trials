@@ -14,16 +14,7 @@ class Beginner extends Component {
                 'id2': 'cube'
             }
         };
-        this.handleCubeChange = this.handleCubeChange.bind(this);
         this.handleCubeClick = this.handleCubeClick.bind(this);
-    }
-
-    handleCubeChange(event, id) {
-        var target=event.target;
-        console.log(id);
-        this.setState({
-            cubeClasses: {...this.state.cubeClasses, [id]: `cube cube-${target.value}`}
-        });
     }
 
     handleCubeClick(event, id) {
@@ -74,7 +65,6 @@ class Beginner extends Component {
                 </div>
                 <Cube key="id1" cubeId="id1"
                     onClick= {(e)=> {this.handleCubeClick(e, 'id1')}}
-                    onChange ={(e) => {this.handleCubeChange(e, 'id1')}}
                     cubeClasses={this.state.cubeClasses.id1}
                     colors={this.state.colors.filter((color) => color.id === 1)[0]} />
                 <div className="container">
@@ -90,7 +80,6 @@ class Beginner extends Component {
                 </div>
                 <Cube key="id2" cubeId="id2" 
                     onClick= {(e)=> {this.handleCubeClick(e, 'id2')}}
-                    onChange ={(e) => {this.handleCubeChange(e, 'id2')}}
                     cubeClasses={this.state.cubeClasses.id2}
                     colors={this.state.colors.filter((color) => color.id === 2)[0]} />
             </>
