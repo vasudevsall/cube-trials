@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 
 body {
   padding-top: 86px;
@@ -19,9 +19,6 @@ body {
   padding: 40px 20px;
 }
 
-.homeContainer {
-  font-family: 'Acme', sans-serif;
-}
 
 .footer {
   background-color: rgba(108, 117, 125, 1);
@@ -300,5 +297,5 @@ body {
 
 /**Beginner**/
 .beginner-div {
-  font-family: 'Righteous', cursive;
+  font-family: 'Lato', sans-serif;
 }
