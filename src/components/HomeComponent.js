@@ -1,31 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Jumbotron } from 'reactstrap';
 import Cube from './CubeComponent';
 
-class HomePage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cubeClasses: {
-                'id1' : 'cube'
-            },
-            cubeTitles: {
-                'id1' : 'front'
-            }
-        };
-        this.handleCubeClick = this.handleCubeClick.bind(this);
-    }
+function HomePage(props) {
 
-    handleCubeClick(event, id) {
-        var target = event.target;
-        console.log(target.value + " " +id);
-        this.setState({
-            cubeClasses: {...this.state.cubeClasses, [id]: `cube cube-${target.value}`},
-            cubeTitles: {...this.state.cubeTitles, [id]: target.value}
-        });
-    }
-
-    render() {
         return(
             <>
                 <Jumbotron className="bg-secondary">
@@ -70,16 +48,14 @@ class HomePage extends Component {
                             A 3x3 Rubik's cube is quite similar to this one (It's just playable!):
                         </p>
                     </div>
-                    <Cube key="id1" cubeId="id1"
-                        onClick= {(e)=> {this.handleCubeClick(e, 'id1')}}
-                        cubeClasses={this.state.cubeClasses.id1}
-                        cubeTitle={this.state.cubeTitles.id1}
-                        colors={this.props.cubeData}
+                    <Cube cubeId="id1"
+                        cubeClasses="cube"
+                        cubeTitle='front'
+                        colors={props.cubeData}
                     />
                 </div>
             </>
         );
-    }
 }
 
 export default HomePage;

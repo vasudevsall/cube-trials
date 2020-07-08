@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 export const CubeFace = (props) => {
     var i = 0;
@@ -21,21 +21,41 @@ function Capitalize(face) {
     return name;
 }
 
-function Cube(props){
+class Cube extends Component{
 
-        const faceKeys = Object.keys(props.colors.faces);
+    constructor(props) {
+        super(props);
+        this.state = {
+            cubeClasses: this.props.cubeClasses,
+            cubeTitle: this.props.cubeTitle
+        }
+
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+    }
+
+    handleButtonClick(event) {
+        var target = event.target;
+        this.setState({
+            cubeClasses: `cube cube-${target.value}`,
+            cubeTitle: target.value
+        });
+    }
+
+
+    render() {
+        const faceKeys = Object.keys(this.props.colors.faces);
         const renderFaces = faceKeys.map((faceName) => {
             return(
-                <CubeFace key={`${props.colors.id}-${faceName}`}
-                    id={props.colors.id} face = {faceName} colors= {props.colors.faces[faceName]} />
+                <CubeFace key={`${this.props.colors.id}-${faceName}`}
+                    id={this.props.colors.id} face = {faceName} colors= {this.props.colors.faces[faceName]} />
             );
         });
 
         const renderLabels = faceKeys.map((faceName) => {
             return(
-                <button key={`${props.cubeId}-${faceName}-labe`}
+                <button key={`${this.props.cubeId}-${faceName}-labe`}
                     value = {faceName}
-                    onClick={props.onClick} className={`d-inline-block d-md-block btn btn-primary button-${faceName}`}
+                    onClick={this.handleButtonClick} className={`d-inline-block d-md-block btn btn-primary button-${faceName}`}
                 >
                     {Capitalize(faceName)}
                 </button>
@@ -46,11 +66,11 @@ function Cube(props){
             <div className = "container cube-div mb-2">
                 <div className = "row">
                     <div className="col-12 text-center mb-3">
-                        <h2>Current Face: {Capitalize(props.cubeTitle)}</h2>
+                        <h2>Current Face: {Capitalize(this.state.cubeTitle)}</h2>
                     </div>
                     <div className="col-sm-7">
-                        <div className="scene">
-                            <div className={props.cubeClasses}>
+                        <div className="scene" style={{height: this.props.height, width: this.props.width}}>
+                            <div className={this.state.cubeClasses}>
                                 {renderFaces}
                             </div>
                         </div>
@@ -67,6 +87,7 @@ function Cube(props){
                 </div>
             </div>
         );
+    }
 }
 
 export default Cube;
