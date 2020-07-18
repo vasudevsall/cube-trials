@@ -18,7 +18,7 @@ function HomePage(props) {
                             </div>
                             <div className="d-none d-sm-block col-12 col-sm-6">
                                 {/* <img src="images/cube.png" height="350px" alt="Cube" /> */}
-                                <CubeThree cubeData = {props.threeData} id={props.threeData.id} />
+                                <CubeThree cubeData = {props.threeData} id={props.threeData.id} height='350px' />
                             </div>
                         </div>
                     </div>

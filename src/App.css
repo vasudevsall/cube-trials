@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
   padding-top: 86px;
@@ -77,6 +77,11 @@ body {
 
   transform-style: preserve-3d;
   transform: rotateX(-15deg) rotateY(15deg);
+}
+
+.cube-head h2 {
+  text-decoration: none!important;
+  font-family: 'Acme', sans-serif;
 }
 
 .cube-div label {
@@ -176,7 +181,7 @@ body {
 }
 .button-front:active {
   background-color: rgb(2, 164, 211);
-  border: 2px solid blue;
+  border: 1px solid blue;
 }
 
 .button-back {
@@ -187,7 +192,7 @@ body {
 }
 .button-back:active {
   background-color: rgb(25, 179, 133);
-  border: 2px solid green;
+  border: 1px solid green;
 }
 
 .button-left {
@@ -198,7 +203,7 @@ body {
 }
 .button-left:active {
   background-color: rgb(255, 53, 94);
-  border: 2px solid red;
+  border: 1px solid red;
 }
 
 .button-right {
@@ -209,7 +214,7 @@ body {
 }
 .button-right:active {
   background-color: rgb(255, 127, 73);
-  border: 2px solid orange;
+  border: 1px solid orange;
 }
 
 .button-top {
@@ -220,7 +225,7 @@ body {
 }
 .button-top:active {
   background-color: rgb(255, 219, 0);
-  border: 2px solid yellow;
+  border: 1px solid yellow;
 }
 
 .button-bottom {
@@ -234,7 +239,7 @@ body {
 .button-bottom:active {
   background-color: white;
   color: black;
-  border: 2px solid floralwhite;
+  border: 1px solid floralwhite;
 }
 
 /**Card Styles**/
@@ -299,7 +304,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-/** Canvas Div **/
-.canvasDiv {
-  height: 350px;
+.beginner-div h2 {
+  text-decoration: underline double;
+}
+
+.beginner-div h5 {
+  text-decoration: underline;
 }

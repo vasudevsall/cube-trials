@@ -11,7 +11,9 @@ class CubeThree extends Component {
             moves: this.props.cubeData.moves,
             addControls: this.props.cubeData.addControls,
             backColor: this.props.cubeData.backColor,
-            loop: this.props.cubeData.loop
+            loop: this.props.cubeData.loop,
+            waitTime: this.props.cubeData.waitTime,
+            resetFaces: this.props.cubeData.resetFaces
         }
     }
 
@@ -40,6 +42,8 @@ class CubeThree extends Component {
         var originalQueue = [...this.state.moves];
 
         var addControls = this.state.addControls, backColor = this.state.backColor, loop = this.state.loop;
+        var resetFaces = this.state.resetFaces;
+        var waitTime = this.state.waitTime;
 
         function createCube() {
             /* Create cube */
@@ -365,6 +369,16 @@ class CubeThree extends Component {
             rotationQueue = [...originalQueue];
         }
 
+        function resetCube() {
+            /* Clean the rotation queue */
+            rotationQueue.length = 0;
+        
+            cubeState = CUBE_STATE;
+            giveFaceColors();
+        
+            controls.reset();
+        }
+
         function nextRotation() {
             var next = rotationQueue.shift();
             // console.log(rotationQueue);
@@ -420,7 +434,13 @@ class CubeThree extends Component {
                     });
                 default:
                     if(loop) {
-                        addAgain();
+                        loop = !loop;
+                        setTimeout(function(){
+                            if(resetFaces)
+                                resetCube();
+                            addAgain();
+                            loop = !loop;
+                        }, waitTime);
                     }
                     return null;
             }
@@ -457,7 +477,7 @@ class CubeThree extends Component {
 
     render() {
         return(
-            <div id={`canvas-div-${this.props.id}`} className="canvasDiv">
+            <div id={`canvas-div-${this.props.id}`} style={{height: this.props.height}} className="canvasDiv">
             </div>
         );
     }

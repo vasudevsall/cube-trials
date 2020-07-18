@@ -65,7 +65,7 @@ class Cube extends Component{
         return(
             <div className = "container cube-div mb-2">
                 <div className = "row">
-                    <div className="col-12 text-center mb-3">
+                    <div className="cube-head col-12 text-center mb-3">
                         <h2>Current Face: {Capitalize(this.state.cubeTitle)}</h2>
                     </div>
                     <div className="col-sm-7">
