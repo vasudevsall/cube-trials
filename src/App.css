@@ -298,3 +298,8 @@ body {
 .beginner-div {
   font-family: 'Lato', sans-serif;
 }
+
+/** Canvas Div **/
+.canvasDiv {
+  height: 350px;
+}

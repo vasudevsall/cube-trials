@@ -6,6 +6,7 @@ import Header from './HeaderComponent';
 import HomePage from './HomeComponent';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import Footer from './FooterComponent';
+import { CUBE_DATA } from '../shared/cubeData';
 
 class Main extends Component {
 
@@ -13,7 +14,8 @@ class Main extends Component {
         super(props);
         this.state = {
             colors: COLORS,
-            tutorials: TUTORIALS
+            tutorials: TUTORIALS,
+            cubeData: CUBE_DATA
         };
     }
 
@@ -31,7 +33,10 @@ class Main extends Component {
             <>
                 <Header />
                 <Switch>
-                    <Route path="/home" component={() => <HomePage cubeData={this.state.colors.filter((color) => color.id === 1)[0]}/> } />
+                    <Route path="/home" component={() => <HomePage 
+                        threeData={this.state.cubeData.filter((data) => data.id === 1)[0]} 
+                        cubeData={this.state.colors.filter((color) => color.id === 1)[0]}
+                    /> } />
                     <Route exact path="/tutorial" component={() => <TutePage colors={this.state.colors} tutorials={this.state.tutorials}/> } />
                     <Route path="/tutorial/:tuteId" component={TutorialComponent} />
                     <Redirect to="/home" />

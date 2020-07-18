@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron } from 'reactstrap';
 import Cube from './CubeComponent';
+import CubeThree from './CubeThreeComponent';
 
 function HomePage(props) {
 
@@ -16,7 +17,8 @@ function HomePage(props) {
                                 </p>
                             </div>
                             <div className="d-none d-sm-block col-12 col-sm-6">
-                                <img src="images/cube.png" height="350px" alt="Cube" />
+                                {/* <img src="images/cube.png" height="350px" alt="Cube" /> */}
+                                <CubeThree cubeData = {props.threeData} id={props.threeData.id} />
                             </div>
                         </div>
                     </div>
@@ -48,12 +50,12 @@ function HomePage(props) {
                             A 3x3 Rubik's cube is quite similar to this one (It's just playable!):
                         </p>
                     </div>
-                    <Cube cubeId="id1"
-                        cubeClasses="cube"
-                        cubeTitle='front'
-                        colors={props.cubeData}
-                    />
                 </div>
+                <Cube cubeId="id1"
+                    cubeClasses="cube"
+                    cubeTitle='front'
+                    colors={props.cubeData}
+                />
             </>
         );
 }
