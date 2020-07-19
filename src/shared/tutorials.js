@@ -1,5 +1,5 @@
 import React from 'react';
-import Beginner from '../components/BeginnerComponent';
+import Beginner from '../components/Beginner Components/BeginnerComponent';
 
 export const TUTORIALS = [
     {

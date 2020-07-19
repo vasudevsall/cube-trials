@@ -8,6 +8,33 @@ body {
   overflow-x: hidden;
 }
 
+:root{
+  --main-col: #051923;
+  --dark-col: #1b262c;
+  --sec-col: #1282A2;
+  --sec-col-2: #0f4c75;
+  --ter-col: #93b5c6;
+  --light-col-3: #89c9b8;
+  --light-col: #c7e2b2;
+  --light-col-2: #e1ffc2;
+}
+
+/**
+pallete:
+1b262c
+0f4c75
+3282b8
+bbe1fa
+**/
+
+.bg-dark{
+  background-color: var(--main-col)!important;
+}
+
+.bg-secondary{
+  background-color: var(--sec-col-2)!important;
+}
+
 .row-header {
   margin: 0 auto;
   padding: 0 auto;
@@ -17,14 +44,16 @@ body {
 
 .jumbotron {
   padding: 40px 20px;
+  z-index: -1;
 }
 
 
 .footer {
-  background-color: rgba(108, 117, 125, 1);
+  background-color: var(--main-col);
   font-family: 'Acme', sans-serif;
   padding: 20px;
   margin-top: 50px;
+  color: #F3ffb9;
 }
 
 .footer-link {
@@ -52,9 +81,9 @@ body {
 
 .cube-div {
   position: relative;
-  background-color: #a6a6a6aa;
+  background-color: rgba(147, 181, 198, 0.5);
   padding: 15px;
-  border: 2px ridge #a6a6a6;
+  border: 2px ridge #051923;
   border-radius: 20px;
 }
 
@@ -300,6 +329,18 @@ body {
 }
 
 /**Beginner**/
+.beginner-main-div {
+  display: flex;
+}
+
+.beginner-nav-btn{
+  display: none;
+}
+/* 
+.beginner-jumbo {
+  margin-bottom: 0;
+} */
+
 .beginner-div {
   font-family: 'Lato', sans-serif;
 }
@@ -310,4 +351,64 @@ body {
 
 .beginner-div h5 {
   text-decoration: underline;
+}
+
+/**Beginner Nav**/
+.aside-div{
+  margin-right: 30px;
+  background-color: var(--light-col);
+  padding-top: 20px;
+  color: var(--dark-col);
+  border-radius: 0 10px 10px 0;
+  border: 2px solid var(--dark-col);
+  border-left: none;
+}
+
+.aside-div h5{
+  font-weight: bold;
+}
+.aside-div .nav-link {
+  color: var(--main-col);
+}
+.aside-div .nav-link.sub-link{
+  color: var(--sec-col-2);
+}
+
+.begin-nav-link ~ div {
+  padding-left: 40px;
+  transform: scaleY(0);
+  overflow: hidden;
+  height: 0;
+  transition: transform 0.5s;
+}
+
+.begin-nav-link.expanded ~ div {
+  transform: scaleY(1);
+  height: auto;
+  transition: transform 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+  .aside-div{
+    width: 50px;
+    margin-right: 0;
+  }
+
+  .aside-div-expand {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .beginner-nav-btn{
+    display: block;
+  }
+
+  .aside-div aside{
+    display: none;
+  }
+  .aside-div .expand {
+    display: block;
+  }
 }

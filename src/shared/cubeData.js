@@ -5,7 +5,7 @@ export const CUBE_DATA = [
         id: 1,
         addControls: true,
         moves: [1, 2, 3, 4, 5, 6, -6, -5, -4, -3, -2, -1],
-        backColor: 0x6c757d,
+        backColor: 0x0f4c75,
         loop: true,
         waitTime: 500,
         resetFaces: false
