@@ -3,7 +3,7 @@ import { Jumbotron } from 'reactstrap';
 import { Switch, Route, Redirect, useRouteMatch} from 'react-router-dom';
 import BeginnerNav from './BeginnerNavComponent';
 import BeginnerHome from './BeginnerHome';
-import Moves from './BeginnerMovesComponent';
+import {Moves, PrimeMoves} from './BeginnerMovesComponent';
 
 class BeginnerMain extends Component {
     
@@ -41,13 +41,16 @@ class BeginnerMain extends Component {
                     <div className="beginner-div">
                         <Switch>
                             <Route exact path={this.props.path}>
-                                <BeginnerHome />
+                                <BeginnerHome url={this.props.url} />
                             </Route>
                             <Route path={`${this.props.path}/beginner-basics`} >
-                                <BeginnerHome />
+                                <BeginnerHome url={this.props.url} />
                             </Route>
                             <Route path={`${this.props.path}/basic-moves`}>
-                                <Moves />
+                                <Moves url={this.props.url} />
+                            </Route>
+                            <Route path={`${this.props.path}/basic-moves-prime`}>
+                                <PrimeMoves url={this.props.url} />
                             </Route>
                             <Redirect to={`${this.props.path}/beginner-basics`}/>
                         </Switch>

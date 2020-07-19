@@ -33,7 +33,7 @@ bbe1fa
 }
 
 .bg-secondary{
-  background-color: var(--sec-col-2)!important;
+  background-color: var(--dark-col)!important;
 }
 
 .row-header {
@@ -337,11 +337,8 @@ bbe1fa
 
 .beginner-nav-btn{
   display: none;
+  color: var(--light-col);
 }
-/* 
-.beginner-jumbo {
-  margin-bottom: 0;
-} */
 
 .beginner-div {
   font-family: 'Lato', sans-serif;
@@ -353,6 +350,60 @@ bbe1fa
 
 .beginner-div h5 {
   text-decoration: underline;
+}
+
+.next-nav-button {
+  margin-left: auto;
+  margin-right: 2em;
+}
+
+.prev-nav-button {
+  margin-left: 2em;
+}
+
+.dual-btn-container{
+  width: auto;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+}
+.dual-color-btn{
+  display: flex;
+  color: white;
+  justify-content: center;
+  text-decoration: none;
+  padding: 15px 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow:0px 6px 6px 0px rgba(0,0,0,0.15);
+  background-color: rgba(255,255,255,.05);
+  transition: all .3s;
+}
+.dual-color-btn:hover{  
+  transform: scale(1.05);
+  text-decoration: none;
+  color: white;
+}
+.dual-color-blue{
+  background: linear-gradient(to right, #3a5aff 50%, #2b4dff 50%);
+}
+
+.shine-hope-anim:after{ 
+  content: '';
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+  animation: ShineAnim 5s ease infinite;
+  animation-delay: 2s;
+}
+@keyframes ShineAnim{
+  0%{left: -100%}
+  10%{left: 100%}
+  100%{left: 100%}
 }
 
 /**Beginner Nav**/

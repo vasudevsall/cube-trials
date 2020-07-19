@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { COLORS } from '../../shared/colors';
 import Cube from '../CubeComponent';
+import { Link } from 'react-router-dom';
 
 class BeginnerHome extends Component {
 
@@ -85,6 +86,16 @@ class BeginnerHome extends Component {
                     cubeTitle='front'
                     colors={this.state.colors.filter((color) => color.id === 4)[0]}
                 />
+                <div className='container'>
+                    
+                    <div className='dual-btn-container row'>
+                        <Link className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                            to={`${this.props.url}/basic-moves`}
+                        >
+                            Basic Moves
+                        </Link>
+                    </div>
+                </div>
             </>
         );
     }
