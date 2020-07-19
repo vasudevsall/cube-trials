@@ -458,9 +458,9 @@ bbe1fa
 
 @media screen and (max-width: 768px) {
   .aside-div{
-    padding: 0;
     width: 50px;
     margin-right: 0;
+    padding: 0;
   }
 
   .aside-div-expand {
@@ -479,5 +479,12 @@ bbe1fa
   }
   .aside-div .expand {
     display: block;
+  }
+  .aside-div .expand h5 {
+    text-align: center;
+  }
+  .aside-div .expand nav a, .aside-div .expand nav button {
+    width: 100%;
+    text-align: center;
   }
 }
