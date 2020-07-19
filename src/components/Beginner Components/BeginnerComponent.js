@@ -49,6 +49,7 @@ class BeginnerMain extends Component {
                             <Route path={`${this.props.path}/basic-moves`}>
                                 <Moves />
                             </Route>
+                            <Redirect to={`${this.props.path}/beginner-basics`}/>
                         </Switch>
                     </div>
                 </div>

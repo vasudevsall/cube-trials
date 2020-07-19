@@ -21,12 +21,11 @@ class NavExpandList extends Component {
     render() {
         return(
             <>
-                <a className={`nav-link begin-nav-link ${(this.state.isExpanded)? 'expanded':'not-expanded'}`}
-                    href='#'
+                <button className={`nav-link begin-nav-link ${(this.state.isExpanded)? 'expanded':'not-expanded'}`}
                     onClick={this.handleListClick}
                 >
                     {this.props.title}
-                </a>
+                </button>
                 <div>
                     {this.props.children}
                 </div>

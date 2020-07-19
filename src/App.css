@@ -14,9 +14,10 @@ body {
   --sec-col: #1282A2;
   --sec-col-2: #0f4c75;
   --ter-col: #93b5c6;
-  --light-col-3: #89c9b8;
   --light-col: #c7e2b2;
   --light-col-2: #e1ffc2;
+  --light-col-3: #89c9b8;
+  --light-col-4: #eeeeee;
 }
 
 /**
@@ -81,10 +82,11 @@ bbe1fa
 
 .cube-div {
   position: relative;
-  background-color: rgba(147, 181, 198, 0.5);
+  background-color: var(--light-col-4);
   padding: 15px;
-  border: 2px ridge #051923;
+  border: 1px solid var(--dark-col);
   border-radius: 20px;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.7);
 }
 
 .scene {
@@ -203,7 +205,7 @@ bbe1fa
 }
 
 .button-front {
-  background-color: rgba(2, 164, 211, 0.4);
+  background-color: rgba(2, 164, 211, 0.8);
 }
 .button-front:hover {
   background-color: rgb(2, 164, 211);;
@@ -214,7 +216,7 @@ bbe1fa
 }
 
 .button-back {
-  background-color: rgba(25, 179, 133, 0.4);
+  background-color: rgba(25, 179, 133, 0.8);
 }
 .button-back:hover {
   background-color: rgba(25, 179, 133, 1);
@@ -225,7 +227,7 @@ bbe1fa
 }
 
 .button-left {
-  background-color: rgba(255, 53, 94, 0.4);
+  background-color: rgba(255, 53, 94, 0.8);
 }
 .button-left:hover {
   background-color: rgba(255, 53, 94, 1);
@@ -236,7 +238,7 @@ bbe1fa
 }
 
 .button-right {
-  background-color: rgba(255, 127, 73, 0.4);
+  background-color: rgba(255, 127, 73, 0.8);
 }
 .button-right:hover {
   background-color: rgba(255, 127, 73, 1);
@@ -247,7 +249,7 @@ bbe1fa
 }
 
 .button-top {
-  background-color: rgba(255, 219, 0, 0.4);
+  background-color: rgba(255, 219, 0, 0.8);
 }
 .button-top:hover {
   background-color: rgba(255, 219, 0, 1);
@@ -258,7 +260,7 @@ bbe1fa
 }
 
 .button-bottom {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.8);
   color: rgba(0, 0, 0, 0.6);
 }
 .button-bottom:hover {
@@ -355,10 +357,11 @@ bbe1fa
 
 /**Beginner Nav**/
 .aside-div{
+  padding-left: 15px;
   margin-right: 30px;
-  background-color: var(--light-col);
+  background-color: var(--dark-col);
   padding-top: 20px;
-  color: var(--dark-col);
+  color: var(--light-col-2);
   border-radius: 0 10px 10px 0;
   border: 2px solid var(--dark-col);
   border-left: none;
@@ -368,10 +371,24 @@ bbe1fa
   font-weight: bold;
 }
 .aside-div .nav-link {
-  color: var(--main-col);
+  color: var(--light-col-3);
 }
 .aside-div .nav-link.sub-link{
-  color: var(--sec-col-2);
+  color: var(--sec-col);
+}
+
+.begin-nav-link {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.begin-nav-link:focus{
+  border: none;
+  outline: none;
+}
+.begin-nav-link:active{
+  border: none;
+  outline: none;
 }
 
 .begin-nav-link ~ div {
@@ -390,6 +407,7 @@ bbe1fa
 
 @media screen and (max-width: 768px) {
   .aside-div{
+    padding: 0;
     width: 50px;
     margin-right: 0;
   }
