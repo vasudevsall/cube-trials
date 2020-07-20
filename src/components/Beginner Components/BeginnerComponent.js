@@ -6,6 +6,7 @@ import BeginnerHome from './BeginnerHome';
 import {Moves, PrimeMoves, AlgorithmExample} from './BeginnerMovesComponent';
 import { FixCross } from './FirstLayerComponent';
 import { CUBE_DATA } from '../../shared/cubeData';
+import { COLORS } from '../../shared/colors';
 
 class BeginnerMain extends Component {
     
@@ -13,7 +14,8 @@ class BeginnerMain extends Component {
         super(props);
         this.state = {
             toggleSideBar: false,
-            cubeData: CUBE_DATA
+            cubeData: CUBE_DATA,
+            colors: COLORS
         };
     }
 
@@ -59,7 +61,7 @@ class BeginnerMain extends Component {
                                 <AlgorithmExample cubeData={this.state.cubeData} url={this.props.url} />
                             </Route>
                             <Route path={`${this.props.path}/first-layer`}>
-                                <FixCross cubeData={this.state.cubeData} url={this.props.url} />
+                                <FixCross cubeData={this.state.cubeData} url={this.props.url} colors={this.state.colors} />
                             </Route>
                             <Redirect to={`${this.props.path}/beginner-basics`}/>
                         </Switch>

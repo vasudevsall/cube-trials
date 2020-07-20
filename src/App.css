@@ -261,18 +261,32 @@ bbe1fa
   border: 1px solid yellow;
 }
 
-.button-bottom {
+.button-bottom, .button-top.inverted-top-bottom {
   background-color: rgba(255, 255, 255, 0.8);
   color: rgba(0, 0, 0, 0.6);
 }
-.button-bottom:hover {
+.button-bottom:hover, .button-top.inverted-top-bottom:hover {
   background-color: rgba(255, 255, 255, 1);
   color: black;
 }
-.button-bottom:active {
+.button-bottom:active, .button-top.inverted-top-bottom:active {
   background-color: white;
   color: black;
   border: 1px solid floralwhite;
+}
+
+.button-bottom.inverted-top-bottom {
+  background-color: rgba(255, 219, 0, 0.8);
+  color: white;
+}
+.button-bottom.inverted-top-bottom:hover {
+  background-color: rgba(255, 219, 0, 1);
+  color: white;
+}
+.button-bottom.inverted-top-bottom:active {
+  background-color: rgb(255, 219, 0);
+  border: 1px solid yellow;
+  color: white;
 }
 
 /**Card Styles**/
@@ -365,6 +379,10 @@ bbe1fa
 
 .beginner-div h2 {
   text-decoration: underline double;
+}
+
+.beginner-div h3 {
+  text-decoration: underline;
 }
 
 .beginner-div h5 {

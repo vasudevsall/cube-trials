@@ -52,10 +52,13 @@ class Cube extends Component{
         });
 
         const renderLabels = faceKeys.map((faceName) => {
+            console.log(this.props.Cross);
+            var extraClass = (this.props.Cross)? 'inverted-top-bottom' : '';
             return(
-                <button key={`${this.props.cubeId}-${faceName}-labe`}
+                <button key={`${this.props.cubeId}-${faceName}-label`}
                     value = {faceName}
-                    onClick={this.handleButtonClick} className={`d-inline-block d-md-block btn button-${faceName}`}
+                    onClick={this.handleButtonClick}
+                    className={`d-inline-block d-md-block btn button-${faceName} ${extraClass}`}
                 >
                     {Capitalize(faceName)}
                 </button>
