@@ -49,6 +49,7 @@ class CubeThree extends Component {
         var addControls = this.state.addControls, backColor = this.state.backColor, loop = this.state.loop;
         var resetFaces = this.state.resetFaces;
         var waitTime = this.state.waitTime;
+        var clearing = false;
 
         /* Controls using dat.gui */
         var guiControls = {
@@ -387,7 +388,12 @@ class CubeThree extends Component {
 
             /* Add dat.gui controls */
             var datGUI = new dat.GUI({ autoPlace: false, closed: true, width: 250});
-            datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
+            // datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
+            datGUI.add(guiControls, 'Speed', {slower: 0.02, Slow: 0.05, Normal: 0.1, Fast: 0.2, Faster: 0.5}).onChange(function(){
+                resetCube(true);
+                guiControls.Speed = parseFloat(guiControls.Speed);
+                datGUI.closed = true;
+            });
 
             /* Add event listener to window */
             window.addEventListener('resize', resizeWindow);
@@ -398,14 +404,23 @@ class CubeThree extends Component {
         }
 
         function addAgain() {
-            rotationQueue = [...originalQueue];
+            console.log(clearing);
+            if(!clearing)
+                rotationQueue = [...originalQueue];
         }
 
-        function resetCube() {
+        function resetCube(clear = false, callback = null) {
             /* Clean the rotation queue */
+            if(clear) {
+                clearing = true;
+                setTimeout(function(){
+                    clearing = false;
+                    console.log('okay');
+                }, 500);
+            }
             rotationQueue.length = 0;
         
-            // cubeState = CUBE_STATE;
+            cubeState = CUBE_STATE;
             cubeState = initState;
             giveFaceColors();
         
@@ -489,7 +504,7 @@ class CubeThree extends Component {
             requestAnimationFrame(render);
 
             /* Rotatte the Given face and then perform required actions */
-            if(doRotation && rotationVar < (Math.PI/2.0)) {
+            if(doRotation && rotationVar < (Math.PI/2.0) && !clearing) {
                 rotationVar = rotationVar + guiControls.Speed;
                 cubeGroup.rotateOnAxis(rotationVector, rotationCoeff);
             } else {
