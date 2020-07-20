@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
+import * as dat from 'dat.gui';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { CUBE_STATE } from '../shared/cubeState';
 
@@ -20,6 +21,7 @@ class CubeThree extends Component {
 
     componentDidMount() {
         var canvasDiv, canvasDivStyle;
+        var guiDiv;
         var TH_HEIGHT, TH_WIDTH;
 
         var scene, camera, renderer;
@@ -47,6 +49,11 @@ class CubeThree extends Component {
         var addControls = this.state.addControls, backColor = this.state.backColor, loop = this.state.loop;
         var resetFaces = this.state.resetFaces;
         var waitTime = this.state.waitTime;
+
+        /* Controls using dat.gui */
+        var guiControls = {
+            Speed : 0.1
+        }
 
         function createCube() {
             /* Create cube */
@@ -154,7 +161,7 @@ class CubeThree extends Component {
                     cubeGroup.add(cubeArray[initArr[i]]);
                     cubeGroup.add(cubeBorderArray[initArr[i]]);
                 }
-                rotationCoeff = -0.1;
+                rotationCoeff = -1 * guiControls.Speed;
             } else {
                 for(i = 0; i<finalArr.length; i++) {
                     tempState[initArr[i]][0] = cubeState[finalArr[i]][0];
@@ -168,7 +175,7 @@ class CubeThree extends Component {
                     cubeGroup.add(cubeArray[initArr[i]]);
                     cubeGroup.add(cubeBorderArray[initArr[i]]);
                 }
-                rotationCoeff = 0.1;
+                rotationCoeff = 1 * guiControls.Speed;
             }
 
 
@@ -210,7 +217,7 @@ class CubeThree extends Component {
                     cubeGroup.add(cubeArray[initArr[i]]);
                     cubeGroup.add(cubeBorderArray[initArr[i]]);
                 }
-                rotationCoeff = -0.1;
+                rotationCoeff = -1 * guiControls.Speed;
             } else {
                 finalArr.reverse();
                 for(i = 0; i<finalArr.length; i++) {
@@ -225,7 +232,7 @@ class CubeThree extends Component {
                     cubeGroup.add(cubeArray[initArr[i]]);
                     cubeGroup.add(cubeBorderArray[initArr[i]]);
                 }
-                rotationCoeff = 0.1;
+                rotationCoeff = 1 * guiControls.Speed;
             }
 
 
@@ -266,7 +273,7 @@ class CubeThree extends Component {
                     cubeGroup.add(cubeArray[initArr[i]]);
                     cubeGroup.add(cubeBorderArray[initArr[i]]);
                 }
-                rotationCoeff = -0.1;
+                rotationCoeff = -1 * guiControls.Speed;
             } else {
                 finalArr.reverse();
                 for(i = 0; i<finalArr.length; i++) {
@@ -281,7 +288,7 @@ class CubeThree extends Component {
                     cubeGroup.add(cubeArray[initArr[i]]);
                     cubeGroup.add(cubeBorderArray[initArr[i]]);
                 }
-                rotationCoeff = 0.1;
+                rotationCoeff = 1 * guiControls.Speed;
             }
 
 
@@ -318,9 +325,10 @@ class CubeThree extends Component {
             camera.updateProjectionMatrix();
         }
 
-        function constructor(divId) {
+        function constructor(divId, guiID) {
             /* Position to add canvas */
             canvasDiv = document.getElementById(divId);
+            guiDiv = document.getElementById(guiID);
             canvasDivStyle = window.getComputedStyle(canvasDiv);
             TH_HEIGHT = parseInt(canvasDivStyle.getPropertyValue("height"), 10);
             TH_WIDTH = parseInt(canvasDivStyle.getPropertyValue("width"), 10);
@@ -374,12 +382,18 @@ class CubeThree extends Component {
                 initState = cubeState;
             }
 
+            /* Give initial colors to the faces */
             giveFaceColors();
+
+            /* Add dat.gui controls */
+            var datGUI = new dat.GUI({ autoPlace: false, closed: true, width: 250});
+            datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
 
             /* Add event listener to window */
             window.addEventListener('resize', resizeWindow);
 
             canvasDiv.appendChild(renderer.domElement);
+            guiDiv.appendChild(datGUI.domElement);
             render();
         }
 
@@ -476,11 +490,11 @@ class CubeThree extends Component {
 
             /* Rotatte the Given face and then perform required actions */
             if(doRotation && rotationVar < (Math.PI/2.0)) {
-                rotationVar = rotationVar + 0.1;
+                rotationVar = rotationVar + guiControls.Speed;
                 cubeGroup.rotateOnAxis(rotationVector, rotationCoeff);
             } else {
                 if(doRotation) {
-                    cubeGroup.rotateOnAxis(rotationVector, ((rotationCoeff > 0) ? -1.6: 1.6));
+                    cubeGroup.rotateOnAxis(rotationVector, (((rotationCoeff > 0) ? -1: 1) * rotationVar));
                     giveFaceColors();
                     doRotation = false;
                 }
@@ -497,13 +511,16 @@ class CubeThree extends Component {
             renderer.render(scene, camera);
         }
 
-        constructor(`canvas-div-${this.props.id}`);
+        constructor(`canvas-div-${this.props.id}`, `canvas-child-${this.props.id}`);
     }
 
     render() {
         return(
-            <div id={`canvas-div-${this.props.id}`} style={{height: this.props.height}} className="canvasDiv">
-            </div>
+            <>
+                <div id={`canvas-div-${this.props.id}`} style={{height: this.props.height}} className="canvasDiv">
+                </div>
+                <div id={`canvas-child-${this.props.id}`} className='gui-div clearfix'></div>
+            </>
         );
     }
 }

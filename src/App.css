@@ -332,9 +332,26 @@ bbe1fa
   border-radius: 10px;
 }
 
+/** Cube Three **/
+.canvasDiv {
+  position: relative;
+  z-index: 1;
+}
+.gui-div {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  top: 0;
+  left: 20px;
+  z-index: 2;
+  min-height: 50px;
+}
+
 /**Beginner**/
 .beginner-main-div {
   display: flex;
+  position: relative;
 }
 
 .beginner-nav-btn{
@@ -419,7 +436,7 @@ bbe1fa
   border-radius: 0 10px 10px 0;
   border: 2px solid var(--dark-col);
   border-left: none;
-  height: fit-content;
+  height: calc(100vh - 86px);
   top: 86px;
   position: sticky;
 }
@@ -464,6 +481,9 @@ bbe1fa
 
 @media screen and (max-width: 768px) {
   .aside-div{
+    position: relative;
+    height: auto;
+    top: 0;
     width: 50px;
     margin-right: 0;
     padding: 0;
