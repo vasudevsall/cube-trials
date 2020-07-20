@@ -43,7 +43,7 @@ class CubeThree extends Component {
         // 0 -> no rotation, 1 -> right, 2-> left, 3-> top, 4-> bottom, 5-> front, 6-> back
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
         var originalQueue = [...this.state.moves];
-        var initMoves = this.state.initMoves;
+        var initMoves = [...this.state.initMoves];
         var initState = CUBE_STATE;
 
         var addControls = this.state.addControls, backColor = this.state.backColor, loop = this.state.loop;
@@ -374,7 +374,8 @@ class CubeThree extends Component {
                 var initTrue = true;
                 while(initTrue) {
                     var nextFunc = nextRotation(true);
-                    nextFunc();
+                    if(nextFunc !== null)
+                        nextFunc();
                     if(initMoves.length === 0) {
                         initTrue = false;
                         break;

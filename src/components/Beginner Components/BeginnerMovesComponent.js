@@ -350,21 +350,21 @@ export const AlgorithmExample = (props) => {
             <div className='row'>
                 <h5 className='col-12'>Example 3</h5>
                 <p className = 'col-12'>
-                    Let's keep this as the last example. Now, this being last, let's go with a little
+                    Let's keep this as the last example. This being last, let's go with a little
                      tougher algorithm.
                 </p>
                 <p className='col-12'>
-                    Now, you will find braces in the algorithm below. These braces are used primarily for two things
-                     one is grouping steps for memorization. And the other is to denote the best way to grouping
+                    You will find braces in the algorithm below. These braces are used primarily for two things
+                     one is grouping steps for memorization and the other is to denote the best way of grouping
                      together framents for finger tricks.<br/>
-                    Now, finger tricks are a bit advanced stuff. So, just know that they help in speedcubing, and
-                     reduce the solving time by a large factor.<br/>
+                    Finger tricks are a bit advanced stuff. So, just know that they help in speedcubing, and
+                     help in reducing the solve time by a large factor.<br/>
                     The goal for these braces is to describe a Rubik's cube algorithm in the most comfortable and
                      efficient way to execute with the human hand. Taking down the hand off a side and repositioning
                      always takes time so we're trying to execute more operations at the same time.
                 </p>
                 <p className='col-12'>
-                    Now, that's a lot of information, so, let's just get on with the algorithm.
+                    That's a lot of information, so, let's just get on with the algorithm.
                 </p>
             </div>
             <div className='row'>
@@ -379,7 +379,7 @@ export const AlgorithmExample = (props) => {
 
             <div className='row'>
                 <p className='col-12 mt-3'>
-                    Now, since we have laid down a good foundation with basic information about a cube
+                    Since we have laid down a good foundation with basic information about a cube
                      basic moves and basic notation. So, let's go ahead and learn, how to implement
                      this knowledge and solve a Rubik's cube.<br/>
                     Once you have practiced the above algorithms enough and you feel confident about them,

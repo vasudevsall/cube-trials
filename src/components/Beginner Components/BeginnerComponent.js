@@ -4,6 +4,7 @@ import { Switch, Route, Redirect, useRouteMatch} from 'react-router-dom';
 import BeginnerNav from './BeginnerNavComponent';
 import BeginnerHome from './BeginnerHome';
 import {Moves, PrimeMoves, AlgorithmExample} from './BeginnerMovesComponent';
+import { FixCross } from './FirstLayerComponent';
 import { CUBE_DATA } from '../../shared/cubeData';
 
 class BeginnerMain extends Component {
@@ -56,6 +57,9 @@ class BeginnerMain extends Component {
                             </Route>
                             <Route path={`${this.props.path}/basic-moves-example`}>
                                 <AlgorithmExample cubeData={this.state.cubeData} url={this.props.url} />
+                            </Route>
+                            <Route path={`${this.props.path}/first-layer`}>
+                                <FixCross cubeData={this.state.cubeData} url={this.props.url} />
                             </Route>
                             <Redirect to={`${this.props.path}/beginner-basics`}/>
                         </Switch>

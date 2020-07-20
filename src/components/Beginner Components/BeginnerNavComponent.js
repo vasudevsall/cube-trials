@@ -89,6 +89,22 @@ class BeginnerNav extends Component {
                                     </NavLink>
                                 </NavExpandList>
                             </li>
+                            <li>
+                                <NavExpandList title='Solving First Layer'>
+                                    <NavLink onClick={this.handleClick}
+                                        className = 'nav-link sub-link'
+                                        to={`${this.props.url}/first-layer`}
+                                    >
+                                        Cross
+                                    </NavLink>
+                                    <NavLink onClick={this.handleClick}
+                                        className = 'nav-link sub-link'
+                                        to={`${this.props.url}/first-layer-corner`}
+                                    >
+                                        Corners
+                                    </NavLink>
+                                </NavExpandList>
+                            </li>
                         </ul>
                     </nav>
                 </aside>
