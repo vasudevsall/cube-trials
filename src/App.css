@@ -419,6 +419,9 @@ bbe1fa
   border-radius: 0 10px 10px 0;
   border: 2px solid var(--dark-col);
   border-left: none;
+  height: fit-content;
+  top: 86px;
+  position: sticky;
 }
 
 .aside-div h5{

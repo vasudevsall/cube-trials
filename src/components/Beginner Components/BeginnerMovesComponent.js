@@ -389,7 +389,7 @@ export const AlgorithmExample = (props) => {
 
             <div className='dual-btn-container row'>
                 <Link className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
-                    to={`${props.url}/beginner-moves-prime`}
+                    to={`${props.url}/basic-moves-prime`}
                 >
                     Prime Moves
                 </Link>
