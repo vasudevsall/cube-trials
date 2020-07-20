@@ -31,17 +31,17 @@ class Header extends Component {
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
                             <Nav navbar className = "ml-auto mr-4">
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/home">
+                                    <NavLink className="nav-link" onClick={this.toggleNav} to="/home">
                                         <span className="fa fa-home fa-lg"></span> Home
                                     </NavLink>
                                 </NavItem>
                                 <NavItem> 
-                                    <NavLink exact className="nav-link" to="/tutorial">
+                                    <NavLink exact className="nav-link" onClick={this.toggleNav} to="/tutorial">
                                         <span className="fa fa-graduation-cap fa-lg"></span> Tutorials
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/contact">
+                                    <NavLink className="nav-link" onClick={this.toggleNav} to="/contact">
                                         <span className="fa fa-phone-square fa-lg"></span> Contact
                                     </NavLink>
                                 </NavItem>

@@ -13,7 +13,8 @@ class CubeThree extends Component {
             backColor: this.props.cubeData.backColor,
             loop: this.props.cubeData.loop,
             waitTime: this.props.cubeData.waitTime,
-            resetFaces: this.props.cubeData.resetFaces
+            resetFaces: this.props.cubeData.resetFaces,
+            initMoves: this.props.cubeData.initMoves
         }
     }
 
@@ -40,6 +41,8 @@ class CubeThree extends Component {
         // 0 -> no rotation, 1 -> right, 2-> left, 3-> top, 4-> bottom, 5-> front, 6-> back
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
         var originalQueue = [...this.state.moves];
+        var initMoves = this.state.initMoves;
+        var initState = CUBE_STATE;
 
         var addControls = this.state.addControls, backColor = this.state.backColor, loop = this.state.loop;
         var resetFaces = this.state.resetFaces;
@@ -356,6 +359,21 @@ class CubeThree extends Component {
 
             /* Create Rubik's cube */
             createCube();
+
+            /* Do some initial moves if any and save state */
+            if(initMoves !== null) {
+                var initTrue = true;
+                while(initTrue) {
+                    var nextFunc = nextRotation(true);
+                    nextFunc();
+                    if(initMoves.length === 0) {
+                        initTrue = false;
+                        break;
+                    }
+                }
+                initState = cubeState;
+            }
+
             giveFaceColors();
 
             /* Add event listener to window */
@@ -373,15 +391,22 @@ class CubeThree extends Component {
             /* Clean the rotation queue */
             rotationQueue.length = 0;
         
-            cubeState = CUBE_STATE;
+            // cubeState = CUBE_STATE;
+            cubeState = initState;
             giveFaceColors();
         
             controls.reset();
         }
 
-        function nextRotation() {
-            var next = rotationQueue.shift();
+        function nextRotation(init = false) {
+            var next;
             // console.log(rotationQueue);
+
+            if(!init) {
+                next = rotationQueue.shift()
+            } else if(initMoves !== null) {
+                next = initMoves.shift()
+            }
 
             switch(next) {
                 case -6:    // Back Prime
@@ -433,7 +458,7 @@ class CubeThree extends Component {
                         frontRotation(true, false);
                     });
                 default:
-                    if(loop) {
+                    if(loop && !init) {
                         loop = !loop;
                         setTimeout(function(){
                             if(resetFaces)

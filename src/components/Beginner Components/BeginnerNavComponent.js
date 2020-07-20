@@ -45,7 +45,6 @@ class BeginnerNav extends Component {
     }
 
     handleClick(event) {
-        event.preventDefault();
         this.setState({
             isNavOn: !this.state.isNavOn
         });
@@ -62,12 +61,32 @@ class BeginnerNav extends Component {
                     <h5>Beginner's Method</h5>
                     <nav>
                         <ul style={{listStyle: 'none'}}>
-                            <li><NavLink className='nav-link' to={`${this.props.url}/beginner-basics`}>Cube Basics</NavLink></li>
+                            <li><NavLink onClick={this.handleClick}
+                                    className='nav-link' 
+                                    to={`${this.props.url}/beginner-basics`}
+                                >
+                                    Cube Basics
+                                </NavLink></li>
                             <li>
                                 <NavExpandList title='Cube Basic Moves'>
-                                    <NavLink className='nav-link sub-link' to={`${this.props.url}/basic-moves`}>Forward Moves</NavLink>
-                                    <NavLink className='nav-link sub-link' to={`${this.props.url}/basic-moves-prime`}>Prime Moves</NavLink>
-                                    <NavLink className='nav-link sub-link' to={`${this.props.url}/basic-moves-example`}>Example Algorithms</NavLink>
+                                    <NavLink onClick={this.handleClick}
+                                        className='nav-link sub-link' 
+                                        to={`${this.props.url}/basic-moves`}
+                                    >
+                                        Forward Moves
+                                    </NavLink>
+                                    <NavLink onClick={this.handleClick}
+                                        className='nav-link sub-link'
+                                        to={`${this.props.url}/basic-moves-prime`}
+                                    >
+                                        Prime Moves
+                                    </NavLink>
+                                    <NavLink onClick={this.handleClick}
+                                        className='nav-link sub-link' 
+                                        to={`${this.props.url}/basic-moves-example`}
+                                    >
+                                        Example Algorithms
+                                    </NavLink>
                                 </NavExpandList>
                             </li>
                         </ul>

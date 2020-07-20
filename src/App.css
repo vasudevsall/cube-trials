@@ -11,6 +11,8 @@ body {
 :root{
   --main-col: #051923;
   --dark-col: #1b262c;
+  --dark-col-2: #0B3950;
+  --dark-col-3: #24536a;
   --sec-col: #1282A2;
   --sec-col-2: #0f4c75;
   --ter-col: #93b5c6;
@@ -385,7 +387,8 @@ bbe1fa
   color: white;
 }
 .dual-color-blue{
-  background: linear-gradient(to right, #3a5aff 50%, #2b4dff 50%);
+  /* background: linear-gradient(to right, #3a5aff 50%, #2b4dff 50%); */
+  background: linear-gradient(135deg, var(--dark-col-2) 50%, var(--dark-col-3) 50%);
 }
 
 .shine-hope-anim:after{ 
@@ -486,5 +489,21 @@ bbe1fa
   .aside-div .expand nav a, .aside-div .expand nav button {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .dual-btn-container {
+    width: 100%;
+  }
+  .dual-btn-container{
+    width: 100%;
+  }
+
+  .next-nav-button {
+    margin: 20px auto;
+  }
+  .prev-nav-button {
+    margin: 20px auto;
   }
 }

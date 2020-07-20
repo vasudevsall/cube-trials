@@ -3,14 +3,16 @@ import { Jumbotron } from 'reactstrap';
 import { Switch, Route, Redirect, useRouteMatch} from 'react-router-dom';
 import BeginnerNav from './BeginnerNavComponent';
 import BeginnerHome from './BeginnerHome';
-import {Moves, PrimeMoves} from './BeginnerMovesComponent';
+import {Moves, PrimeMoves, AlgorithmExample} from './BeginnerMovesComponent';
+import { CUBE_DATA } from '../../shared/cubeData';
 
 class BeginnerMain extends Component {
     
     constructor(props) {
         super(props);
         this.state = {
-            toggleSideBar: false
+            toggleSideBar: false,
+            cubeData: CUBE_DATA
         };
     }
 
@@ -47,10 +49,13 @@ class BeginnerMain extends Component {
                                 <BeginnerHome url={this.props.url} />
                             </Route>
                             <Route path={`${this.props.path}/basic-moves`}>
-                                <Moves url={this.props.url} />
+                                <Moves cubeData={this.state.cubeData} url={this.props.url} />
                             </Route>
                             <Route path={`${this.props.path}/basic-moves-prime`}>
-                                <PrimeMoves url={this.props.url} />
+                                <PrimeMoves cubeData={this.state.cubeData} url={this.props.url} />
+                            </Route>
+                            <Route path={`${this.props.path}/basic-moves-example`}>
+                                <AlgorithmExample cubeData={this.state.cubeData} url={this.props.url} />
                             </Route>
                             <Redirect to={`${this.props.path}/beginner-basics`}/>
                         </Switch>

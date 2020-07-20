@@ -24,6 +24,9 @@ function Footer(props) {
                             <a className="btn btn-social-icon btn-linkedin mr-1" href="https://in.linkedin.com/in/vasu-dev-sall-181b94179">
                                 <span className="fa fa-linkedin fa-lg"></span>
                             </a>
+                            <a className='btn btn-social-icon btn-bitbucket mr-1' href="https://bitbucket.org/vasudevsall/">
+                                <span className="fa fa-bitbucket fa-lg"></span>
+                            </a>
                             <a className="btn btn-social-icon btn-email mr-1" href="mailto:vasudevsall@gmail.com">
                                 <span className="fa fa-envelope-square fa-3x"></span>
                             </a>
