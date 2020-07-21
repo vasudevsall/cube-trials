@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Navbar, NavItem, Nav, NavbarToggler, Collapse, NavbarBrand} from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; 
 
 class Header extends Component {
 
@@ -26,7 +26,7 @@ class Header extends Component {
                     <div className="container">
                         <NavbarToggler className="mr-2" onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/">
-                            <img src="../images/CubeTute.png" height="60" alt="Cube Trials" />
+                            <img src={process.env.PUBLIC_URL + '/images/CubeTute.png'} height="60" alt="Cube Trials" />
                         </NavbarBrand>
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
                             <Nav navbar className = "ml-auto mr-4">
