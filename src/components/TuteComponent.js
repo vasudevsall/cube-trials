@@ -6,7 +6,7 @@ function TutePage(props) {
 
     const renderCards = props.tutorials.map((card) => {
         return(
-            <CustomCard key={card.id} details={card} />
+            <CustomCard key={card.id} details={card} scrollTop={props.scrollTop} />
         );
     });
 
@@ -22,7 +22,7 @@ function TutePage(props) {
                             </p>
                         </div>
                         <div className="col-12 col-sm-6 d-none d-sm-block">
-                            <img src="images/cube-2.png" height="350px" alt="Cube" />
+                            <img src={process.env.PUBLIC_URL + "/images/cube-2.png"} height="350px" alt="Cube" />
                         </div>
                     </div>
                 </div>

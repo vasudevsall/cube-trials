@@ -89,7 +89,8 @@ class BeginnerHome extends Component {
                 <div className='container'>
                     
                     <div className='dual-btn-container row'>
-                        <Link className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                        <Link onClick={this.props.scrollTop}
+                            className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
                             to={`${this.props.url}/basic-moves`}
                         >
                             Basic Moves

@@ -10,6 +10,7 @@ class CustomCard extends Component {
 
     handleClick(event, id) {
         this.props.history.push(`/tutorial/${id}`);
+        this.props.scrollTop(event);
     }
 
     render() {

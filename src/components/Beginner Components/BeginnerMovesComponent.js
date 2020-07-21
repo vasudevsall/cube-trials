@@ -51,7 +51,22 @@ export const Moves = (props) => {
                         The <strong>R</strong> is like this:<br/>
                         I hope you have realized it by now, if not, you can drag and rotate all the moving cubes.
                         So, if you drag and make right face as front, you will notice <strong>R</strong> move looking
-                        just like <strong>F</strong>.
+                        just like <strong>F</strong>.<br/>
+                        Also, there are some other things, you must know anout this cube:<br/>
+                        <ul style={{listStyle: 'none'}}>
+                            <li>
+                                You can change the speed of rotation of cube by clicking on open controls
+                                and then selecting the speed of rotation as per your needs.
+                            </li>
+                            <li>
+                                As, you already know, you can rotate the faces by dragging. You can also zoom in
+                                and zoom out by scrolling inside the cube.
+                            </li>
+                            <li>
+                                If you mess up the cube rotations and forget which face was front initially,
+                                you can just open controls and then press ResetCamera.
+                            </li>
+                        </ul>
                     </p>
                     <div className='col-12 col-md-6'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 4)[0]}
@@ -131,13 +146,15 @@ export const Moves = (props) => {
                 </div>
 
                 <div className='dual-btn-container row'>
-                    <Link className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                    <Link onClick = {props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
                         to={`${props.url}/beginner-basics`}
                     >
                         Cube Basics
                     </Link>
 
-                    <Link className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                    <Link  onClick = {props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
                         to={`${props.url}/basic-moves-prime`}
                     >
                         Prime Moves
@@ -277,13 +294,15 @@ export const PrimeMoves = (props) => {
                 </div>
 
                 <div className='dual-btn-container row'>
-                    <Link className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                    <Link onClick={props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
                         to={`${props.url}/beginner-moves`}
                     >
                         Basic Moves
                     </Link>
 
-                    <Link className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                    <Link onClick={props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
                         to={`${props.url}/basic-moves-example`}
                     >
                         Algorithm Examples
@@ -388,13 +407,15 @@ export const AlgorithmExample = (props) => {
             </div>
 
             <div className='dual-btn-container row'>
-                <Link className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                <Link onClick={props.scrollTop}
+                    className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
                     to={`${props.url}/basic-moves-prime`}
                 >
                     Prime Moves
                 </Link>
 
-                <Link className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                <Link onClick={props.scrollTop}
+                    className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
                     to={`${props.url}/first-layer`}
                 >
                     Solve: First Layer

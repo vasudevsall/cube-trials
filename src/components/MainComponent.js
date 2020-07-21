@@ -17,6 +17,12 @@ class Main extends Component {
             tutorials: TUTORIALS,
             cubeData: CUBE_DATA
         };
+        this.handleScrollTop = this.handleScrollTop.bind(this);
+    }
+
+    handleScrollTop(event) {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
     render(){
@@ -37,7 +43,12 @@ class Main extends Component {
                         threeData={this.state.cubeData.filter((data) => data.id === 1)[0]} 
                         cubeData={this.state.colors.filter((color) => color.id === 1)[0]}
                     /> } />
-                    <Route exact path="/tutorial" component={() => <TutePage colors={this.state.colors} tutorials={this.state.tutorials}/> } />
+                    <Route exact path="/tutorial" 
+                        component={() => <TutePage colors={this.state.colors} 
+                                            tutorials={this.state.tutorials}
+                                            scrollTop = {this.handleScrollTop}
+                                        /> } 
+                    />
                     <Route path="/tutorial/:tuteId" component={TutorialComponent} />
                     <Redirect to="/home" />
                 </Switch>

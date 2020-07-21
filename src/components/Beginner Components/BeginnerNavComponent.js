@@ -48,6 +48,7 @@ class BeginnerNav extends Component {
         this.setState({
             isNavOn: !this.state.isNavOn
         });
+        this.props.scrollTop(event);
     }
 
     render() {
