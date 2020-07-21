@@ -340,7 +340,7 @@ export const AlgorithmExample = (props) => {
                 </p>
             </div>
             <div className='row'>
-                <p className='col-12 offset-md-2 col-md-3 align-self-center'>
+                <p className='col-12 col-md-6 align-self-center text-center'>
                     <strong>F R U R' U' F'</strong>
                 </p>
                 <div className='col-12 col-md-6'>
@@ -356,7 +356,7 @@ export const AlgorithmExample = (props) => {
                 </p>
             </div>
             <div className='row'>
-                <p className='col-12 offset-md-2 col-md-3 align-self-center'>
+                <p className='col-12 col-md-6 align-self-center text-center'>
                     <strong>R U R' U R 2U R' U</strong><br/>
                     Here 2U means, rotation top leyer two times in the clockwise direction
                 </p>
@@ -387,7 +387,7 @@ export const AlgorithmExample = (props) => {
                 </p>
             </div>
             <div className='row'>
-                <p className='col-12 offset-md-1 col-md-4 align-self-center'>
+                <p className='col-12 col-md-6 align-self-center text-center'>
                     <strong>F R U' R' U' [R U R' F'] {"{[R U R' U'] [R' F R F']}"}</strong>
                 </p>
                 <div className='col-12 col-md-6'>
@@ -418,7 +418,7 @@ export const AlgorithmExample = (props) => {
                     className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
                     to={`${props.url}/first-layer`}
                 >
-                    Solve: First Layer
+                    First Layer: Cross
                 </Link>
             </div>
         </div>

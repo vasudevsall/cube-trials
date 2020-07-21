@@ -3,7 +3,7 @@ import { Jumbotron } from 'reactstrap';
 import { Switch, Route, Redirect, useRouteMatch} from 'react-router-dom';
 import BeginnerNav from './BeginnerNavComponent';
 import BeginnerHome from './BeginnerHome';
-import {Moves, PrimeMoves, AlgorithmExample} from './BeginnerMovesComponent';
+import { Moves, PrimeMoves, AlgorithmExample } from './BeginnerMovesComponent';
 import { FixCross } from './FirstLayerComponent';
 import { CUBE_DATA } from '../../shared/cubeData';
 import { COLORS } from '../../shared/colors';

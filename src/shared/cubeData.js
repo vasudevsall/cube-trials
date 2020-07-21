@@ -161,5 +161,35 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [3, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 3, 1,3,-1,3,1,3,3,-1, 1,3,-1,3,1,3,3,-1, 3]
+    },
+    {
+        id: 17,
+        addControls: true,
+        moves: [5, 5],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [5, 5]
+    },
+    {
+        id: 18,
+        addControls: true,
+        moves: [-5, -1, -4, 1, 5, 5],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [5, 5, -1, 4, 1, 5]
+    },
+    {
+        id: 19,
+        addControls: true,
+        moves: [5, -3, 1, 3],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [5, -3, 1, 3]
     }
 ]

@@ -1,5 +1,7 @@
 import React from 'react';
 import Cube from '../CubeComponent';
+import CubeThree from "../CubeThreeComponent";
+import { Link } from 'react-router-dom';
 
 export const FixCross = (props) => {
     return(
@@ -91,8 +93,87 @@ export const FixCross = (props) => {
             <div className='container'>
                 <div className='row'>
                     <h3 className='col-12'>
-
+                        Some algorithms to help
                     </h3>
+                    <p className='col-12'>
+                        I still strongly suggest to find your way to the final result yourself. But, if you
+                        face some difficuilties, I have put down some algorithms, that can support you:
+                    </p>
+                </div>
+
+                <div className='row'>
+                    <h5 className='col-12'>Algorithm 1:</h5>
+                    <p className='col-12'>
+                        The most simple case is when the side piece's orientation is correct but it is
+                        in the bottom layer. You can solve with with just a <strong>2F</strong>
+                    </p>
+                </div>
+                <div className='row align-self-center'>
+                    <p className='col-12 col-md-6 align-self-center text-center'>
+                        <strong>2 F</strong>
+                    </p>
+                    <div className='col-12 col-md-6'>
+                        <CubeThree cubeState = 'first_cross'
+                            cubeData = {props.cubeData.filter((data) => data.id === 17)[0]}
+                            id='17' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <h5 className='col-12'>Algorithm 2:</h5>
+                    <p className='col-12'>
+                        Another case is, when the piece is in bottom layer and the orientation is wrong,
+                        this case is a bit tricky than the previous one.
+                    </p>
+                </div>
+                <div className='row align-self-center'>
+                    <p className='col-12 col-md-6 align-self-center text-center'>
+                        <strong>F' R' D' R 2 F</strong>
+                    </p>
+                    <div className='col-12 col-md-6'>
+                        <CubeThree cubeState = 'first_cross'
+                            cubeData = {props.cubeData.filter((data) => data.id === 18)[0]}
+                            id='18' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <h5 className='col-12'>
+                        Algorithm 3:
+                    </h5>
+                    <p className='col-12'>
+                        The most complicated case is when three pieces are fixed while the last one is
+                        oriented wrong. The algorithm and visualization below can help you with that.
+                    </p>
+                </div>
+                <div className='row align-self-center'>
+                    <p className='col-12 col-md-6 align-self-center text-center'>
+                        <strong>F U' R U</strong>
+                    </p>
+                    <div className='col-12 col-md-6'>
+                        <CubeThree cubeState = 'first_cross'
+                            cubeData = {props.cubeData.filter((data) => data.id === 19)[0]}
+                            id='19' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='dual-btn-container row'>
+                    <Link onClick = {props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                        to={`${props.url}/basic-moves-example`}
+                    >
+                        Algorithm Examples
+                    </Link>
+
+                    <Link  onClick = {props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                        to={`${props.url}/first-layer-corners`}
+                    >
+                        First Layer: Corners
+                    </Link>
                 </div>
             </div>
         </>
