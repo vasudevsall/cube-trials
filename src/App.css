@@ -347,6 +347,9 @@ bbe1fa
 }
 
 /** Cube Three **/
+.canvas-capsule {
+  margin-bottom: 50px;
+}
 .canvasDiv {
   position: relative;
   z-index: 1;
@@ -354,12 +357,16 @@ bbe1fa
 .gui-div {
   width: 100%;
   display: flex;
+  position: absolute;
   text-align: center;
   justify-content: center;
-  top: 0;
   left: 20px;
   z-index: 2;
-  min-height: 50px;
+  min-height: 80px;
+}
+
+.dg.main .close-button.close-bottom {
+  position: relative!important;
 }
 
 /**Beginner**/

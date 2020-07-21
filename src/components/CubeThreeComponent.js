@@ -53,7 +53,10 @@ class CubeThree extends Component {
 
         /* Controls using dat.gui */
         var guiControls = {
-            Speed : 0.1
+            Speed : 0.1,
+            ResetCamera: function() {
+                controls.reset();
+            }
         }
 
         function createCube() {
@@ -388,13 +391,15 @@ class CubeThree extends Component {
             giveFaceColors();
 
             /* Add dat.gui controls */
-            var datGUI = new dat.GUI({ autoPlace: false, closed: true, width: 250});
+            var datGUI = new dat.GUI({ autoPlace: false,closeOnTop: true, width: 250});
+            datGUI.closed = true;
             // datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
             datGUI.add(guiControls, 'Speed', {slower: 0.02, Slow: 0.05, Normal: 0.1, Fast: 0.2, Faster: 0.5}).onChange(function(){
                 resetCube(true);
                 guiControls.Speed = parseFloat(guiControls.Speed);
                 datGUI.closed = true;
             });
+            datGUI.add(guiControls, 'ResetCamera');
 
             /* Add event listener to window */
             window.addEventListener('resize', resizeWindow);
@@ -532,11 +537,11 @@ class CubeThree extends Component {
 
     render() {
         return(
-            <>
+            <div className='canvas-capsule'>
                 <div id={`canvas-div-${this.props.id}`} style={{height: this.props.height}} className="canvasDiv">
                 </div>
                 <div id={`canvas-child-${this.props.id}`} className='gui-div clearfix'></div>
-            </>
+            </div>
         );
     }
 }
