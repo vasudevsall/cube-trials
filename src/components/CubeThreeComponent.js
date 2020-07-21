@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 import * as dat from 'dat.gui';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { CUBE_STATE } from '../shared/cubeState';
+import { CUBE_STATE, CUBE_STATE_CROSS, CUBE_STATE_FIRST_CORNERS } from '../shared/cubeState';
 
 class CubeThree extends Component {
 
@@ -15,7 +15,8 @@ class CubeThree extends Component {
             loop: this.props.cubeData.loop,
             waitTime: this.props.cubeData.waitTime,
             resetFaces: this.props.cubeData.resetFaces,
-            initMoves: this.props.cubeData.initMoves
+            initMoves: this.props.cubeData.initMoves,
+            cubeState: this.props.cubeState
         }
     }
 
@@ -30,7 +31,21 @@ class CubeThree extends Component {
         var cubeGeometry, cubeMaterial, cubeBorderGeometry ,cube, cubeBorder;
         var cubeArray = [];
         var cubeBorderArray = [];
-        var cubeState = CUBE_STATE;
+        var cubeState;
+
+        switch(this.state.cubeState) {
+            case 'normal':
+                cubeState = CUBE_STATE;
+                break;
+            case 'first_cross':
+                cubeState = CUBE_STATE_CROSS;
+                break;
+            case 'first_corners':
+                cubeState = CUBE_STATE_FIRST_CORNERS;
+                break;
+            default:
+                cubeState = CUBE_STATE;
+        }
 
         var cubeGroup;
         var vectorX, vectorY, vectorZ;
@@ -339,7 +354,7 @@ class CubeThree extends Component {
             
             /* Setting up scene, camera and renderer*/
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(45, TH_WIDTH/TH_HEIGHT, 0.1, 500);
+            camera = new THREE.PerspectiveCamera(50, TH_WIDTH/TH_HEIGHT, 0.1, 500);
             camera.position.set(-3, 2, 6);
             renderer = new THREE.WebGLRenderer({antialias: true, precision: 'highp'});
             renderer.setClearColor(backColor);
@@ -429,7 +444,7 @@ class CubeThree extends Component {
             cubeState = CUBE_STATE;
             cubeState = initState;
             giveFaceColors();
-        
+
             controls.reset();
         }
 
@@ -495,9 +510,15 @@ class CubeThree extends Component {
                 default:
                     if(loop && !init) {
                         loop = !loop;
-                        setTimeout(function(){
-                            if(resetFaces)
+                        /** If rotation queue is empty reset, show final result for some time
+                         * then, again show the init position, and then start animation again
+                         */
+                        if(resetFaces) {
+                            setTimeout(function() {
                                 resetCube();
+                            }, (waitTime / 3));
+                        }
+                        setTimeout(function(){
                             addAgain();
                             loop = !loop;
                         }, waitTime);

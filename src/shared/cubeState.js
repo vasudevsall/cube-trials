@@ -5,6 +5,7 @@ var white = 0xffffff;
 var blue = 0x0000ff;
 var green = 0x00ff00;
 var black = 0x000000;
+var grey = 0x808080;
 
 export const CUBE_STATE = [
     // 0xffa500,    // $ Orange -> right
@@ -94,4 +95,118 @@ export const CUBE_STATE = [
 
     // # 26: (right, top, front) [orange, black, yellow, black, blue, black]
     [orange, black, yellow, black, blue, black]
+];
+
+export const CUBE_STATE_CROSS = [
+    // # 0 : (left, bottom, back)
+    [black, grey, black, grey, black, grey],
+    // # 1: (left, back)
+    [black, grey, black, black, black, grey],
+    // # 2: (left, top, back)
+    [black, grey, grey, black, black, grey],
+    // # 3: (bottom , back)
+    [black, black, black, grey, black, grey],
+    // # 4: (back)
+    [black, black, black, black, black, green],
+    // # 5: (top, back)
+    [black, black, white, black, black, green],
+    // # 6: (right, bottom, back)
+    [grey, black, black, grey, black, grey],
+    // # 7: (right, back)
+    [grey, black, black, black, black, grey],
+    // # 8: (right, top, back)
+    [grey, black, grey, black, black, grey],
+    // # 9: (left, bottom)
+    [black, grey, black, grey, black, black],
+    // # 10: (left)
+    [black, red, black, black, black, black],
+    // # 11: (left, top)
+    [black, red, white, black, black, black],
+    // # 12: (bottom)
+    [black, black, black, yellow, black, black],
+    // # 13: ()
+    [black, black, black, black, black, black],
+    // # 14: (top)
+    [black, black, white, black, black, black],
+    // # 15: (right, bottom)
+    [grey, black, black, grey, black, black],
+    // # 16: (right)
+    [orange, black, black, black, black, black],
+    // # 17: (right, top)
+    [orange, black, white, black, black, black],
+    // # 18: (left, bottom, front)
+    [black, grey, black, grey, grey, black],
+    // # 19: (left, front)
+    [black, grey, black, black, grey, black],
+    // # 20: (left, top, front)
+    [black, grey, grey, black, grey, black],
+    // # 21: (bottom, front)
+    [black, black, black, grey, grey, black],
+    // # 22: (front)
+    [black, black, black, black, blue, black],
+    // # 23: (top, front)
+    [black, black, white, black, blue, black],
+    // # 24: (right, bottom, front)
+    [grey, black, black, grey, grey, black],
+    // # 25: (right, front)
+    [grey, black, black, black, grey, black],
+    // # 26: (right, top, front)
+    [grey, black, grey, black, grey, black]
+];
+
+export const CUBE_STATE_FIRST_CORNERS = [
+    // # 0 : (left, bottom, back)
+    [black, grey, black, grey, black, grey],
+    // # 1: (left, back)
+    [black, grey, black, black, black, grey],
+    // # 2: (left, top, back)
+    [black, red, white, black, black, green],
+    // # 3: (bottom , back)
+    [black, black, black, grey, black, grey],
+    // # 4: (back)
+    [black, black, black, black, black, green],
+    // # 5: (top, back)
+    [black, black, white, black, black, green],
+    // # 6: (right, bottom, back)
+    [grey, black, black, grey, black, grey],
+    // # 7: (right, back)
+    [grey, black, black, black, black, grey],
+    // # 8: (right, top, back)
+    [orange, black, white, black, black, green],
+    // # 9: (left, bottom)
+    [black, grey, black, grey, black, black],
+    // # 10: (left)
+    [black, red, black, black, black, black],
+    // # 11: (left, top)
+    [black, red, white, black, black, black],
+    // # 12: (bottom)
+    [black, black, black, yellow, black, black],
+    // # 13: ()
+    [black, black, black, black, black, black],
+    // # 14: (top)
+    [black, black, white, black, black, black],
+    // # 15: (right, bottom)
+    [grey, black, black, grey, black, black],
+    // # 16: (right)
+    [orange, black, black, black, black, black],
+    // # 17: (right, top)
+    [orange, black, white, black, black, black],
+    // # 18: (left, bottom, front)
+    [black, grey, black, grey, grey, black],
+    // # 19: (left, front)
+    [black, grey, black, black, grey, black],
+    // # 20: (left, top, front)
+    [black, red, white, black, blue, black],
+    // # 21: (bottom, front)
+    [black, black, black, grey, grey, black],
+    // # 22: (front)
+    [black, black, black, black, blue, black],
+    // # 23: (top, front)
+    [black, black, white, black, blue, black],
+    // # 24: (right, bottom, front)
+    [grey, black, black, grey, grey, black],
+    // # 25: (right, front)
+    [grey, black, black, black, grey, black],
+    // # 26: (right, top, front)
+    [orange, black, white, black, blue, black]
 ];
