@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 
 body {
   padding-top: 86px;
@@ -345,6 +346,124 @@ bbe1fa
 
 .custom-card-img {
   border-radius: 10px;
+}
+
+/** Contact **/
+.btn-email {
+  background-color: var(--dark-col-2);
+  color: white;
+}
+
+.scene-form {
+  display: block;
+  margin: 20px;
+  width: 300px!important;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.cube-form {
+  display: inline-block;
+  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  width: inherit;
+  height: inherit;
+  position: relative;
+  font-family: 'Rowdies', cursive;
+
+  transform-style: preserve-3d;
+}
+
+.form-face {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-col-3);
+  border: 1px ridge var(--main-col);
+  color: var(--light-col);
+  box-shadow: 5px 5px 10px 2px grey;
+}
+
+.form-label {
+  z-index: 2;
+  color: var(--main-col);
+  font-size: 2em;
+}
+
+.form-input {
+  z-index: 2;
+  border: none;
+  width: 250px;
+  border: 1px solid var(--main-col);
+  transition: box-shadow 1s ease-in;
+  padding: 5px 10px;
+  box-shadow: 1px 1px 1px 0 var(--main-col);
+}
+.form-input:focus {
+  box-shadow:
+        1px 1px var(--main-col),
+        2px 2px var(--main-col),
+        3px 3px var(--main-col),
+        4px 4px var(--main-col),
+        5px 5px var(--main-col),
+        6px 6px var(--main-col),
+        7px 7px var(--main-col),
+        8px 8px var(--main-col),
+        9px 9px var(--main-col),
+        10px 10px var(--main-col);
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
+  border: 1px solid var(--main-col);
+  outline: none;
+}
+
+.form-front {
+  transform: translate3d(0, 0, 150px);
+}
+
+.form-right {
+  transform: rotateY(90deg) translate3d(0, 0, 150px);
+  background-color: var(--light-col);
+}
+
+.form-bottom {
+  transform: rotateX(-90deg) translate3d(0, 0, 150px);
+  background-color: var(--main-col);
+  color: var(--light-col);
+}
+
+.form-button-div {
+  width: 80%;
+}
+
+.form-btn-next {
+  float: right;
+}
+.form-btn-prev {
+  float: left;
+}
+
+.err-label {
+  color: red;
+  font-size: 0.6em;
+}
+
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+textarea::-webkit-scrollbar-track {
+  background-color: var(--light-col-3);
+  border-radius: 10px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--main-col);
+  border-radius: 10px;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-col);
 }
 
 /** Cube Three **/

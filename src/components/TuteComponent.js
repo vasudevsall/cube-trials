@@ -15,13 +15,13 @@ function TutePage(props) {
             <Jumbotron className="bg-secondary">
                 <div className="container">
                     <div className="row row-header">
-                        <div className="col-12 col-sm-6 align-self-center">
+                        <div className="col-12 col-md-6 align-self-center">
                             <h1>Tutorials</h1>
                             <p>
                                 Yay! Let's Learn!
                             </p>
                         </div>
-                        <div className="col-12 col-sm-6 d-none d-sm-block">
+                        <div className="col-12 col-md-6 d-none d-md-block">
                             <img src={process.env.PUBLIC_URL + "/images/cube-2.png"} height="350px" alt="Cube" />
                         </div>
                     </div>

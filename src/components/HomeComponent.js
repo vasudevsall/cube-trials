@@ -10,14 +10,13 @@ function HomePage(props) {
                 <Jumbotron className="bg-secondary">
                     <div className="container">
                         <div className="row row-header">
-                            <div className="col-12 col-sm-6 align-self-center">
+                            <div className="col-12 col-md-6 align-self-center">
                                 <h1>Cube Trials</h1>
                                 <p>
                                     Let's go cubing!
                                 </p>
                             </div>
-                            <div className="d-none d-sm-block col-12 col-sm-6">
-                                {/* <img src="images/cube.png" height="350px" alt="Cube" /> */}
+                            <div className="d-none d-md-block col-12 col-md-6">
                                 <CubeThree cubeData = {props.threeData} id={props.threeData.id} height='350px' />
                             </div>
                         </div>

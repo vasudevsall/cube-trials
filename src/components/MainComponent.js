@@ -7,6 +7,7 @@ import HomePage from './HomeComponent';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import Footer from './FooterComponent';
 import { CUBE_DATA } from '../shared/cubeData';
+import Contact from './ContactComponent';
 
 class Main extends Component {
 
@@ -50,6 +51,9 @@ class Main extends Component {
                                         /> } 
                     />
                     <Route path="/tutorial/:tuteId" component={TutorialComponent} />
+                    <Route path='/contact'>
+                        <Contact />
+                    </Route>
                     <Redirect to="/home" />
                 </Switch>
                 <Footer />
