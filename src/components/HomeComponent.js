@@ -2,6 +2,35 @@ import React from 'react';
 import { Jumbotron } from 'reactstrap';
 import Cube from './CubeComponent';
 import CubeThree from './CubeThreeComponent';
+import { Link } from 'react-router-dom';
+
+function HomeCard(props) {
+    var conditionalLink;
+    if(props.outerLink) {
+        conditionalLink = <a href={props.toLink} className='my-btn'>
+                <svg><rect></rect></svg>
+                Click Here
+            </a>
+    } else {
+        conditionalLink = <Link to={props.toLink} className='my-btn'>
+                <svg><rect></rect></svg>
+                Click Here
+            </Link>
+    }
+    return(
+        <div className='home-card mr-auto ml-auto mt-2 mb-2'>
+            <div className='home-card-img'>
+                <img src={props.image} alt={props.title} />
+            </div>
+            <div className='home-title-div'>
+                <h3>{props.title}</h3>
+            </div>
+            <div className='link-button'>
+                {conditionalLink}    
+            </div>
+        </div>
+    );
+}
 
 function HomePage(props) {
 
@@ -23,6 +52,24 @@ function HomePage(props) {
                     </div>
                 </Jumbotron>
                 <div className = "container homeContainer">
+                    <div className='row'>
+                        <div className='col-12'>
+                            <h3>Home</h3>
+                            <hr />
+                        </div>
+                    </div>
+                    <div className='row mb-5'>
+                        <HomeCard outerLink={false}
+                            image={process.env.PUBLIC_URL + "/images/cube-5-nb.png"}
+                            title="Beginner's Tutorial"
+                            toLink='/tutorial/1'
+                        />
+                        <HomeCard outerLink={true}
+                            image={process.env.PUBLIC_URL + "/images/cube-4-nb.png"}
+                            title="Virtual Cube"
+                            toLink='https://rubik-cube.netlify.app/'
+                        />
+                    </div>
                     <div className = "row">
                         <h3 className="col-12">Lets's dive into some history!</h3>
                         <p className="col-12">
@@ -55,6 +102,25 @@ function HomePage(props) {
                     cubeTitle='front'
                     colors={props.cubeData}
                 />
+                <svg className='hidden-svg'>
+                    <filter id="wavy">
+                        <feTurbulence x="0" y="0" baseFrequency="0.03" numOctaves='20'
+                            seed="2"
+                        > 
+                        </feTurbulence>
+                        <feDisplacementMap in='SourceGraphic' scale='30'/>
+                    </filter>
+                </svg>
+
+                <svg className='hidden-svg'>
+                    <filter id="wavy-text">
+                        <feTurbulence x="0" y="0" baseFrequency="0.01" numOctaves='2'
+                            seed="2"
+                        > 
+                        </feTurbulence>
+                        <feDisplacementMap in='SourceGraphic' scale='30'/>
+                    </filter>
+                </svg>
             </>
         );
 }

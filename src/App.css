@@ -291,6 +291,135 @@ bbe1fa
   color: white;
 }
 
+/** Home Card **/
+.home-card {
+  position: relative;
+  height: 500px;
+  width: 300px;
+  padding: 0;
+}
+.home-card::before{
+  display: block;
+  position: absolute;
+  width: 160px;
+  height: inherit;
+  content:'';
+  right: 0;
+  top: 0;
+  background-color: var(--main-col);
+  border-left: none;
+  filter: url(#wavy);
+  z-index: -1;
+  box-shadow: 5px 5px 5px 0 black;
+}
+.home-card::after{
+  display: block;
+  position: absolute;
+  width: 160px;
+  height: inherit;
+  content:'';
+  left: 0;
+  top: 0;
+  background-color: var(--dark-col);
+  border-right: none;
+  filter: url(#wavy);
+  z-index: -1;
+  box-shadow: 5px 5px 5px 0 black;
+}
+
+.home-card-img {
+  position: relative;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: auto;
+  padding: 10px;
+  border-radius: 0 0 10% 10%/ 0 0 50% 50%;
+}
+.home-card-img img {
+  width: 250px;
+  height: auto;
+}
+
+.home-title-div {
+  height: 100px;
+  width: inherit;
+  color: white;
+  font-size: 2em;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-button{
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden-svg {
+  display: none;
+}
+
+.my-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 24px;
+  width: 180px;
+  height: 60px;
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  text-transform: capitalize; 
+}
+.my-btn:hover{
+  text-decoration: none;
+  color: white;
+}
+.my-btn:active{
+  outline: none;
+  border:none;
+  text-decoration: none;
+}
+.my-btn:focus{
+  outline:none;
+  text-decoration: none;
+  border:none;
+}
+
+.my-btn svg, .my-btn svg rect{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+}
+
+.my-btn svg rect {
+  stroke: #fff;
+  stroke-width: 10;
+  transition: 1.5s;
+  stroke-dasharray: 50 540;
+  stroke-dashoffset: -304;
+}
+
+.my-btn:hover svg rect {
+  stroke-width: 4;
+  stroke-dasharray: 760;
+  stroke-dashoffset: 0;
+}
+
 /**Card Styles**/
 
 .card-container {
