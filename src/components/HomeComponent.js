@@ -65,9 +65,14 @@ function HomePage(props) {
                             toLink='/tutorial/1'
                         />
                         <HomeCard outerLink={true}
-                            image={process.env.PUBLIC_URL + "/images/cube-4-nb.png"}
+                            image={process.env.PUBLIC_URL + "/images/cube-6.png"}
                             title="Virtual Cube"
                             toLink='https://rubik-cube.netlify.app/'
+                        />
+                        <HomeCard outerLink={false}
+                            image={process.env.PUBLIC_URL + "/images/cube-4-nb.png"}
+                            title="All Tutorials"
+                            toLink='/tutorial'
                         />
                     </div>
                     <div className = "row">
@@ -104,7 +109,7 @@ function HomePage(props) {
                 />
                 <svg className='hidden-svg'>
                     <filter id="wavy">
-                        <feTurbulence x="0" y="0" baseFrequency="0.03" numOctaves='20'
+                        <feTurbulence x="0" y="0" baseFrequency="0.025" numOctaves='20'
                             seed="2"
                         > 
                         </feTurbulence>
