@@ -8,7 +8,7 @@ export const CUBE_DATA = [
         moves: [1, 2, 3, 4, 5, 6, -6, -5, -4, -3, -2, -1],
         backColor: 0x1b262c,
         loop: true,
-        waitTime: 500,
+        waitTime: 15000,
         resetFaces: false,
         initMoves: []
     },

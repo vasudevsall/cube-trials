@@ -7,7 +7,7 @@ function Footer(props) {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-4 offset-1">
-                        <h5>Please feel free to travel around!</h5>
+                        <h6 className='main-font'>Cube Trials</h6>
                         <ul className="list-unstyled">
                             <li><Link className="footer-link" to="/">Home</Link></li>
                             <li><Link className="footer-link" to="/tutorial">Tutorials</Link></li>
@@ -15,8 +15,7 @@ function Footer(props) {
                         </ul>
                     </div>
                     <div className="col-7">
-                        <h5>Designed and Developed By: <strong>Vasu Dev Sall</strong></h5>
-                        <h6>Want to contact me?</h6>
+                        <h6>Contact me at:</h6>
                         <div>
                             <a className="btn btn-social-icon btn-github mr-1" href="https://github.com/vasudevsall">
                                 <span className="fa fa-github fa-lg"></span>
@@ -31,6 +30,8 @@ function Footer(props) {
                                 <span className="fa fa-envelope-square fa-3x"></span>
                             </a>
                         </div>
+                        <br/>
+                        <h6>Designed and Developed By: <strong>Vasu Dev Sall</strong></h6>
                     </div>
                 </div>
             </div>

@@ -82,7 +82,7 @@ function HomePage(props) {
                             <hr/>
                         </div>
                     </div>
-                    <div className = "row">
+                    <div className = "row mt-4 mb-4">
                         <h3 className="col-12">Lets's dive into some history!</h3>
                         <p className="col-12">
                             The <strong>Rubik's Cube</strong> is a 3-D combination puzzle invented in 1974
@@ -93,7 +93,7 @@ function HomePage(props) {
                             It is widely considered to be the world's best-selling toy
                         </p>
                     </div>
-                    <div className="row">
+                    <div className="row mt-4 mb-4">
                         <h3 className="col-12">Cube competitions today:</h3>
                         <p className="col-12">
                             Speedcubers compete for the fastest times in various categories. 
@@ -102,7 +102,7 @@ function HomePage(props) {
                             has organised competitions worldwide and recognises world records.
                         </p>
                     </div>
-                    <div className="row">
+                    <div className="row mt-4 mb-4">
                         <h3 className="col-12">Sample Rubik's Cube:</h3>
                         <p className="col-12">
                             A 3x3 Rubik's cube is quite similar to this one (It's just playable!):

@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
 
 body {
-  padding-top: 86px;
+  padding-top: 66px;
   overflow-x: hidden;
 }
 
@@ -32,7 +32,7 @@ bbe1fa
 **/
 
 .bg-dark{
-  background-color: var(--main-col)!important;
+  background-color: var(--dark-col)!important;
 }
 
 .bg-secondary{
@@ -46,14 +46,32 @@ bbe1fa
   color: white;
 }
 
+.nav-brand-header {
+  color: rgb(3, 152, 158)!important;
+  font-family: 'Orbitron', sans-serif;  
+  transition: all 1s;
+}
+.nav-brand-header img {
+  height: 40px;
+  width: auto;
+}
+.nav-brand-header:hover{
+  transform: scale(1.2);
+}
+
 .jumbotron {
   padding: 40px 20px;
   z-index: -1;
+  border-radius: 0 0 20px 20px;
+}
+
+.main-font {
+  font-family: 'Orbitron', sans-serif;
 }
 
 
 .footer {
-  background-color: var(--main-col);
+  background-color: var(--dark-col);
   font-family: 'Acme', sans-serif;
   padding: 20px;
   margin-top: 50px;
@@ -85,12 +103,12 @@ bbe1fa
 
 .cube-div {
   position: relative;
-  background-color: var(--light-col-4);
+  background-color: transparent;
   padding: 15px;
   padding-bottom: 3em;
-  border: 1px solid var(--dark-col);
-  border-radius: 20px;
-  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.7);
+  /* border: 1px solid var(--dark-col);
+  border-radius: 20px; */
+  /* box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.7); */
 }
 
 .scene {
@@ -309,7 +327,7 @@ bbe1fa
   top: 0;
   background-color: var(--main-col);
   border-left: none;
-  filter: url(#wavy);
+  /* filter: url(#wavy); */
   z-index: -1;
   box-shadow: 2px 2px 5px 0 black;
 }
@@ -323,7 +341,7 @@ bbe1fa
   top: 0;
   background-color: var(--dark-col);
   border-right: none;
-  filter: url(#wavy);
+  /* filter: url(#wavy); */
   z-index: -1;
   box-shadow: 2px 2px 5px 0 black;
 }
@@ -350,7 +368,7 @@ bbe1fa
   left: 0;
   border-radius: 50%;
   background-color: #c7e2b2aa;
-  filter: url(#wavy);
+  /* filter: url(#wavy); */
 }
 .home-card-img img {
   width: 250px;
@@ -436,6 +454,16 @@ bbe1fa
   stroke-dashoffset: 0;
 }
 
+/* DAT GUI styles override*/
+.dg.main .close-button.close-top, .dg .cr.number, .dg .cr.function {
+  border-radius: 20px;
+}
+
+.dg.main .cr.number select{
+  border: none;
+  border-radius: 10px;
+}
+
 /**Card Styles**/
 
 .card-container {
@@ -446,7 +474,7 @@ bbe1fa
   padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: var(--main-col);
+  background-color: var(--dark-col);
   border: 2px solid #00adb5;
   border-radius: 20px;
   box-shadow: 10px 10px 15px 0 #232323;
@@ -526,7 +554,7 @@ bbe1fa
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--light-col-3);
+  background-color: var(--dark-col);
   border: 1px ridge var(--main-col);
   color: var(--light-col);
   box-shadow: 5px 5px 10px 2px grey;
@@ -534,7 +562,7 @@ bbe1fa
 
 .form-label {
   z-index: 2;
-  color: var(--main-col);
+  color: var(--light-col);
   font-size: 2em;
 }
 
@@ -549,16 +577,16 @@ bbe1fa
 }
 .form-input:focus {
   box-shadow:
-        1px 1px var(--main-col),
-        2px 2px var(--main-col),
-        3px 3px var(--main-col),
-        4px 4px var(--main-col),
-        5px 5px var(--main-col),
-        6px 6px var(--main-col),
-        7px 7px var(--main-col),
-        8px 8px var(--main-col),
-        9px 9px var(--main-col),
-        10px 10px var(--main-col);
+        1px 1px white,
+        2px 2px white,
+        3px 3px white,
+        4px 4px white,
+        5px 5px white,
+        6px 6px white,
+        7px 7px white,
+        8px 8px white,
+        9px 9px white,
+        10px 10px white;
   -webkit-transform: translateX(-4px);
   transform: translateX(-4px);
   border: 1px solid var(--main-col);
@@ -571,7 +599,6 @@ bbe1fa
 
 .form-right {
   transform: rotateY(90deg) translate3d(0, 0, 150px);
-  background-color: var(--light-col);
 }
 
 .form-bottom {
@@ -695,7 +722,8 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 .dual-color-blue{
   /* background: linear-gradient(to right, #3a5aff 50%, #2b4dff 50%); */
-  background: linear-gradient(135deg, var(--dark-col-2) 50%, var(--dark-col-3) 50%);
+  /* background: linear-gradient(135deg, var(--dark-col-2) 50%, var(--dark-col-3) 50%); */
+  background-color: var(--dark-col);
 }
 
 .shine-hope-anim:after{ 
@@ -708,7 +736,7 @@ textarea::-webkit-scrollbar-thumb:hover {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
   animation: ShineAnim 5s ease infinite;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 @keyframes ShineAnim{
   0%{left: -100%}
@@ -727,7 +755,7 @@ textarea::-webkit-scrollbar-thumb:hover {
   border: 2px solid var(--dark-col);
   border-left: none;
   height: calc(100vh - 86px);
-  top: 86px;
+  top: 66px;
   position: sticky;
 }
 

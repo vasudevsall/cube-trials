@@ -25,17 +25,17 @@ class Header extends Component {
                 <Navbar className="bg-dark" fixed="top" dark expand="md">
                     <div className="container">
                         <NavbarToggler className="mr-2" onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/">
-                            <img src={process.env.PUBLIC_URL + '/images/CubeTute.png'} height="60" alt="Cube Trials" />
+                        <NavbarBrand className="mr-auto nav-brand-header" href="/">
+                            <img src={process.env.PUBLIC_URL + '/images/CubeTute.png'} height="60" alt="Cube Trials" /> Cube Trials
                         </NavbarBrand>
                         <Collapse isOpen = {this.state.isNavOpen} navbar>
                             <Nav navbar className = "ml-auto mr-4">
-                                <NavItem>
+                                <NavItem className='mr-4'>
                                     <NavLink className="nav-link" onClick={this.toggleNav} to="/home">
                                         <span className="fa fa-home fa-lg"></span> Home
                                     </NavLink>
                                 </NavItem>
-                                <NavItem> 
+                                <NavItem className='mr-4'> 
                                     <NavLink exact className="nav-link" onClick={this.toggleNav} to="/tutorial">
                                         <span className="fa fa-graduation-cap fa-lg"></span> Tutorials
                                     </NavLink>
