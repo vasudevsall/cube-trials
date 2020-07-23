@@ -106,7 +106,7 @@ class Contact extends Component {
                             <hr />
                         </div>
                     </div>
-                    <div className='row'>
+                    <div className='row  no-display-380'>
                         <div className='col-12'>
                             <h3>Feedback Form</h3>
                             <p>
@@ -118,7 +118,7 @@ class Contact extends Component {
                             </p>
                         </div>
                     </div>
-                    <div className='row'>
+                    <div className='row  no-display-380'>
                         <div className='col-12 col-md-6'>
                             <div className='scene-form'>
                                 <form className={this.state.formCubeClasses} onSubmit={this.handleSubmit}>

@@ -75,6 +75,13 @@ function HomePage(props) {
                             toLink='/tutorial'
                         />
                     </div>
+                    <div className='row'>
+                        <div className='col-12'>
+                            <hr/>
+                            <h3>Introduction</h3>
+                            <hr/>
+                        </div>
+                    </div>
                     <div className = "row">
                         <h3 className="col-12">Lets's dive into some history!</h3>
                         <p className="col-12">

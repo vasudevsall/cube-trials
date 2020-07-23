@@ -543,7 +543,7 @@ bbe1fa
   border: none;
   width: 250px;
   border: 1px solid var(--main-col);
-  transition: box-shadow 1s ease-in;
+  transition: all 1s ease-in;
   padding: 5px 10px;
   box-shadow: 1px 1px 1px 0 var(--main-col);
 }
@@ -559,8 +559,8 @@ bbe1fa
         8px 8px var(--main-col),
         9px 9px var(--main-col),
         10px 10px var(--main-col);
-  -webkit-transform: translateX(-3px);
-  transform: translateX(-3px);
+  -webkit-transform: translateX(-4px);
+  transform: translateX(-4px);
   border: 1px solid var(--main-col);
   outline: none;
 }
@@ -822,5 +822,11 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
   .prev-nav-button {
     margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .no-display-380 {
+    display: none;
   }
 }
