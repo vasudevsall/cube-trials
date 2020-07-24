@@ -4,13 +4,14 @@ var commonWaitTime = 3000;
 export const CUBE_DATA = [
     {
         id: 1,
-        addControls: true,
+        addControls: false,
         moves: [1, 2, 3, 4, 5, 6, -6, -5, -4, -3, -2, -1],
         backColor: 0x1b262c,
         loop: true,
         waitTime: 15000,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: false
     },
     {
         id: 2,
@@ -20,7 +21,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 3,
@@ -30,7 +32,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 4,
@@ -40,7 +43,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 5,
@@ -50,7 +54,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 6,
@@ -60,7 +65,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 7,
@@ -70,7 +76,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 8,
@@ -80,7 +87,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 9,
@@ -90,7 +98,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 10,
@@ -100,7 +109,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 11,
@@ -110,7 +120,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 12,
@@ -120,7 +131,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 13,
@@ -130,7 +142,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: false,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 14,
@@ -140,7 +153,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: true,
-        initMoves: []
+        initMoves: [],
+        cubeControls: true
     },
     {
         id: 15,
@@ -150,7 +164,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: true,
-        initMoves: [1, 3, -1, 3, 1, 3, 3, -1, 3, 1, 3, -1, 3, 1, 3, 3, -1, 3, 1, 3, -1, 3, 1, 3, 3, -1, 3]
+        initMoves: [1, 3, -1, 3, 1, 3, 3, -1, 3, 1, 3, -1, 3, 1, 3, 3, -1, 3, 1, 3, -1, 3, 1, 3, 3, -1, 3],
+        cubeControls: true
     },
     {
         id: 16,
@@ -160,7 +175,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: true,
-        initMoves: [3, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 3, 1,3,-1,3,1,3,3,-1, 1,3,-1,3,1,3,3,-1, 3]
+        initMoves: [3, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 3, 1,3,-1,3,1,3,3,-1, 1,3,-1,3,1,3,3,-1, 3],
+        cubeControls: true
     },
     {
         id: 17,
@@ -170,7 +186,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: true,
-        initMoves: [5, 5]
+        initMoves: [5, 5],
+        cubeControls: true
     },
     {
         id: 18,
@@ -180,7 +197,8 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: true,
-        initMoves: [5, 5, -1, 4, 1, 5]
+        initMoves: [5, 5, -1, 4, 1, 5],
+        cubeControls: true
     },
     {
         id: 19,
@@ -190,6 +208,7 @@ export const CUBE_DATA = [
         loop: true,
         waitTime: commonWaitTime,
         resetFaces: true,
-        initMoves: [5, -3, 1, 3]
+        initMoves: [5, -3, 1, 3],
+        cubeControls: true
     }
 ]

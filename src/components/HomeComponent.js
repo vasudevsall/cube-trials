@@ -45,7 +45,7 @@ function HomePage(props) {
                                     Let's go cubing!
                                 </p>
                             </div>
-                            <div className="d-none d-md-block col-12 col-md-6">
+                            <div className="d-none d-md-block col-12 col-md-6 home-cube">
                                 <CubeThree cubeData = {props.threeData} id={props.threeData.id} height='350px' />
                             </div>
                         </div>

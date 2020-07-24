@@ -16,7 +16,8 @@ class CubeThree extends Component {
             waitTime: this.props.cubeData.waitTime,
             resetFaces: this.props.cubeData.resetFaces,
             initMoves: this.props.cubeData.initMoves,
-            cubeState: this.props.cubeState
+            cubeState: this.props.cubeState,
+            cubeControls: this.props.cubeData.cubeControls
         }
     }
 
@@ -65,6 +66,7 @@ class CubeThree extends Component {
         var resetFaces = this.state.resetFaces;
         var waitTime = this.state.waitTime;
         var clearing = false;
+        var cubeControls = this.state.cubeControls;
 
         /* Controls using dat.gui */
         var guiControls = {
@@ -95,11 +97,13 @@ class CubeThree extends Component {
                         cubeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, vertexColors: true});
                         cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
                         cube.position.set(positionX, positionY, positionZ);
+                        cube.castShadow = true;
                         scene.add(cube);
 
                         cubeBorderGeometry = new THREE.EdgesGeometry( cube.geometry );
                         cubeBorder = new THREE.LineSegments(cubeBorderGeometry, new THREE.LineBasicMaterial({color: 0x0000, linewidth: 3}));
                         cubeBorder.position.set(positionX, positionY, positionZ);
+                        cubeBorder.castShadow = true;
                         scene.add(cubeBorder);
 
                         cubeArray.push(cube);
@@ -356,21 +360,51 @@ class CubeThree extends Component {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(50, TH_WIDTH/TH_HEIGHT, 0.1, 500);
             camera.position.set(-3, 2, 6);
+            if(!addControls)
+                camera.position.set(-4, 4, 4);
             renderer = new THREE.WebGLRenderer({antialias: true, precision: 'highp'});
             renderer.setClearColor(backColor);
             renderer.setSize(TH_WIDTH, TH_HEIGHT);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
             /* Adding controls to the scene */
             if(addControls)
                 controls = new OrbitControls( camera, canvasDiv);
+            else
+                camera.lookAt(0, 0, 0);
 
             /* Adding Light to the Scene */
-            scene.add(new THREE.AmbientLight(0xffffff));
+            if(addControls)
+                scene.add(new THREE.AmbientLight(0xffffff));
+            else {
+                var spotLight = new THREE.SpotLight(0xffffff);
+                spotLight.position.set(-40, 40, 40);
+                scene.add(spotLight);
+
+                spotLight = new THREE.SpotLight(0xffffff);
+                spotLight.position.set(-10, 10, 0);
+                spotLight.castShadow = true;
+                spotLight.distance = 100;
+                scene.add(spotLight);
+            }
 
             // * Adding three vectirs to support
             vectorX = new THREE.Vector3(1, 0, 0).normalize();
             vectorY = new THREE.Vector3(0, 1, 0).normalize();
             vectorZ = new THREE.Vector3(0, 0, 1).normalize();
+
+            /* Adding plane */
+            var planeGeometry = new THREE.PlaneGeometry(40, 40, 40);
+            var planeMaterial = new THREE.MeshLambertMaterial({color: backColor});
+            var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+
+            plane.rotation.x = -Math.PI / 2;
+            plane.receiveShadow = true;
+
+            plane.position.set(0, -10, 0);
+
+            scene.add(plane);
 
             /* Initializing all the arrays */
             frontArr = [];
@@ -406,21 +440,24 @@ class CubeThree extends Component {
             giveFaceColors();
 
             /* Add dat.gui controls */
-            var datGUI = new dat.GUI({ autoPlace: false,closeOnTop: true, width: 250});
-            datGUI.closed = true;
-            // datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
-            datGUI.add(guiControls, 'Speed', {slower: 0.02, Slow: 0.05, Normal: 0.1, Fast: 0.2, Faster: 0.5}).onChange(function(){
-                resetCube(true);
-                guiControls.Speed = parseFloat(guiControls.Speed);
+            if(cubeControls) {
+                var datGUI = new dat.GUI({ autoPlace: false,closeOnTop: true, width: 250});
                 datGUI.closed = true;
-            });
-            datGUI.add(guiControls, 'ResetCamera');
+                // datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
+                datGUI.add(guiControls, 'Speed', {slower: 0.02, Slow: 0.05, Normal: 0.1, Fast: 0.2, Faster: 0.5}).onChange(function(){
+                    resetCube(true);
+                    guiControls.Speed = parseFloat(guiControls.Speed);
+                    datGUI.closed = true;
+                });
+                datGUI.add(guiControls, 'ResetCamera');
+            }
 
             /* Add event listener to window */
             window.addEventListener('resize', resizeWindow);
 
             canvasDiv.appendChild(renderer.domElement);
-            guiDiv.appendChild(datGUI.domElement);
+            if(cubeControls)
+                guiDiv.appendChild(datGUI.domElement);
             render();
         }
 
@@ -445,7 +482,8 @@ class CubeThree extends Component {
             cubeState = initState;
             giveFaceColors();
 
-            controls.reset();
+            if(addControls)
+                controls.reset();
         }
 
         function nextRotation(init = false) {

@@ -49,14 +49,14 @@ bbe1fa
 .nav-brand-header {
   color: rgb(3, 152, 158)!important;
   font-family: 'Orbitron', sans-serif;  
-  transition: all 1s;
 }
 .nav-brand-header img {
   height: 40px;
   width: auto;
+  transition: all 1s;
 }
-.nav-brand-header:hover{
-  transform: scale(1.2);
+.nav-brand-header:hover img{
+  transform: scale(1.5);
 }
 
 .jumbotron {
@@ -68,6 +68,10 @@ bbe1fa
 .main-font {
   font-family: 'Orbitron', sans-serif;
 }
+
+/* .home-cube .canvas-capsule .canvasDiv {
+  box-shadow: 5px 5px 10px 0 black;
+} */
 
 
 .footer {
