@@ -361,7 +361,7 @@ class CubeThree extends Component {
             camera = new THREE.PerspectiveCamera(50, TH_WIDTH/TH_HEIGHT, 0.1, 500);
             camera.position.set(-3, 2, 6);
             if(!addControls)
-                camera.position.set(-4, 4, 4);
+                camera.position.set(-5, 5, 5);
             renderer = new THREE.WebGLRenderer({antialias: true, precision: 'highp'});
             renderer.setClearColor(backColor);
             renderer.setSize(TH_WIDTH, TH_HEIGHT);
@@ -383,9 +383,9 @@ class CubeThree extends Component {
                 scene.add(spotLight);
 
                 spotLight = new THREE.SpotLight(0xffffff);
-                spotLight.position.set(-10, 10, 0);
+                spotLight.position.set(-10, 30, 10);
                 spotLight.castShadow = true;
-                spotLight.distance = 100;
+                spotLight.distance = 80;
                 scene.add(spotLight);
             }
 
@@ -395,7 +395,7 @@ class CubeThree extends Component {
             vectorZ = new THREE.Vector3(0, 0, 1).normalize();
 
             /* Adding plane */
-            var planeGeometry = new THREE.PlaneGeometry(40, 40, 40);
+            var planeGeometry = new THREE.PlaneGeometry(20, 20, 20);
             var planeMaterial = new THREE.MeshLambertMaterial({color: backColor});
             var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
