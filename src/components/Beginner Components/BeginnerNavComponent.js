@@ -44,30 +44,33 @@ class BeginnerNav extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(event) {
+    handleClick(event, scroll = true) {
         this.setState({
             isNavOn: !this.state.isNavOn
         });
-        this.props.scrollTop(event);
+        if(scroll)
+            this.props.scrollTop(event);
     }
 
     render() {
 
         return(
             <div className={`aside-div ${this.props.className} ${(this.state.isNavOn)?'aside-div-expand':''}`}>
-                <button className='beginner-nav-btn navbar-toggler' onClick={this.handleClick}>
+                <button className='beginner-nav-btn navbar-toggler' onClick={(e) => {this.handleClick(e, false)}}>
                     <span className='fa fa-bars'></span>
                 </button>
                 <aside className={`${(this.state.isNavOn)?'expand':''}`}>
                     <h5>Beginner's Method</h5>
                     <nav>
                         <ul style={{listStyle: 'none'}}>
-                            <li><NavLink onClick={this.handleClick}
+                            <li>
+                                <NavLink onClick={this.handleClick}
                                     className='nav-link' 
                                     to={`${this.props.url}/beginner-basics`}
                                 >
                                     Cube Basics
-                                </NavLink></li>
+                                </NavLink>
+                            </li>
                             <li>
                                 <NavExpandList title='Cube Basic Moves'>
                                     <NavLink onClick={this.handleClick}
@@ -96,15 +99,23 @@ class BeginnerNav extends Component {
                                         className = 'nav-link sub-link'
                                         to={`${this.props.url}/first-layer`}
                                     >
-                                        Cross
+                                        The White Cross
                                     </NavLink>
                                     <NavLink onClick={this.handleClick}
                                         className = 'nav-link sub-link'
-                                        to={`${this.props.url}/first-layer-corner`}
+                                        to={`${this.props.url}/first-layer-corners`}
                                     >
-                                        Corners
+                                        The White Corners
                                     </NavLink>
                                 </NavExpandList>
+                            </li>
+                            <li>
+                                <NavLink onClick={this.handleClick}
+                                    className='nav-link' 
+                                    to={`${this.props.url}/second-layer`}
+                                >
+                                    Solving Second Layer
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>

@@ -837,7 +837,8 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
   .aside-div .expand nav a, .aside-div .expand nav button {
     width: 100%;
-    text-align: center;
+    margin-left: 0.7em;
+    text-align: left;
   }
 }
 
@@ -861,4 +862,12 @@ textarea::-webkit-scrollbar-thumb:hover {
   .no-display-380 {
     display: none;
   }
+}
+
+/* Algoritms */
+.tab-space {
+  letter-spacing: 1em;
+}
+.tab-space-clear {
+  letter-spacing: normal;
 }

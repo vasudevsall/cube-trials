@@ -482,8 +482,8 @@ class CubeThree extends Component {
             cubeState = initState;
             giveFaceColors();
 
-            if(addControls)
-                controls.reset();
+            // if(addControls)
+            //     controls.reset();
         }
 
         function nextRotation(init = false) {

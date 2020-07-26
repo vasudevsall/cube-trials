@@ -30,6 +30,9 @@ class Cube extends Component{
             cubeTitle: this.props.cubeTitle
         }
 
+        // If this.props.Cross = true then white face is top and bottm face is yellow
+        // Otherwise they are inverted
+
         this.handleButtonClick = this.handleButtonClick.bind(this);
     }
 
