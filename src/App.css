@@ -690,6 +690,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 .beginner-div h5 {
   text-decoration: underline;
+  font-weight: bolder;
 }
 
 .next-nav-button {

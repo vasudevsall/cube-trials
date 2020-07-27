@@ -369,8 +369,10 @@ class CubeThree extends Component {
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
             /* Adding controls to the scene */
-            if(addControls)
+            if(addControls){
                 controls = new OrbitControls( camera, canvasDiv);
+                controls.enableZoom = false;
+            }
             else
                 camera.lookAt(0, 0, 0);
 

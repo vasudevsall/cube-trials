@@ -48,19 +48,18 @@ export const Moves = (props) => {
                 </div>
                 <div className='row align-self-center'>
                     <p className='col-12 col-md-6 align-self-center'>
-                        The <strong>R</strong> is like this:<br/>
+                        The <strong>R</strong> move is like this:<br/><br/>
                         I hope you have realized it by now, if not, you can drag and rotate all the moving cubes.
                         So, if you drag and make right face as front, you will notice <strong>R</strong> move looking
                         just like <strong>F</strong>.<br/>
                         Also, there are some other things, you must know anout this cube:<br/>
-                        <ul style={{listStyle: 'none'}}>
+                        <ul style={{listStyle: 'square'}}>
                             <li>
                                 You can change the speed of rotation of cube by clicking on open controls
                                 and then selecting the speed of rotation as per your needs.
                             </li>
                             <li>
-                                As, you already know, you can rotate the faces by dragging. You can also zoom in
-                                and zoom out by scrolling inside the cube.
+                                You can rotate the faces by dragging.
                             </li>
                             <li>
                                 If you mess up the cube rotations and forget which face was front initially,

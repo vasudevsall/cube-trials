@@ -114,25 +114,6 @@ function HomePage(props) {
                     cubeTitle='front'
                     colors={props.cubeData}
                 />
-                <svg className='hidden-svg'>
-                    <filter id="wavy">
-                        <feTurbulence x="0" y="0" baseFrequency="0.025" numOctaves='20'
-                            seed="2"
-                        > 
-                        </feTurbulence>
-                        <feDisplacementMap in='SourceGraphic' scale='30'/>
-                    </filter>
-                </svg>
-
-                <svg className='hidden-svg'>
-                    <filter id="wavy-text">
-                        <feTurbulence x="0" y="0" baseFrequency="0.01" numOctaves='2'
-                            seed="2"
-                        > 
-                        </feTurbulence>
-                        <feDisplacementMap in='SourceGraphic' scale='30'/>
-                    </filter>
-                </svg>
             </>
         );
 }
