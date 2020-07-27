@@ -31,9 +31,11 @@ export const Moves = (props) => {
                 </div>
                 <div className='row align-self-center'>
                     <p className='col-12 col-md-6 align-self-center'>
-                        To understand you can look at the adjacent visualization:
+                        To understand you can look at the adjacent visualization.<br/>
+                        All the visualizations are initially paused.
+                        Click on the play / pause to play the visualization.
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 2)[0]}
                             id='2' height='300px' />
                     </div>
@@ -48,14 +50,14 @@ export const Moves = (props) => {
                 </div>
                 <div className='row align-self-center'>
                     <p className='col-12 col-md-6 align-self-center'>
-                        The <strong>R</strong> move is like this:<br/><br/>
+                        The <strong>R</strong> move is like this.<br/><br/>
                         I hope you have realized it by now, if not, you can drag and rotate all the moving cubes.
                         So, if you drag and make right face as front, you will notice <strong>R</strong> move looking
                         just like <strong>F</strong>.<br/>
                         Also, there are some other things, you must know anout this cube:<br/>
                         <ul style={{listStyle: 'square'}}>
                             <li>
-                                You can change the speed of rotation of cube by clicking on open controls
+                                You can change the speed of rotation of cube by clicking on Speed and Camera.
                                 and then selecting the speed of rotation as per your needs.
                             </li>
                             <li>
@@ -63,11 +65,11 @@ export const Moves = (props) => {
                             </li>
                             <li>
                                 If you mess up the cube rotations and forget which face was front initially,
-                                you can just open controls and then press ResetCamera.
+                                you can just open speed and camera controls and then press Reset Camera.
                             </li>
                         </ul>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 4)[0]}
                             id='4' height='300px' />
                     </div>
@@ -85,7 +87,7 @@ export const Moves = (props) => {
                         The <strong>L</strong> move is like this:<br/>
                         You may again note the resemblance between <strong>L</strong> and <strong>F</strong>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 6)[0]}
                             id='6' height='300px' />
                     </div>
@@ -102,7 +104,7 @@ export const Moves = (props) => {
                         The <strong>U</strong> move is like this:<br/>
                         This has a resemblance with <strong>F</strong>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 8)[0]}
                             id='8' height='300px' />
                     </div>
@@ -119,7 +121,7 @@ export const Moves = (props) => {
                         The <strong>D</strong> move is like this:<br/>
                         This has a resemblance with <strong>F</strong>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 10)[0]}
                             id='10' height='300px' />
                     </div>
@@ -138,7 +140,7 @@ export const Moves = (props) => {
                         that this move is opposite of <strong>F</strong>, but if you visualize back face as front,
                         you will surely see the similarity.
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 12)[0]}
                             id='12' height='300px' />
                     </div>
@@ -190,7 +192,7 @@ export const PrimeMoves = (props) => {
                     <p className='col-12 col-md-6 align-self-center'>
                         The <strong>F'</strong> is like this:
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 3)[0]}
                             id='3' height='300px' />
                     </div>
@@ -210,7 +212,7 @@ export const PrimeMoves = (props) => {
                         Again, if you rotate look right face as front, you will notice the resemblance between
                             <strong> R'</strong> move and <strong>F'</strong> move.
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 5)[0]}
                             id='5' height='300px' />
                     </div>
@@ -229,7 +231,7 @@ export const PrimeMoves = (props) => {
                         The <strong>L'</strong> move is like this:<br/>
                         This has a resemblance with <strong>F'</strong>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 7)[0]}
                             id='7' height='300px' />
                     </div>
@@ -248,7 +250,7 @@ export const PrimeMoves = (props) => {
                         The <strong>U'</strong> move is like this:<br/>
                         This has a resemblance with <strong>F'</strong>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 9)[0]}
                             id='9' height='300px' />
                     </div>
@@ -267,7 +269,7 @@ export const PrimeMoves = (props) => {
                         The <strong>D'</strong> move is like this:<br/>
                         This has a resemblance with <strong>F'</strong>
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 11)[0]}
                             id='11' height='300px' />
                     </div>
@@ -286,7 +288,7 @@ export const PrimeMoves = (props) => {
                         The <strong>B'</strong> move is like this:<br/>
                         This has a resemblance with <strong>F'</strong>.
                     </p>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-md-6 cube-three-margin'>
                         <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 13)[0]}
                             id='13' height='300px' />
                     </div>
@@ -342,7 +344,7 @@ export const AlgorithmExample = (props) => {
                 <p className='col-12 col-md-6 align-self-center text-center'>
                     <strong>F R U R' U' F'</strong>
                 </p>
-                <div className='col-12 col-md-6'>
+                <div className='col-12 col-md-6 cube-three-margin'>
                     <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 14)[0]}
                         id='14' height='300px' />
                 </div>
@@ -359,7 +361,7 @@ export const AlgorithmExample = (props) => {
                     <strong>R U R' U R 2U R' U</strong><br/>
                     Here 2U means, rotation top leyer two times in the clockwise direction
                 </p>
-                <div className='col-12 col-md-6'>
+                <div className='col-12 col-md-6 cube-three-margin'>
                     <CubeThree cubeData = {props.cubeData.filter((data) => data.id === 15)[0]}
                         id='15' height='300px' />
                 </div>
@@ -389,7 +391,7 @@ export const AlgorithmExample = (props) => {
                 <p className='col-12 col-md-6 align-self-center text-center'>
                     <strong>F R U' R' U' [R U R' F'] {"{[R U R' U'] [R' F R F']}"}</strong>
                 </p>
-                <div className='col-12 col-md-6'>
+                <div className='col-12 col-md-6 cube-three-margin'>
                     <CubeThree cubeData = {props.cubeData.filter((data)=> data.id === 16)[0]}
                         id='16' height='300px' />
                 </div>

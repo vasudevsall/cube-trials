@@ -11,7 +11,8 @@ export const CUBE_DATA = [
         waitTime: 15000,
         resetFaces: false,
         initMoves: [],
-        cubeControls: false
+        cubeControls: false,
+        initPaused: false
     },
     {
         id: 2,
@@ -22,7 +23,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 3,
@@ -33,7 +35,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 4,
@@ -44,7 +47,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 5,
@@ -55,7 +59,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 6,
@@ -66,7 +71,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 7,
@@ -77,7 +83,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 8,
@@ -88,7 +95,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 9,
@@ -99,7 +107,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 10,
@@ -110,7 +119,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 11,
@@ -121,7 +131,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 12,
@@ -132,7 +143,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 13,
@@ -143,7 +155,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: false,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 14,
@@ -154,7 +167,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 15,
@@ -165,7 +179,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [1, 3, -1, 3, 1, 3, 3, -1, 3, 1, 3, -1, 3, 1, 3, 3, -1, 3, 1, 3, -1, 3, 1, 3, 3, -1, 3],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 16,
@@ -176,7 +191,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [3, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 5,1,3,-1,-3,-5, 3, 1,3,-1,3,1,3,3,-1, 1,3,-1,3,1,3,3,-1, 3],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 17,
@@ -187,7 +203,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [5, 5],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 18,
@@ -198,7 +215,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [5, 5, -1, 4, 1, 5],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 19,
@@ -209,7 +227,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [5, -3, 1, 3],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 20,
@@ -220,7 +239,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [5, -4, -5],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 21,
@@ -231,7 +251,8 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [-1, 4, 1],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     },
     {
         id: 22,
@@ -242,6 +263,7 @@ export const CUBE_DATA = [
         waitTime: commonWaitTime,
         resetFaces: true,
         initMoves: [5, 2, 4, 4, -2, -5],
-        cubeControls: true
+        cubeControls: true,
+        initPaused: true
     }
 ]

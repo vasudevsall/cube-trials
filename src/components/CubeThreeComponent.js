@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
-import * as dat from 'dat.gui';
+import * as TweakPane from 'tweakpane';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { CUBE_STATE, CUBE_STATE_CROSS, CUBE_STATE_FIRST_CORNERS } from '../shared/cubeState';
 
@@ -9,16 +9,8 @@ class CubeThree extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            moves: this.props.cubeData.moves,
-            addControls: this.props.cubeData.addControls,
-            backColor: this.props.cubeData.backColor,
-            loop: this.props.cubeData.loop,
-            waitTime: this.props.cubeData.waitTime,
-            resetFaces: this.props.cubeData.resetFaces,
-            initMoves: this.props.cubeData.initMoves,
-            cubeState: this.props.cubeState,
-            cubeControls: this.props.cubeData.cubeControls
-        }
+            mounted: false
+        };
     }
 
     componentDidMount() {
@@ -34,7 +26,7 @@ class CubeThree extends Component {
         var cubeBorderArray = [];
         var cubeState;
 
-        switch(this.state.cubeState) {
+        switch(this.props.cubeState) {
             case 'normal':
                 cubeState = CUBE_STATE;
                 break;
@@ -55,25 +47,34 @@ class CubeThree extends Component {
 
         var doRotation = false, rotationVar = 0, rotationVector, rotationCoeff;
 
-        var rotationQueue = [...this.state.moves]; //[1, 2, 3, 4, 5, 6, -6, -5, -4, -3, -2, -1];
+        var rotationQueue = [...this.props.cubeData.moves]; //[1, 2, 3, 4, 5, 6, -6, -5, -4, -3, -2, -1];
         // 0 -> no rotation, 1 -> right, 2-> left, 3-> top, 4-> bottom, 5-> front, 6-> back
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
-        var originalQueue = [...this.state.moves];
-        var initMoves = [...this.state.initMoves];
+        var originalQueue = [...this.props.cubeData.moves];
+        var initMoves = [...this.props.cubeData.initMoves];
         var initState = CUBE_STATE;
 
-        var addControls = this.state.addControls, backColor = this.state.backColor, loop = this.state.loop;
-        var resetFaces = this.state.resetFaces;
-        var waitTime = this.state.waitTime;
+        var addControls = this.props.cubeData.addControls, backColor = this.props.cubeData.backColor, loop = this.props.cubeData.loop;
+        var resetFaces = this.props.cubeData.resetFaces;
+        var waitTime = this.props.cubeData.waitTime;
         var clearing = false;
-        var cubeControls = this.state.cubeControls;
+        var cubeControls = this.props.cubeData.cubeControls;
+        /**
+         * This variable changes the state of the rotation of the cube
+         * false means cube is in play state
+         * true means cube is in paused state
+        */
+        var cubePaused = this.props.cubeData.initPaused;
+
+        /* Creating a label to add when cube is paused */
+        var lbl = document.createElement('label');
+        lbl.innerHTML = 'Paused';
+        lbl.classList.add('three-cube-label');
+        var addedOnce = false;
 
         /* Controls using dat.gui */
         var guiControls = {
-            Speed : 0.1,
-            ResetCamera: function() {
-                controls.reset();
-            }
+            Speed : 0.1
         }
 
         function createCube() {
@@ -441,30 +442,49 @@ class CubeThree extends Component {
             /* Give initial colors to the faces */
             giveFaceColors();
 
-            /* Add dat.gui controls */
+            /* Add TweakPane controls */
             if(cubeControls) {
-                var datGUI = new dat.GUI({ autoPlace: false,closeOnTop: true, width: 250});
-                datGUI.closed = true;
-                // datGUI.add(guiControls, 'Speed', 0.02, 0.2, 0.02);
-                datGUI.add(guiControls, 'Speed', {slower: 0.02, Slow: 0.05, Normal: 0.1, Fast: 0.2, Faster: 0.5}).onChange(function(){
+                const pane = new TweakPane({container: guiDiv});
+                console.log(pane);
+                const togglePause = pane.addButton({title: 'Play / Pause'});
+                togglePause.on('click', function(){
+                    cubePaused = !cubePaused;
+                });
+                pane.addSeparator();
+                const f1 = pane.addFolder({
+                    title: 'Speed and Camera',
+                });
+                const speedChange = f1.addInput(guiControls, 'Speed', {
+                    options: {
+                        Slower: 0.02,
+                        Slow: 0.05,
+                        Normal: 0.1,
+                        Fast: 0.2,
+                        Faster: 0.5
+                    },
+                });
+                speedChange.on('change', function(){
                     resetCube(true);
                     guiControls.Speed = parseFloat(guiControls.Speed);
-                    datGUI.closed = true;
+                    f1.expanded = false;
                 });
-                datGUI.add(guiControls, 'ResetCamera');
+
+                const cameraBtn = f1.addButton({title: 'Reset Camera'});
+                cameraBtn.on('click', function(){
+                    controls.reset();
+                    f1.expanded = false;
+                });
+                f1.expanded = false;
             }
 
             /* Add event listener to window */
             window.addEventListener('resize', resizeWindow);
 
             canvasDiv.appendChild(renderer.domElement);
-            if(cubeControls)
-                guiDiv.appendChild(datGUI.domElement);
             render();
         }
 
         function addAgain() {
-            console.log(clearing);
             if(!clearing)
                 rotationQueue = [...originalQueue];
         }
@@ -571,7 +591,7 @@ class CubeThree extends Component {
             requestAnimationFrame(render);
 
             /* Rotatte the Given face and then perform required actions */
-            if(doRotation && rotationVar < (Math.PI/2.0) && !clearing) {
+            if(doRotation && rotationVar < (Math.PI/2.0) && !clearing && !cubePaused) {
                 rotationVar = rotationVar + guiControls.Speed;
                 cubeGroup.rotateOnAxis(rotationVector, rotationCoeff);
             } else {
@@ -580,11 +600,22 @@ class CubeThree extends Component {
                     giveFaceColors();
                     doRotation = false;
                 }
-                var nextFunc = nextRotation();
-                    if(nextFunc !== null){
-                        nextFunc();
-                    }
+                if(!cubePaused) {
+                    var nextFunc = nextRotation();
+                        if(nextFunc !== null){
+                            nextFunc();
+                        }
+                }
                 rotationVar = 0.0;
+            }
+
+            /* If the cube is paused add a label on the top */
+            if(cubePaused && !addedOnce) {
+                canvasDiv.appendChild(lbl);
+                addedOnce = true;
+            } else if(!cubePaused){
+                lbl.remove();
+                addedOnce = false;
             }
 
             /* Orbit Controls update and rendering camera  */
@@ -594,6 +625,9 @@ class CubeThree extends Component {
         }
 
         constructor(`canvas-div-${this.props.id}`, `canvas-child-${this.props.id}`);
+        this.setState({
+            mounted: true
+        });
     }
 
     render() {

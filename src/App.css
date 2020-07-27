@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
   padding-top: 66px;
@@ -458,16 +459,6 @@ bbe1fa
   stroke-dashoffset: 0;
 }
 
-/* DAT GUI styles override*/
-.dg.main .close-button.close-top, .dg .cr.number, .dg .cr.function {
-  border-radius: 20px;
-}
-
-.dg.main .cr.number select{
-  border: none;
-  border-radius: 10px;
-}
-
 /**Card Styles**/
 
 .card-container {
@@ -577,23 +568,19 @@ bbe1fa
   border: 1px solid var(--main-col);
   transition: all 1s ease-in;
   padding: 5px 10px;
+  background-color: var(--light-col);
   box-shadow: 1px 1px 1px 0 var(--main-col);
+  color: var(--main-col);
 }
 .form-input:focus {
-  box-shadow:
-        1px 1px white,
-        2px 2px white,
-        3px 3px white,
-        4px 4px white,
-        5px 5px white,
-        6px 6px white,
-        7px 7px white,
-        8px 8px white,
-        9px 9px white,
-        10px 10px white;
+  box-shadow: 
+    1px 1px 1px rgba(199, 226, 178, 0.5),
+    2px 2px 2px rgba(199, 226, 178, 0.5),
+    3px 3px 3px rgba(199, 226, 178, 0.5),
+    4px 4px 4px rgba(199, 226, 178, 0.5),
+    5px 5px 5px rgba(199, 226, 178, 0.5);
   -webkit-transform: translateX(-4px);
   transform: translateX(-4px);
-  border: 1px solid var(--main-col);
   outline: none;
 }
 
@@ -607,12 +594,20 @@ bbe1fa
 
 .form-bottom {
   transform: rotateX(-90deg) translate3d(0, 0, 150px);
-  background-color: var(--main-col);
+  background-color: var(--dark-col);
   color: var(--light-col);
 }
 
 .form-button-div {
   width: 80%;
+}
+.form-button-div button, .form-button-div input {
+  color: var(--light-col);
+  background-color: var(--dark-col)!important;
+}
+.form-button-div button:hover, .form-button-div input:hover{
+  background-color: var(--light-col)!important;
+  color: var(--dark-col);
 }
 
 .form-btn-next {
@@ -643,6 +638,19 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 /** Cube Three **/
+.cube-three-margin {
+  margin-bottom: 4em;
+}
+
+.three-cube-label {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .canvas-capsule {
   margin-bottom: 50px;
 }
@@ -658,7 +666,7 @@ textarea::-webkit-scrollbar-thumb:hover {
   justify-content: center;
   left: 20px;
   z-index: 2;
-  min-height: 80px;
+  /* min-height: 80px; */
 }
 
 .dg.main .close-button.close-bottom {
