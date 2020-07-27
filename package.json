@@ -9,7 +9,6 @@
     "boostrap": "^2.0.0",
     "bootstrap": "^4.5.0",
     "bootstrap-social": "^5.1.1",
-    "dat.gui": "^0.7.7",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
@@ -19,7 +18,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1",
-    "three": "^0.118.3"
+    "three": "^0.118.3",
+    "tweakpane": "^1.5.3"
   },
   "scripts": {
     "start": "react-scripts start",

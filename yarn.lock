@@ -3548,11 +3548,6 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-dat.gui@^0.7.7:
-  version "0.7.7"
-  resolved "https://registry.yarnpkg.com/dat.gui/-/dat.gui-0.7.7.tgz#7f96dbd21621a76385203659aebfa264ee6ae89b"
-  integrity sha512-sRl/28gF/XRC5ywC9I4zriATTsQcpSsRG7seXCPnTkK8/EQMIbCu5NPMpICLGxX9ZEUvcXR3ArLYCtgreFoMDw==
-
 data-urls@^1.0.0, data-urls@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/data-urls/-/data-urls-1.1.0.tgz#15ee0582baa5e22bb59c77140da8f9c76963bbfe"
@@ -10284,6 +10279,11 @@ tunnel-agent@^0.6.0:
   integrity sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
   dependencies:
     safe-buffer "^5.0.1"
+
+tweakpane@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/tweakpane/-/tweakpane-1.5.3.tgz#a67dc0eb96e4134069188b19a20079ea7e71946b"
+  integrity sha512-GYaKd+6Tm/f/lWYSvdN2hJ3GANHer81i/A9CPjoRX2kF42yIrQIgkhzRi8UJzAbpi/mH32LkiGNHWBhQOKz5ZA==
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
