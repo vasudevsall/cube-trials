@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 import * as TweakPane from 'tweakpane';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { CUBE_STATE, CUBE_STATE_CROSS, CUBE_STATE_FIRST_CORNERS } from '../shared/cubeState';
+import * as STATE from '../shared/cubeState';
 
 class CubeThree extends Component {
 
@@ -28,16 +28,19 @@ class CubeThree extends Component {
 
         switch(this.props.cubeState) {
             case 'normal':
-                cubeState = CUBE_STATE;
+                cubeState = STATE.CUBE_STATE;
                 break;
             case 'first_cross':
-                cubeState = CUBE_STATE_CROSS;
+                cubeState = STATE.CUBE_STATE_CROSS;
                 break;
             case 'first_corners':
-                cubeState = CUBE_STATE_FIRST_CORNERS;
+                cubeState = STATE.CUBE_STATE_FIRST_CORNERS;
+                break;
+            case 'second_layer':
+                cubeState = STATE.CUBE_STATE_SECOND_LAYER;
                 break;
             default:
-                cubeState = CUBE_STATE;
+                cubeState = STATE.CUBE_STATE;
         }
 
         var cubeGroup;
@@ -52,7 +55,7 @@ class CubeThree extends Component {
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
         var originalQueue = [...this.props.cubeData.moves];
         var initMoves = [...this.props.cubeData.initMoves];
-        var initState = CUBE_STATE;
+        var initState = STATE.CUBE_STATE;
 
         var addControls = this.props.cubeData.addControls, backColor = this.props.cubeData.backColor, loop = this.props.cubeData.loop;
         var resetFaces = this.props.cubeData.resetFaces;
@@ -499,8 +502,7 @@ class CubeThree extends Component {
                 }, 500);
             }
             rotationQueue.length = 0;
-        
-            cubeState = CUBE_STATE;
+
             cubeState = initState;
             giveFaceColors();
 
@@ -576,12 +578,10 @@ class CubeThree extends Component {
                         if(resetFaces) {
                             setTimeout(function() {
                                 resetCube();
-                            }, (waitTime / 3));
+                                addAgain();
+                                loop = !loop;
+                            }, waitTime);
                         }
-                        setTimeout(function(){
-                            addAgain();
-                            loop = !loop;
-                        }, waitTime);
                     }
                     return null;
             }
@@ -604,6 +604,8 @@ class CubeThree extends Component {
                     var nextFunc = nextRotation();
                         if(nextFunc !== null){
                             nextFunc();
+                        } else {
+                            cubePaused = true;
                         }
                 }
                 rotationVar = 0.0;
