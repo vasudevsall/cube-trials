@@ -109,10 +109,10 @@ export const FixCross = (props) => {
                     </p>
                 </div>
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong>2 F</strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'first_cross'
                             cubeData = {props.cubeData.filter((data) => data.id === 17)[0]}
                             id='17' height='300px'
@@ -128,7 +128,7 @@ export const FixCross = (props) => {
                     </p>
                 </div>
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>
                             <span className='tab-space-clear'>F'</span>&nbsp;
                             <span className='tab-space-clear'>R'</span>&nbsp;
@@ -137,7 +137,7 @@ export const FixCross = (props) => {
                             <span className='tab-space-clear'>2 F</span>
                         </strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'first_cross'
                             cubeData = {props.cubeData.filter((data) => data.id === 18)[0]}
                             id='18' height='300px'
@@ -155,7 +155,7 @@ export const FixCross = (props) => {
                     </p>
                 </div>
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>
                             <span className='tab-space-clear'>F</span>&nbsp;
                             <span className='tab-space-clear'>U'</span>&nbsp;
@@ -163,7 +163,7 @@ export const FixCross = (props) => {
                             <span className='tab-space-clear'>U</span>
                         </strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'first_cross'
                             cubeData = {props.cubeData.filter((data) => data.id === 19)[0]}
                             id='19' height='300px'
@@ -260,10 +260,10 @@ export const FixCorners = (props) => {
                     </p>
                 </div>
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>F D <span className='tab-space-clear'>F'</span></strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'first_corners'
                             cubeData = {props.cubeData.filter((data) => data.id === 20)[0]}
                             id='20' height='300px'
@@ -278,14 +278,14 @@ export const FixCorners = (props) => {
                     </p>
                 </div>
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>
                             <span className='tab-space-clear'>R'</span>&nbsp;
                             <span className='tab-space-clear'>D'</span>&nbsp;
                             <span className='tab-space-clear'>R</span>
                         </strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'first_corners'
                             cubeData = {props.cubeData.filter((data) => data.id === 21)[0]}
                             id='21' height='300px'
@@ -300,7 +300,7 @@ export const FixCorners = (props) => {
                     </p>
                 </div>
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>
                             <span className='tab-space-clear'>F</span>&nbsp;
                             <span className='tab-space-clear'>L</span>&nbsp;
@@ -309,7 +309,7 @@ export const FixCorners = (props) => {
                             <span className='tab-space-clear'>F'</span>
                         </strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'first_corners'
                             cubeData = {props.cubeData.filter((data) => data.id === 22)[0]}
                             id='22' height='300px'

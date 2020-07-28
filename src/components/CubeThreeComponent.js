@@ -454,7 +454,6 @@ class CubeThree extends Component {
             /* Add TweakPane controls */
             if(cubeControls) {
                 const pane = new TweakPane({container: guiDiv});
-                console.log(pane);
                 const togglePause = pane.addButton({title: 'Play / Pause'});
                 togglePause.on('click', function(){
                     cubePaused = !cubePaused;

@@ -59,8 +59,8 @@ class BeginnerNav extends Component {
                 <button className='beginner-nav-btn navbar-toggler' onClick={(e) => {this.handleClick(e, false)}}>
                     <span className='fa fa-bars'></span>
                 </button>
+                <h5 className='ml-auto text-center d-inline-block'>Beginner's Method</h5>
                 <aside className={`${(this.state.isNavOn)?'expand':''}`}>
-                    <h5>Beginner's Method</h5>
                     <nav>
                         <ul style={{listStyle: 'none'}}>
                             <li>
