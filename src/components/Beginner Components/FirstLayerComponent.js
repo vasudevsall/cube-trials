@@ -332,20 +332,22 @@ export const FixCorners = (props) => {
                 Cross = {true}
                 colors={props.colors.filter((color) => color.id === 7)[0]}
             />
-            <div className='dual-btn-container row'>
-                <Link onClick = {props.scrollTop}
-                    className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
-                    to={`${props.url}/first-layer`}
-                >
-                    First Layer: Cross
-                </Link>
+            <div className='container'>
+                <div className='dual-btn-container row'>
+                    <Link onClick = {props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                        to={`${props.url}/first-layer`}
+                    >
+                        First Layer: Cross
+                    </Link>
 
-                <Link  onClick = {props.scrollTop}
-                    className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
-                    to={`${props.url}/second-layer`}
-                >
-                    Second Layer
-                </Link>
+                    <Link  onClick = {props.scrollTop}
+                        className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                        to={`${props.url}/second-layer`}
+                    >
+                        Second Layer
+                    </Link>
+                </div>
             </div>
         </>
     );

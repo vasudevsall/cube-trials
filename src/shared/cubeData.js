@@ -265,5 +265,29 @@ export const CUBE_DATA = [
         initMoves: [5, 2, 4, 4, -2, -5],
         cubeControls: true,
         initPaused: true
+    },
+    {
+        id: 23,
+        addControls: true,
+        moves: [-3, -2, 3, 2, 3, 5, -3, -5],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [5, 3, -5, -3, -2, -3, 2, 3],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 24,
+        addControls: true,
+        moves: [3, 1, -3, -1, -3, -5, 3, 5],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [-5, -3, 5, 3, 1, 3, -1, -3],
+        cubeControls: true,
+        initPaused: true
     }
 ]

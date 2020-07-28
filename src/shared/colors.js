@@ -75,5 +75,49 @@ export const COLORS = [
             top: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
             bottom: ['grey', 'grey', 'grey', 'grey', 'yellow', 'grey', 'grey', 'grey', 'grey'],
         }
+    },
+    {
+        id: 8,
+        faces: {
+            front: ['grey', 'grey', 'grey', 'grey', 'blue', 'grey', 'blue', 'blue', 'blue'],
+            back: ['grey', 'grey', 'grey', 'grey', 'green', 'grey', 'green', 'green', 'green'],
+            left: ['grey', 'grey', 'grey', 'grey', 'red', 'grey', 'red', 'red', 'red'],
+            right: ['grey', 'grey', 'grey', 'grey', 'orange', 'grey', 'orange', 'orange', 'orange'],
+            top: ['grey', 'grey', 'grey', 'grey', 'yellow', 'grey', 'grey', 'grey', 'grey'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
+    },
+    {
+        id: 9,
+        faces: {
+            front: ['grey', 'blue', 'grey', 'grey', 'blue', 'grey', 'blue', 'blue', 'blue'],
+            back: ['grey', 'grey', 'grey', 'grey', 'green', 'grey', 'green', 'green', 'green'],
+            left: ['grey', 'grey', 'grey', 'grey', 'red', 'grey', 'red', 'red', 'red'],
+            right: ['grey', 'grey', 'grey', 'grey', 'orange', 'grey', 'orange', 'orange', 'orange'],
+            top: ['grey', 'grey', 'grey', 'grey', 'yellow', 'grey', 'grey', 'red', 'grey'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
+    },
+    {
+        id: 10,
+        faces: {
+            front: ['grey', 'lightblue', 'grey', 'red', 'blue', 'blue', 'blue', 'blue', 'blue'],
+            back: ['grey', 'grey', 'grey', 'green', 'green', 'green', 'green', 'green', 'green'],
+            left: ['grey', 'grey', 'grey', 'red', 'red', 'blue', 'red', 'red', 'red'],
+            right: ['grey', 'grey', 'grey', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'],
+            top: ['grey', 'grey', 'grey', 'grey', 'yellow', 'grey', 'grey', 'lightcoral', 'grey'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
+    },
+    {
+        id: 11,
+        faces: {
+            front: ['grey', 'grey', 'grey', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'],
+            back: ['grey', 'grey', 'grey', 'green', 'green', 'green', 'green', 'green', 'green'],
+            left: ['grey', 'grey', 'grey', 'red', 'red', 'red', 'red', 'red', 'red'],
+            right: ['grey', 'grey', 'grey', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'],
+            top: ['grey', 'grey', 'grey', 'grey', 'yellow', 'grey', 'grey', 'grey', 'grey'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
     }
 ]

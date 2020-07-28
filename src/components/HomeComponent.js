@@ -5,7 +5,7 @@ import CubeThree from './CubeThreeComponent';
 import { Link } from 'react-router-dom';
 
 function HomeCard(props) {
-    var conditionalLink;
+    let conditionalLink;
     if(props.outerLink) {
         conditionalLink = <a href={props.toLink} className='my-btn'>
                 <svg><rect></rect></svg>
