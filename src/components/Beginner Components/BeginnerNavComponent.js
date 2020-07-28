@@ -105,7 +105,7 @@ class BeginnerNav extends Component {
                                         className = 'nav-link sub-link'
                                         to={`${this.props.url}/first-layer-corners`}
                                     >
-                                        The White Corners
+                                        White Corners
                                     </NavLink>
                                 </NavExpandList>
                             </li>
@@ -116,6 +116,28 @@ class BeginnerNav extends Component {
                                 >
                                     Solving Second Layer
                                 </NavLink>
+                            </li>
+                            <li>
+                                <NavExpandList title='Solving Last Later'>
+                                    <NavLink onClick={this.handleClick}
+                                             className='nav-link sub-link'
+                                             to={`${this.props.url}/last-layer`}
+                                    >
+                                        The Yellow Cross
+                                    </NavLink>
+                                    <NavLink onClick={this.handleClick}
+                                             className='nav-link sub-link'
+                                             to={`${this.props.url}/last-layer-corners`}
+                                    >
+                                        Yellow Corners
+                                    </NavLink>
+                                    <NavLink onClick={this.handleClick}
+                                             className={'nav-link sub-link'}
+                                             to={`${this.props.url}/last-layer-orient`}
+                                    >
+                                        Orient Yellow Corners
+                                    </NavLink>
+                                </NavExpandList>
                             </li>
                         </ul>
                     </nav>
