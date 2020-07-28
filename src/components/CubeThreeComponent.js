@@ -75,9 +75,15 @@ class CubeThree extends Component {
         lbl.classList.add('three-cube-label');
         var addedOnce = false;
 
+        /* Creating another label for next move*/
+        var nextLbl = document.createElement('label');
+        nextLbl.innerHTML = '';
+        nextLbl.classList.add('three-cube-next-label');
+
         /* Controls using dat.gui */
         var guiControls = {
-            Speed : 0.1
+            Speed : 0.1,
+            Steps: false
         }
 
         function createCube() {
@@ -455,7 +461,7 @@ class CubeThree extends Component {
                 });
                 pane.addSeparator();
                 const f1 = pane.addFolder({
-                    title: 'Speed and Camera',
+                    title: 'Other Controls',
                 });
                 const speedChange = f1.addInput(guiControls, 'Speed', {
                     options: {
@@ -471,17 +477,24 @@ class CubeThree extends Component {
                     guiControls.Speed = parseFloat(guiControls.Speed);
                     f1.expanded = false;
                 });
-
+                f1.addSeparator();
                 const cameraBtn = f1.addButton({title: 'Reset Camera'});
                 cameraBtn.on('click', function(){
                     controls.reset();
                     f1.expanded = false;
                 });
+
+                f1.addSeparator();
+                f1.addInput(guiControls, 'Steps');
                 f1.expanded = false;
             }
 
             /* Add event listener to window */
             window.addEventListener('resize', resizeWindow);
+
+            /* Adding next Label */
+            if(cubeControls)
+                canvasDiv.appendChild(nextLbl);
 
             canvasDiv.appendChild(renderer.domElement);
             render();
@@ -499,7 +512,7 @@ class CubeThree extends Component {
                 setTimeout(function(){
                     clearing = false;
                     console.log('okay');
-                }, 500);
+                }, 100);
             }
             rotationQueue.length = 0;
 
@@ -522,50 +535,74 @@ class CubeThree extends Component {
 
             switch(next) {
                 case -6:    // Back Prime
+                    if(!init)
+                        nextLbl.innerHTML = "B'";
                     return (function() {
                         frontRotation(true, true);
                     });
                 case -5:    // Front Prime
+                    if(!init)
+                        nextLbl.innerHTML = "F'";
                     return (function(){
                         frontRotation(false, true);
                     });
                 case -4:    // Bottom Prime
+                    if(!init)
+                        nextLbl.innerHTML = "D'";
                     return (function(){
                         topRotation(true, true);
                     });
                 case -3:    // Top Prime
+                    if(!init)
+                        nextLbl.innerHTML = "U'";
                     return (function() {
                         topRotation(false, true);
                     });
                 case -2:    // Left Prime
+                    if(!init)
+                        nextLbl.innerHTML = "L'";
                     return (function(){
                         rightRotation(true, true);
                     });
                 case -1:    // Right Prime
+                    if(!init)
+                        nextLbl.innerHTML = "R'";
                     return (function(){ 
                         rightRotation(false, true);
                     });
                 case 1:     // Right
+                    if(!init)
+                        nextLbl.innerHTML = "R";
                     return (function(){
                         rightRotation(false, false);
                     });
                 case 2:     // Left
+                    if(!init)
+                        nextLbl.innerHTML = "L";
                     return (function(){
                         rightRotation(true, false);
                     });
                 case 3:     // Top
+                    if(!init)
+                        nextLbl.innerHTML = "U";
                     return (function(){
                         topRotation(false, false);
                     });
                 case 4:     // Bottom
+                    if(!init)
+                        nextLbl.innerHTML = "D";
                     return (function(){
                         topRotation(true, false);
                     });
                 case 5:     // Front
+                    if(!init)
+                        nextLbl.innerHTML = "F";
                     return (function(){
                         frontRotation(false, false);
                     });
                 case 6:     // Back
+                    if(!init)
+                        nextLbl.innerHTML = "B";
                     return (function() {
                         frontRotation(true, false);
                     });
@@ -604,6 +641,10 @@ class CubeThree extends Component {
                     cubeGroup.rotateOnAxis(rotationVector, (((rotationCoeff > 0) ? -1: 1) * rotationVar));
                     giveFaceColors();
                     doRotation = false;
+                    /* If guiControls.Steps = true pause after every rotation */
+                    if(guiControls.Steps) {
+                        cubePaused = true;
+                    }
                 }
                 if(!cubePaused) {
                     var nextFunc = nextRotation();
@@ -611,6 +652,7 @@ class CubeThree extends Component {
                             nextFunc();
                         } else if(cubeControls){
                             cubePaused = true;
+                            nextLbl.innerHTML = '';
                         }
                 }
                 rotationVar = 0.0;

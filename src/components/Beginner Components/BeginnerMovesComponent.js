@@ -61,11 +61,16 @@ export const Moves = (props) => {
                                 and then selecting the speed of rotation as per your needs.
                             </li>
                             <li>
+                                If you want cube to pause after step, open <strong>Other Controls</strong> and
+                                check the <strong>Steps</strong> checkbox.
+                            </li>
+                            <li>
                                 You can rotate the faces by dragging.
                             </li>
                             <li>
                                 If you mess up the cube rotations and forget which face was front initially,
-                                you can just open speed and camera controls and then press Reset Camera.
+                                you can just open <strong>Other Controls</strong> and then press
+                                <strong> Reset Camera</strong>.
                             </li>
                         </ul>
                     </p>
