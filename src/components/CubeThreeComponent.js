@@ -581,6 +581,11 @@ class CubeThree extends Component {
                                 addAgain();
                                 loop = !loop;
                             }, waitTime);
+                        } else {
+                            setTimeout(function () {
+                                addAgain();
+                                loop = !loop;
+                            }, waitTime);
                         }
                     }
                     return null;
@@ -590,7 +595,7 @@ class CubeThree extends Component {
         function render() {
             requestAnimationFrame(render);
 
-            /* Rotatte the Given face and then perform required actions */
+            /* Rotate the Given face and then perform required actions */
             if(doRotation && rotationVar < (Math.PI/2.0) && !clearing && !cubePaused) {
                 rotationVar = rotationVar + guiControls.Speed;
                 cubeGroup.rotateOnAxis(rotationVector, rotationCoeff);
@@ -604,7 +609,7 @@ class CubeThree extends Component {
                     var nextFunc = nextRotation();
                         if(nextFunc !== null){
                             nextFunc();
-                        } else {
+                        } else if(cubeControls){
                             cubePaused = true;
                         }
                 }
