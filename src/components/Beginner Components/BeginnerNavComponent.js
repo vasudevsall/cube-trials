@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import {Stagger, Fade} from 'react-animation-components';
 
 class NavExpandList extends Component {
     constructor(props) {
@@ -63,82 +64,94 @@ class BeginnerNav extends Component {
                 <aside className={`${(this.state.isNavOn)?'expand':''}`}>
                     <nav>
                         <ul style={{listStyle: 'none'}}>
-                            <li>
-                                <NavLink onClick={this.handleClick}
-                                    className='nav-link' 
-                                    to={`${this.props.url}/beginner-basics`}
-                                >
-                                    Cube Basics
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavExpandList title='Cube Basic Moves'>
-                                    <NavLink onClick={this.handleClick}
-                                        className='nav-link sub-link' 
-                                        to={`${this.props.url}/basic-moves`}
-                                    >
-                                        Forward Moves
-                                    </NavLink>
-                                    <NavLink onClick={this.handleClick}
-                                        className='nav-link sub-link'
-                                        to={`${this.props.url}/basic-moves-prime`}
-                                    >
-                                        Prime Moves
-                                    </NavLink>
-                                    <NavLink onClick={this.handleClick}
-                                        className='nav-link sub-link' 
-                                        to={`${this.props.url}/basic-moves-example`}
-                                    >
-                                        Example Algorithms
-                                    </NavLink>
-                                </NavExpandList>
-                            </li>
-                            <li>
-                                <NavExpandList title='Solving First Layer'>
-                                    <NavLink onClick={this.handleClick}
-                                        className = 'nav-link sub-link'
-                                        to={`${this.props.url}/first-layer`}
-                                    >
-                                        The White Cross
-                                    </NavLink>
-                                    <NavLink onClick={this.handleClick}
-                                        className = 'nav-link sub-link'
-                                        to={`${this.props.url}/first-layer-corners`}
-                                    >
-                                        White Corners
-                                    </NavLink>
-                                </NavExpandList>
-                            </li>
-                            <li>
-                                <NavLink onClick={this.handleClick}
-                                    className='nav-link' 
-                                    to={`${this.props.url}/second-layer`}
-                                >
-                                    Solving Second Layer
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavExpandList title='Solving Last Later'>
-                                    <NavLink onClick={this.handleClick}
-                                             className='nav-link sub-link'
-                                             to={`${this.props.url}/last-layer`}
-                                    >
-                                        The Yellow Cross
-                                    </NavLink>
-                                    <NavLink onClick={this.handleClick}
-                                             className='nav-link sub-link'
-                                             to={`${this.props.url}/last-layer-corners`}
-                                    >
-                                        Yellow Corners
-                                    </NavLink>
-                                    <NavLink onClick={this.handleClick}
-                                             className={'nav-link sub-link'}
-                                             to={`${this.props.url}/last-layer-orient`}
-                                    >
-                                        Orient Yellow Corners
-                                    </NavLink>
-                                </NavExpandList>
-                            </li>
+                            <Stagger in>
+                                <Fade in>
+                                    <li>
+                                        <NavLink onClick={this.handleClick}
+                                            className='nav-link'
+                                            to={`${this.props.url}/beginner-basics`}
+                                        >
+                                            Cube Basics
+                                        </NavLink>
+                                    </li>
+                                </Fade>
+                                <Fade in>
+                                    <li>
+                                        <NavExpandList title='Cube Basic Moves'>
+                                            <NavLink onClick={this.handleClick}
+                                                className='nav-link sub-link'
+                                                to={`${this.props.url}/basic-moves`}
+                                            >
+                                                Forward Moves
+                                            </NavLink>
+                                            <NavLink onClick={this.handleClick}
+                                                className='nav-link sub-link'
+                                                to={`${this.props.url}/basic-moves-prime`}
+                                            >
+                                                Prime Moves
+                                            </NavLink>
+                                            <NavLink onClick={this.handleClick}
+                                                className='nav-link sub-link'
+                                                to={`${this.props.url}/basic-moves-example`}
+                                            >
+                                                Example Algorithms
+                                            </NavLink>
+                                        </NavExpandList>
+                                    </li>
+                                </Fade>
+                                <Fade in>
+                                    <li>
+                                        <NavExpandList title='Solving First Layer'>
+                                            <NavLink onClick={this.handleClick}
+                                                className = 'nav-link sub-link'
+                                                to={`${this.props.url}/first-layer`}
+                                            >
+                                                The White Cross
+                                            </NavLink>
+                                            <NavLink onClick={this.handleClick}
+                                                className = 'nav-link sub-link'
+                                                to={`${this.props.url}/first-layer-corners`}
+                                            >
+                                                White Corners
+                                            </NavLink>
+                                        </NavExpandList>
+                                    </li>
+                                </Fade>
+                                <Fade in>
+                                    <li>
+                                        <NavLink onClick={this.handleClick}
+                                            className='nav-link'
+                                            to={`${this.props.url}/second-layer`}
+                                        >
+                                            Solving Second Layer
+                                        </NavLink>
+                                    </li>
+                                </Fade>
+                                <Fade in>
+                                    <li>
+                                        <NavExpandList title='Solving Last Later'>
+                                            <NavLink onClick={this.handleClick}
+                                                     className='nav-link sub-link'
+                                                     to={`${this.props.url}/last-layer`}
+                                            >
+                                                The Yellow Cross
+                                            </NavLink>
+                                            <NavLink onClick={this.handleClick}
+                                                     className='nav-link sub-link'
+                                                     to={`${this.props.url}/last-layer-corners`}
+                                            >
+                                                Yellow Corners
+                                            </NavLink>
+                                            <NavLink onClick={this.handleClick}
+                                                     className={'nav-link sub-link'}
+                                                     to={`${this.props.url}/last-layer-orient`}
+                                            >
+                                                Orient Yellow Corners
+                                            </NavLink>
+                                        </NavExpandList>
+                                    </li>
+                                </Fade>
+                            </Stagger>
                         </ul>
                     </nav>
                 </aside>

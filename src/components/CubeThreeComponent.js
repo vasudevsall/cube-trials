@@ -477,6 +477,11 @@ class CubeThree extends Component {
                     f1.expanded = false;
                 });
                 f1.addSeparator();
+                const resetCubeButton = f1.addButton({title: 'Reset Cube'});
+                resetCubeButton.on('click', function () {
+                    resetCube(true);
+                    f1.expanded = false;
+                });
                 const cameraBtn = f1.addButton({title: 'Reset Camera'});
                 cameraBtn.on('click', function(){
                     controls.reset();
@@ -484,7 +489,9 @@ class CubeThree extends Component {
                 });
 
                 f1.addSeparator();
-                f1.addInput(guiControls, 'Steps');
+                f1.addInput(guiControls, 'Steps').on('change', function () {
+                    f1.expanded = false;
+                });
                 f1.expanded = false;
             }
 

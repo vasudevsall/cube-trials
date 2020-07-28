@@ -1,6 +1,6 @@
 // 0 -> no rotation, 1 -> right, 2-> left, 3-> top, 4-> bottom, 5-> front, 6-> back
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
-var commonWaitTime = 1000;
+const commonWaitTime = 1000;
 export const CUBE_DATA = [
     {
         id: 1,
