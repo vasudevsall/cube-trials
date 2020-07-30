@@ -76,7 +76,7 @@ export const SecondLayer = (props) => {
                 </div>
 
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>
                             <span className='tab-space-clear'>U'</span>&nbsp;
                             <span className='tab-space-clear'>L'</span>&nbsp;
@@ -88,7 +88,7 @@ export const SecondLayer = (props) => {
                             <span className='tab-space-clear'>F'</span>
                         </strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'second_layer'
                                    cubeData = {props.cubeData.filter((data) => data.id === 23)[0]}
                                    id='23' height='300px'
@@ -104,7 +104,7 @@ export const SecondLayer = (props) => {
                 </div>
 
                 <div className='row align-self-center'>
-                    <p className='col-12 col-md-6 align-self-center text-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
                         <strong className='tab-space'>
                             <span className='tab-space-clear'>U</span>&nbsp;
                             <span className='tab-space-clear'>R</span>&nbsp;
@@ -116,7 +116,7 @@ export const SecondLayer = (props) => {
                             <span className='tab-space-clear'>F</span>
                         </strong>
                     </p>
-                    <div className='col-12 col-md-6 cube-three-margin'>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
                         <CubeThree cubeState = 'second_layer'
                                    cubeData = {props.cubeData.filter((data) => data.id === 24)[0]}
                                    id='24'   height='300px'
@@ -162,7 +162,7 @@ export const SecondLayer = (props) => {
                     </p>
                 </div>
             </div>
-            <Cube cubeId="id4"
+            <Cube cubeId="id11"
                   cubeClasses="cube"
                   cubeTitle='front'
                   Cross = {false}

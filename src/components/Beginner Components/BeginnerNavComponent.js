@@ -137,6 +137,12 @@ class BeginnerNav extends Component {
                                                 The Yellow Cross
                                             </NavLink>
                                             <NavLink onClick={this.handleClick}
+                                                     className={'nav-link sub-link'}
+                                                     to={`${this.props.url}/last-layer-edges`}
+                                            >
+                                                Yellow Edges
+                                            </NavLink>
+                                            <NavLink onClick={this.handleClick}
                                                      className='nav-link sub-link'
                                                      to={`${this.props.url}/last-layer-corners`}
                                             >

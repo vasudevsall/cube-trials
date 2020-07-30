@@ -39,6 +39,9 @@ class CubeThree extends Component {
             case 'second_layer':
                 cubeState = STATE.CUBE_STATE_SECOND_LAYER;
                 break;
+            case 'final_layer_cross':
+                cubeState = STATE.CUBE_STATE_FINAL_LAYER_CROSS;
+                break;
             default:
                 cubeState = STATE.CUBE_STATE;
         }
