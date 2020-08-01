@@ -47,7 +47,7 @@ bbe1fa
 
 .row-header {
   margin: 0 auto;
-  padding: 0 auto;
+  padding: 0;
   font-family: 'Orbitron', sans-serif;
   color: white;
 }
@@ -568,7 +568,6 @@ bbe1fa
 
 .form-input {
   z-index: 2;
-  border: none;
   width: 250px;
   border: 1px solid var(--main-col);
   transition: all 1s ease-in;
@@ -912,10 +911,18 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* Algoritms */
+/* Algorithms */
 .tab-space {
   letter-spacing: 1em;
 }
 .tab-space-clear {
   letter-spacing: normal;
+}
+
+/* Navigation bar */
+nav .nav-link span {
+  transition: all 0.5s;
+}
+nav .nav-link:hover span {
+  transform: scale(1.5) translateX(-5px);
 }
