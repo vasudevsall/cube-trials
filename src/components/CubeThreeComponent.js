@@ -42,6 +42,9 @@ class CubeThree extends Component {
             case 'final_layer_cross':
                 cubeState = STATE.CUBE_STATE_FINAL_LAYER_CROSS;
                 break;
+            case 'final_layer_edges':
+                cubeState = STATE.CUBE_STATE_FINAL_LAYER_EDGES;
+                break;
             default:
                 cubeState = STATE.CUBE_STATE;
         }

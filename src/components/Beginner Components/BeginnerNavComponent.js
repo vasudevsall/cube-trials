@@ -129,7 +129,7 @@ class BeginnerNav extends Component {
                                 </Fade>
                                 <Fade in>
                                     <li>
-                                        <NavExpandList title='Solving Last Later'>
+                                        <NavExpandList title='Solving Last Layer'>
                                             <NavLink onClick={this.handleClick}
                                                      className='nav-link sub-link'
                                                      to={`${this.props.url}/last-layer`}

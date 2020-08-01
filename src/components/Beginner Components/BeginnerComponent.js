@@ -6,7 +6,7 @@ import BeginnerHome from './BeginnerHome';
 import { Moves, PrimeMoves, AlgorithmExample } from './BeginnerMovesComponent';
 import { FixCross, FixCorners } from './FirstLayerComponent';
 import { SecondLayer } from "./SecondLayerComponent";
-import { LastCross } from "./LastLayerComponents";
+import { LastCross, LastEdges } from "./LastLayerComponents";
 import { CUBE_DATA } from '../../shared/cubeData';
 import { COLORS } from '../../shared/colors';
 
@@ -93,6 +93,12 @@ class BeginnerMain extends Component {
                                 <LastCross cubeData={this.state.cubeData} url={this.props.url}
                                              colors={this.state.colors}
                                              scrollTop = {this.handleScrollTop}
+                                />
+                            </Route>
+                            <Route path={`${this.props.path}/last-layer-edges`}>
+                                <LastEdges cubeData={this.state.cubeData} url={this.props.url}
+                                           colors={this.state.colors}
+                                           scrollTop = {this.handleScrollTop}
                                 />
                             </Route>
                             <Redirect to={`${this.props.path}/beginner-basics`}/>
