@@ -714,16 +714,7 @@ textarea::-webkit-scrollbar-thumb:hover {
   font-family: 'Lato', sans-serif;
 }
 
-.beginner-div h2 {
-  text-decoration: underline double;
-}
-
-.beginner-div h3 {
-  text-decoration: underline;
-}
-
 .beginner-div h5 {
-  text-decoration: underline;
   font-weight: bolder;
 }
 

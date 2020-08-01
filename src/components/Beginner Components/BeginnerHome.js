@@ -18,6 +18,9 @@ class BeginnerHome extends Component {
                 <div className="container">
                     <div className="row">
                         <h2 className="col-12">The Basics</h2>
+                        <div className='col-12'>
+                            <hr />
+                        </div>
                         <p className="col-12">
                             Basics are the very important in learning anything. So, let's cover all the basics.
                         </p>

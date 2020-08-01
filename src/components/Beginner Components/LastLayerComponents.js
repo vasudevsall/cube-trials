@@ -9,6 +9,9 @@ export const LastCross = (props) => {
             <div className='container'>
                 <div className='row'>
                     <h2 className='col-12'>Solving Last Layer</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <p className='col-12'>
                         Welcome to the final step of solving a cube. This part is a little more complex than previous
                         ones, because you have to find your way forward without destroying the previously solved layers.
@@ -42,6 +45,9 @@ export const LastCross = (props) => {
                         <hr />
                     </div>
                     <h2 className='col-12'>The Yellow Cross:</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <div className='col-12'>
                         <p>
                             Let's start solving the last layer. In this step, we are going to create a yellow cross
@@ -189,6 +195,7 @@ export const LastEdges = (props) => {
                 <div className='row'>
                     <div className='col-12'>
                         <h2>Yellow Edges</h2>
+                        <hr/>
                         <p>
                             In the last step, we successfully made a cross on the top (yellow) layer. But, as you may
                             recall, we have not oriented the last layer correctly. Let's do that in this step.
@@ -317,6 +324,7 @@ export const LastCorners = (props) => {
                 <div className='row'>
                     <div className='col-12'>
                         <h2>Yellow Corners</h2>
+                        <hr/>
                     </div>
                     <div className='col-12 mt-2'>
                         <p>
@@ -470,6 +478,7 @@ export const LastOrientation = (props) => {
                 <div className='row'>
                     <div className='col-12'>
                         <h2>Orientation</h2>
+                        <hr/>
                     </div>
                     <div className='col-12 mt-2'>
                         This is the last step in solution of cube using Beginner's Method. This step has only one

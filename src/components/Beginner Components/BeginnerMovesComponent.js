@@ -8,6 +8,9 @@ export const Moves = (props) => {
             <div className="container">
                 <div className="row">
                     <h2 className="col-12">Basic Moves</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <p className='col-12'>
                         There are some basic or atomic moves in cubing world. These are the moves which
                         are combined together to form all the algorithms required to solve the cube.
@@ -177,6 +180,9 @@ export const PrimeMoves = (props) => {
             <div className='container'>
                 <div className='row'>
                     <h2 className='col-12'>Prime Moves</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <p className='col-12'>
                         These are also basic or atomic moves, just in the direction opposite 
                         to the Basic, Forward ones.
@@ -324,6 +330,9 @@ export const AlgorithmExample = (props) => {
         <div className='container'>
             <div className='row'>
                 <h2 className='col-12'>Algorithm Examples</h2>
+                <div className='col-12'>
+                    <hr/>
+                </div>
                 <p className='col-12'>
                     Basic moves alone don't have much use in the cubing world, but a combination
                      of these form simple to complex algorithms, which give you the powers to solve a cube.

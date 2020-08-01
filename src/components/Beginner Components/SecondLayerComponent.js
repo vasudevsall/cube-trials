@@ -9,6 +9,9 @@ export const SecondLayer = (props) => {
             <div className='container'>
                 <div className='row'>
                     <h2 className="col-12">Solving Second Layer</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <p className='col-12'>
                         You have successfully completed first part of the tutorial. Let's keep on track and learn
                         how to solve the second layer of the cube.

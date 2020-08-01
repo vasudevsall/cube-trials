@@ -9,6 +9,9 @@ export const FixCross = (props) => {
             <div className='container'>
                 <div className='row'>
                     <h2 className='col-12'>Solving First Layer</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <p className='col-12'>
                         You have got all the weapons you require in your arsenal. But, what is the use
                          if you don't know when and how to use a weapon.
@@ -197,6 +200,9 @@ export const FixCorners = (props) => {
             <div className='container'>
                 <div className='row'>
                     <h2 className='col-12'>White Corners</h2>
+                    <div className='col-12'>
+                        <hr/>
+                    </div>
                     <p className='col-12'>
                         Now, since we have fixed the white cross successfully, we will continue fixing the corners
                         to complete the first (White) layer.
