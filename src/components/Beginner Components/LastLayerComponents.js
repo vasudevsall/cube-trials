@@ -309,3 +309,156 @@ export const LastEdges = (props) => {
         </>
     );
 }
+
+export const LastCorners = (props) => {
+    return(
+        <>
+            <div className='container mb-3'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <h2>Yellow Corners</h2>
+                    </div>
+                    <div className='col-12 mt-2'>
+                        <p>
+                            Only the last layer corners are left unsolved. First of all, we have to get them at the
+                            right spot. Thus, without worrying about the orientation of the corners in this step, we
+                            will place all the corners at their correct positions.
+                        </p>
+                    </div>
+                </div>
+                <div className='row mt-3'>
+                    <div className='col-12'>
+                        <h3>Steps</h3>
+                        <ol>
+                            <li>
+                                <strong>Keep Cross Oriented: </strong>The first thing to do is to keep your cross
+                                oriented.
+                            </li>
+                            <li>
+                                <strong>Find Correctly Placed Corner: </strong>Next, thing to do is to find correctly
+                                placed corner, i.e., the corner piece which is between correct three faces,
+                                orientation might be wrong. If there is no such piece, then follow next step.
+                            </li>
+                            <li>
+                                <strong>If no piece is found at correct position apply algorithm: </strong> You can
+                                skip this step, if you have already found a piece placed correctly. Apply the algorithm
+                                <strong> U R U' L' U R' U' L</strong> and find the piece that is placed correctly now.
+                            </li>
+                            <li>
+                                <strong>Keep correctly placed piece at top-right-front place: </strong> You have to
+                                keep the correctly placed corner at top-right position on the front face.
+                                (Look at the example state below for reference).
+                            </li>
+                            <li>
+                                <strong>Apply Algorithm: </strong> The last step is to apply algorithm
+                                <strong> U R U' L' U R' U' L</strong> till all other corner pieces are at their
+                                respective positions.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div className='container mt-2'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <h5>Example State</h5>
+                    </div>
+                </div>
+            </div>
+            <Cube cubeId="id14"
+                  cubeClasses="cube"
+                  cubeTitle='front'
+                  Cross = {false}
+                  colors={props.colors.filter((color) => color.id === 14)[0]}
+            />
+            <div className='container mt-2'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <p>
+                            Here, the corner shown in color is at its correct position, that's why it is placed at
+                            top-right-front place.
+                        </p>
+                    </div>
+                </div>
+                <div className='row mt-4'>
+                    <div className='col-12'>
+                        <h3>Algorithm</h3>
+                    </div>
+                    <div className='col-12 mt-3'>
+                        <p>
+                            The only algorithm used in this step is <strong>U R U' L' U R' U' L</strong>. What this
+                            algorithm is that, is changes positions of all the three corners except the one at the
+                            top-right-front position, clockwise. That's why we kept the correctly
+                            placed piece at this position.
+                        </p>
+                    </div>
+                </div>
+                <div className='row align-self-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className='tab-space'>
+                            <span className='tab-space-clear'>U</span>&nbsp;
+                            <span className='tab-space-clear'>R</span>&nbsp;
+                            <span className='tab-space-clear'>U'</span>&nbsp;
+                            <span className='tab-space-clear'>L'</span>&nbsp;
+                            <span className='tab-space-clear'>U</span>&nbsp;
+                            <span className='tab-space-clear'>R'</span>&nbsp;
+                            <span className='tab-space-clear'>U'</span>&nbsp;
+                            <span className='tab-space-clear'>L</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'normal'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 30)[0]}
+                                   id='30' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row mt-4'>
+                    <div className='col-12'>
+                        <p>
+                            In this case, the cube is solved after this algorithm, it might not be the case
+                            all the times. Also, sometimes you might have to apply this algorithm more than once.
+                        </p>
+                    </div>
+                </div>
+
+                <div className='row mt-4'>
+                    <div className='col-12'>
+                        <h3>Final Result</h3>
+                        <p>
+                            At the end of this step, we have correctly placed all the top layer corners.
+                        </p>
+                        <p>
+                            <strong>Note:</strong> this is just one case, the orientation of the pieces in your cases
+                            may vary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <Cube cubeId="id15"
+                  cubeClasses="cube"
+                  cubeTitle='front'
+                  Cross = {false}
+                  colors={props.colors.filter((color) => color.id === 15)[0]}
+            />
+            <div className='container'>
+                <div className='dual-btn-container row'>
+                    <Link onClick = {props.scrollTop}
+                          className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                          to={`${props.url}/last-layer-edges`}
+                    >
+                        Last Layer: Edges
+                    </Link>
+
+                    <Link  onClick = {props.scrollTop}
+                           className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                           to={`${props.url}/last-layer-orient`}
+                    >
+                        Last Layer: Orientation
+                    </Link>
+                </div>
+            </div>
+        </>
+    );
+}

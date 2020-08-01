@@ -141,5 +141,27 @@ export const COLORS = [
             top: ['grey', 'yellow', 'grey', 'yellow', 'yellow', 'yellow', 'grey', 'yellow', 'grey'],
             bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
         }
+    },
+    {
+        id: 14,
+        faces: {
+            front: ['grey', 'blue', 'yellow', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'],
+            back: ['grey', 'green', 'grey', 'green', 'green', 'green', 'green', 'green', 'green'],
+            left: ['grey', 'red', 'grey', 'red', 'red', 'red', 'red', 'red', 'red'],
+            right: ['blue', 'orange', 'grey', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'],
+            top: ['grey', 'yellow', 'grey', 'yellow', 'yellow', 'yellow', 'grey', 'yellow', 'orange'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
+    },
+    {
+        id: 15,
+        faces: {
+            front: ['yellow', 'blue', 'yellow', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'],
+            back: ['yellow', 'green', 'yellow', 'green', 'green', 'green', 'green', 'green', 'green'],
+            left: ['green', 'red', 'blue', 'red', 'red', 'red', 'red', 'red', 'red'],
+            right: ['blue', 'orange', 'green', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'],
+            top: ['red', 'yellow', 'orange', 'yellow', 'yellow', 'yellow', 'red', 'yellow', 'orange'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
     }
 ]
