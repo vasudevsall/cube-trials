@@ -462,3 +462,110 @@ export const LastCorners = (props) => {
         </>
     );
 }
+
+export const LastOrientation = (props) => {
+    return(
+        <>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <h2>Orientation</h2>
+                    </div>
+                    <div className='col-12 mt-2'>
+                        This is the last step in solution of cube using Beginner's Method. This step has only one
+                        algorithm.
+                    </div>
+                    <div className='col-12 mt-3'>
+                        <h3>Steps</h3>
+                    </div>
+                    <div className='col-12'>
+                        <ol>
+                            <li>
+                                <strong>Choosing a starting corner: </strong>The first thing do in this step is to
+                                choose a corner, that is not oriented correctly and make sure that corner is at
+                                front-top-right corner.
+                            </li>
+                            <li>
+                                <strong>Applying algorithm: </strong>The next thing to do is to apply algorithm
+                                <strong> R' D' R D </strong> until the corner is oriented correctly.
+                                Don't worry if bottom two layers are spoiled a little bit, they will get fixed later.
+                            </li>
+                            <li>
+                                <strong>Developing next corner: </strong>Get next corner that is not correctly oriented
+                                at the front-top-right position.<br/>
+                                <strong>Note: </strong>One important thing to note in this step is that, you don't
+                                turn whole cube but rotate only the top layer, because, if you rotate the whole cube
+                                the bottom two layers won't be fixed and you will have to solve whole cube again.
+                            </li>
+                            <li>
+                                <strong>Repeating steps 2 and 3: </strong> You have to repeat steps 2 and 3 util all the
+                                corners are correctly oriented.
+                            </li>
+                        </ol>
+                    </div>
+                    <div className='col-12 mt-4'>
+                        <h3>Algorithms</h3>
+                    </div>
+                    <div className='col-12'>
+                        <p>
+                            As mentioned before, there is only one algorithm in this step.
+                        </p>
+                        <p>
+                            <strong>Note: </strong>I have all four pieces not oriented. Sometimes, there
+                            may be only three or two pieces not oriented.
+                        </p>
+                    </div>
+                </div>
+                <div className='row align-self-center'>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className='tab-space'>
+                            <span className='tab-space-clear'>( R'</span>&nbsp;
+                            <span className='tab-space-clear'>D'</span>&nbsp;
+                            <span className='tab-space-clear'>R</span>&nbsp;
+                            <span className='tab-space-clear'>D )</span>&nbsp;
+                            <span className='tab-space-clear'>x2</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'normal'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 31)[0]}
+                                   id='31' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row mt-3'>
+                    <div className='col-12'>
+                        <h3 style={{textDecoration: 'none'}}>
+                            Final Result <span role="img" aria-label='Congratulations'>🎉</span>
+                        </h3>
+                    </div>
+                    <div className='col-12'>
+                        <p>
+                            Congratulations on solving world's most famous puzzle.
+                        </p>
+                        <p>
+                            Your cube should look like this now.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <Cube cubeId="id1"
+                  cubeClasses="cube"
+                  cubeTitle='front'
+                  Cross = {false}
+                  colors={props.colors.filter((color) => color.id === 1)[0]}
+            />
+            <div className='container'>
+                <div className='dual-btn-container row'>
+                    <Link onClick = {props.scrollTop}
+                          className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                          to={`${props.url}/last-layer-corners`}
+                    >
+                        Last Layer: Corners
+                    </Link>
+                </div>
+            </div>
+        </>
+    );
+}
