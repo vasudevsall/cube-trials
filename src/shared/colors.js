@@ -163,5 +163,17 @@ export const COLORS = [
             top: ['red', 'yellow', 'orange', 'yellow', 'yellow', 'yellow', 'red', 'yellow', 'orange'],
             bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
         }
+    },
+    // Two Look OLL and PLL
+    {
+        id: 16,
+        faces: {
+            front: ['grey', 'grey', 'grey', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'],
+            back: ['grey', 'grey', 'grey', 'green', 'green', 'green', 'green', 'green', 'green'],
+            left: ['grey', 'grey', 'grey', 'red', 'red', 'red', 'red', 'red', 'red'],
+            right: ['grey', 'grey', 'grey', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'],
+            top: ['yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white']
+        }
     }
 ]
