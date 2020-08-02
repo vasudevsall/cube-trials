@@ -53,12 +53,17 @@ class CubeThree extends Component {
         var vectorX, vectorY, vectorZ;
 
         var frontArr, backArr, rightArr, leftArr, topArr, downArr;
+        // Arrays for middle slices
+        var rightMid, frontMid, topMid;
 
         var doRotation = false, rotationVar = 0, rotationVector, rotationCoeff;
 
         var rotationQueue = [...this.props.cubeData.moves]; //[1, 2, 3, 4, 5, 6, -6, -5, -4, -3, -2, -1];
         // 0 -> no rotation, 1 -> right, 2-> left, 3-> top, 4-> bottom, 5-> front, 6-> back
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
+        // Above ten are double layer rotations
+        // 11-> r, 12-> l, 13-> u, 14, d, 15-> f, 16-> b
+        // -11->r' , -12 -> l' , etc.
         var originalQueue = [...this.props.cubeData.moves];
         var initMoves = [...this.props.cubeData.initMoves];
         var initState = STATE.CUBE_STATE;
@@ -130,18 +135,24 @@ class CubeThree extends Component {
                             backArr.push(index);
                         } else if(positionZ === 1) { // front
                             frontArr.push(index);
+                        } else { // front Mid
+                            frontMid.push(index);
                         }
 
                         if(positionX === -1) { // left
                             leftArr.push(index);
-                        } else if(positionX === 1) {
+                        } else if(positionX === 1) { // right
                             rightArr.push(index);
+                        } else { // right Mid
+                            rightMid.push(index);
                         }
 
                         if(positionY === -1) { // down
                             downArr.push(index);
                         } else if(positionY === 1) { // top
                             topArr.push(index);
+                        } else { // top Mid
+                            topMid.push(index);
                         }
 
                         index = index + 1;
@@ -169,52 +180,56 @@ class CubeThree extends Component {
         }
 
         /* Function for both right and left rotation */
-        function rightRotation(left, rev) {
+        function rightRotation(left, rev, double=1) {
 
             /* Initialize a new Group */
             cubeGroup = new THREE.Group();
 
-            var finalArr;
             var tempState = [];
 
-            var initArr = (left)? leftArr:rightArr;
-            
-            finalArr = rotate(initArr);
-
-            var i;
-
-            for (i=0; i<cubeState.length; i++){
+            for (let i=0; i<cubeState.length; i++){
                 tempState[i] = cubeState[i].slice();
             }
-            if( (!left && !rev) || (left && rev)) {
-                finalArr.reverse();
-                for(i = 0; i<finalArr.length; i++) {
-                    tempState[initArr[i]][0] = cubeState[finalArr[i]][0];
-                    tempState[initArr[i]][1] = cubeState[finalArr[i]][1];
-                    tempState[initArr[i]][2] = cubeState[finalArr[i]][4];
-                    tempState[initArr[i]][3] = cubeState[finalArr[i]][5];
-                    tempState[initArr[i]][4] = cubeState[finalArr[i]][3];
-                    tempState[initArr[i]][5] = cubeState[finalArr[i]][2];
 
-                    /* Add to group */
-                    cubeGroup.add(cubeArray[initArr[i]]);
-                    cubeGroup.add(cubeBorderArray[initArr[i]]);
+            for(let d = 0; d<double; d++) {
+                var finalArr;
+                var initArr = (left) ? leftArr : rightArr;
+                if(d === 1) {
+                    initArr = rightMid;
                 }
-                rotationCoeff = -1 * guiControls.Speed;
-            } else {
-                for(i = 0; i<finalArr.length; i++) {
-                    tempState[initArr[i]][0] = cubeState[finalArr[i]][0];
-                    tempState[initArr[i]][1] = cubeState[finalArr[i]][1];
-                    tempState[initArr[i]][2] = cubeState[finalArr[i]][5];
-                    tempState[initArr[i]][3] = cubeState[finalArr[i]][4];
-                    tempState[initArr[i]][4] = cubeState[finalArr[i]][2];
-                    tempState[initArr[i]][5] = cubeState[finalArr[i]][3];
 
-                    /* Add to group */
-                    cubeGroup.add(cubeArray[initArr[i]]);
-                    cubeGroup.add(cubeBorderArray[initArr[i]]);
+                finalArr = rotate(initArr);
+
+                if ((!left && !rev) || (left && rev)) {
+                    finalArr.reverse();
+                    for (let i = 0; i < finalArr.length; i++) {
+                        tempState[initArr[i]][0] = cubeState[finalArr[i]][0];
+                        tempState[initArr[i]][1] = cubeState[finalArr[i]][1];
+                        tempState[initArr[i]][2] = cubeState[finalArr[i]][4];
+                        tempState[initArr[i]][3] = cubeState[finalArr[i]][5];
+                        tempState[initArr[i]][4] = cubeState[finalArr[i]][3];
+                        tempState[initArr[i]][5] = cubeState[finalArr[i]][2];
+
+                        /* Add to group */
+                        cubeGroup.add(cubeArray[initArr[i]]);
+                        cubeGroup.add(cubeBorderArray[initArr[i]]);
+                    }
+                    rotationCoeff = -1 * guiControls.Speed;
+                } else {
+                    for (let i = 0; i < finalArr.length; i++) {
+                        tempState[initArr[i]][0] = cubeState[finalArr[i]][0];
+                        tempState[initArr[i]][1] = cubeState[finalArr[i]][1];
+                        tempState[initArr[i]][2] = cubeState[finalArr[i]][5];
+                        tempState[initArr[i]][3] = cubeState[finalArr[i]][4];
+                        tempState[initArr[i]][4] = cubeState[finalArr[i]][2];
+                        tempState[initArr[i]][5] = cubeState[finalArr[i]][3];
+
+                        /* Add to group */
+                        cubeGroup.add(cubeArray[initArr[i]]);
+                        cubeGroup.add(cubeBorderArray[initArr[i]]);
+                    }
+                    rotationCoeff = 1 * guiControls.Speed;
                 }
-                rotationCoeff = 1 * guiControls.Speed;
             }
 
 
@@ -226,52 +241,57 @@ class CubeThree extends Component {
         }
 
         /* Function for both front and back rotations */
-        function frontRotation(back, rev) {
+        function frontRotation(back, rev, double = 1) {
 
             /* Initialize a new Group */
             cubeGroup = new THREE.Group();
 
-            var finalArr;
             var tempState = [];
-            
-            var initArr = (back)? backArr:frontArr;
 
-            var i;
-
-            finalArr = rotate(initArr);
-
-            for (i=0; i<cubeState.length; i++){
+            for (let i=0; i<cubeState.length; i++){
                 tempState[i] = cubeState[i].slice();
             }
-            if((!back && !rev) || (back && rev)) {
-                for(i = 0; i<finalArr.length; i++) {
-                    tempState[initArr[i]][0] = cubeState[finalArr[i]][2];
-                    tempState[initArr[i]][1] = cubeState[finalArr[i]][3];
-                    tempState[initArr[i]][2] = cubeState[finalArr[i]][1];
-                    tempState[initArr[i]][3] = cubeState[finalArr[i]][0];
-                    tempState[initArr[i]][4] = cubeState[finalArr[i]][4];
-                    tempState[initArr[i]][5] = cubeState[finalArr[i]][5];
 
-                    /* Add to group */
-                    cubeGroup.add(cubeArray[initArr[i]]);
-                    cubeGroup.add(cubeBorderArray[initArr[i]]);
+            for(let d = 0; d < double; d++) {
+                var finalArr;
+                var initArr = (back) ? backArr : frontArr;
+                if(d === 1) {
+                    initArr = frontMid;
                 }
-                rotationCoeff = -1 * guiControls.Speed;
-            } else {
-                finalArr.reverse();
-                for(i = 0; i<finalArr.length; i++) {
-                    tempState[initArr[i]][0] = cubeState[finalArr[i]][3];
-                    tempState[initArr[i]][1] = cubeState[finalArr[i]][2];
-                    tempState[initArr[i]][2] = cubeState[finalArr[i]][0];
-                    tempState[initArr[i]][3] = cubeState[finalArr[i]][1];
-                    tempState[initArr[i]][4] = cubeState[finalArr[i]][4];
-                    tempState[initArr[i]][5] = cubeState[finalArr[i]][5];
 
-                    /* Add to group */
-                    cubeGroup.add(cubeArray[initArr[i]]);
-                    cubeGroup.add(cubeBorderArray[initArr[i]]);
+                finalArr = rotate(initArr);
+
+
+                if ((!back && !rev) || (back && rev)) {
+                    for (let i = 0; i < finalArr.length; i++) {
+                        tempState[initArr[i]][0] = cubeState[finalArr[i]][2];
+                        tempState[initArr[i]][1] = cubeState[finalArr[i]][3];
+                        tempState[initArr[i]][2] = cubeState[finalArr[i]][1];
+                        tempState[initArr[i]][3] = cubeState[finalArr[i]][0];
+                        tempState[initArr[i]][4] = cubeState[finalArr[i]][4];
+                        tempState[initArr[i]][5] = cubeState[finalArr[i]][5];
+
+                        /* Add to group */
+                        cubeGroup.add(cubeArray[initArr[i]]);
+                        cubeGroup.add(cubeBorderArray[initArr[i]]);
+                    }
+                    rotationCoeff = -1 * guiControls.Speed;
+                } else {
+                    finalArr.reverse();
+                    for (let i = 0; i < finalArr.length; i++) {
+                        tempState[initArr[i]][0] = cubeState[finalArr[i]][3];
+                        tempState[initArr[i]][1] = cubeState[finalArr[i]][2];
+                        tempState[initArr[i]][2] = cubeState[finalArr[i]][0];
+                        tempState[initArr[i]][3] = cubeState[finalArr[i]][1];
+                        tempState[initArr[i]][4] = cubeState[finalArr[i]][4];
+                        tempState[initArr[i]][5] = cubeState[finalArr[i]][5];
+
+                        /* Add to group */
+                        cubeGroup.add(cubeArray[initArr[i]]);
+                        cubeGroup.add(cubeBorderArray[initArr[i]]);
+                    }
+                    rotationCoeff = 1 * guiControls.Speed;
                 }
-                rotationCoeff = 1 * guiControls.Speed;
             }
 
 
@@ -282,52 +302,57 @@ class CubeThree extends Component {
         }
 
         /* Function for handling both top and down rotations */
-        function topRotation(down, rev) {
+        function topRotation(down, rev, double = 1) {
 
             /* Initialize a new Group */
             cubeGroup = new THREE.Group();
 
-            var finalArr;
             var tempState = [];
-            
-            var initArr = (down)? downArr:topArr;
 
-            var i;
 
-            finalArr = rotate(initArr);
-
-            for (i=0; i<cubeState.length; i++){
+            for (let i=0; i<cubeState.length; i++){
                 tempState[i] = cubeState[i].slice();
             }
-            if((!down && !rev) || (down && rev)) {
-                for(i = 0; i<finalArr.length; i++) {
-                    tempState[initArr[i]][0] = cubeState[finalArr[i]][5];
-                    tempState[initArr[i]][1] = cubeState[finalArr[i]][4];
-                    tempState[initArr[i]][2] = cubeState[finalArr[i]][2];
-                    tempState[initArr[i]][3] = cubeState[finalArr[i]][3];
-                    tempState[initArr[i]][4] = cubeState[finalArr[i]][0];
-                    tempState[initArr[i]][5] = cubeState[finalArr[i]][1];
 
-                    /* Add to group */
-                    cubeGroup.add(cubeArray[initArr[i]]);
-                    cubeGroup.add(cubeBorderArray[initArr[i]]);
+            for(let d=0; d<double; d++) {
+                var finalArr;
+                var initArr = (down) ? downArr : topArr;
+                if(d === 1) {
+                    initArr = topMid;
                 }
-                rotationCoeff = -1 * guiControls.Speed;
-            } else {
-                finalArr.reverse();
-                for(i = 0; i<finalArr.length; i++) {
-                    tempState[initArr[i]][0] = cubeState[finalArr[i]][4];
-                    tempState[initArr[i]][1] = cubeState[finalArr[i]][5];
-                    tempState[initArr[i]][2] = cubeState[finalArr[i]][2];
-                    tempState[initArr[i]][3] = cubeState[finalArr[i]][3];
-                    tempState[initArr[i]][4] = cubeState[finalArr[i]][1];
-                    tempState[initArr[i]][5] = cubeState[finalArr[i]][0];
 
-                    /* Add to group */
-                    cubeGroup.add(cubeArray[initArr[i]]);
-                    cubeGroup.add(cubeBorderArray[initArr[i]]);
+                finalArr = rotate(initArr);
+
+                if ((!down && !rev) || (down && rev)) {
+                    for (let i = 0; i < finalArr.length; i++) {
+                        tempState[initArr[i]][0] = cubeState[finalArr[i]][5];
+                        tempState[initArr[i]][1] = cubeState[finalArr[i]][4];
+                        tempState[initArr[i]][2] = cubeState[finalArr[i]][2];
+                        tempState[initArr[i]][3] = cubeState[finalArr[i]][3];
+                        tempState[initArr[i]][4] = cubeState[finalArr[i]][0];
+                        tempState[initArr[i]][5] = cubeState[finalArr[i]][1];
+
+                        /* Add to group */
+                        cubeGroup.add(cubeArray[initArr[i]]);
+                        cubeGroup.add(cubeBorderArray[initArr[i]]);
+                    }
+                    rotationCoeff = -1 * guiControls.Speed;
+                } else {
+                    finalArr.reverse();
+                    for (let i = 0; i < finalArr.length; i++) {
+                        tempState[initArr[i]][0] = cubeState[finalArr[i]][4];
+                        tempState[initArr[i]][1] = cubeState[finalArr[i]][5];
+                        tempState[initArr[i]][2] = cubeState[finalArr[i]][2];
+                        tempState[initArr[i]][3] = cubeState[finalArr[i]][3];
+                        tempState[initArr[i]][4] = cubeState[finalArr[i]][1];
+                        tempState[initArr[i]][5] = cubeState[finalArr[i]][0];
+
+                        /* Add to group */
+                        cubeGroup.add(cubeArray[initArr[i]]);
+                        cubeGroup.add(cubeBorderArray[initArr[i]]);
+                    }
+                    rotationCoeff = 1 * guiControls.Speed;
                 }
-                rotationCoeff = 1 * guiControls.Speed;
             }
 
 
@@ -431,6 +456,10 @@ class CubeThree extends Component {
             leftArr = [];
             topArr = [];
             downArr = [];
+            // Middle layer arrays
+            rightMid = [];
+            frontMid = [];
+            topMid = [];
 
             /* Initialize the cubeGroup and add it to the scene */
             cubeGroup = new THREE.Group();
@@ -546,6 +575,42 @@ class CubeThree extends Component {
             }
 
             switch(next) {
+                case -16:    // Back Prime double
+                    if(!init)
+                        nextLbl.innerHTML = "b'";
+                    return (function() {
+                        frontRotation(true, true, 2);
+                    });
+                case -15:    // Front Prime double
+                    if(!init)
+                        nextLbl.innerHTML = "f'";
+                    return (function(){
+                        frontRotation(false, true, 2);
+                    });
+                case -14:    // Bottom Prime double
+                    if(!init)
+                        nextLbl.innerHTML = "d'";
+                    return (function(){
+                        topRotation(true, true, 2);
+                    });
+                case -13:    // Top Prime double
+                    if(!init)
+                        nextLbl.innerHTML = "u'";
+                    return (function() {
+                        topRotation(false, true, 2);
+                    });
+                case -12:    // Left Prime double
+                    if(!init)
+                        nextLbl.innerHTML = "l'";
+                    return (function(){
+                        rightRotation(true, true, 2);
+                    });
+                case -11:    // Right Prime double
+                    if(!init)
+                        nextLbl.innerHTML = "r'";
+                    return (function(){
+                        rightRotation(false, true, 2);
+                    });
                 case -6:    // Back Prime
                     if(!init)
                         nextLbl.innerHTML = "B'";
@@ -617,6 +682,42 @@ class CubeThree extends Component {
                         nextLbl.innerHTML = "B";
                     return (function() {
                         frontRotation(true, false);
+                    });
+                case 11:     // Right double
+                    if(!init)
+                        nextLbl.innerHTML = "r";
+                    return (function(){
+                        rightRotation(false, false, 2);
+                    });
+                case 12:     // Left double
+                    if(!init)
+                        nextLbl.innerHTML = "l";
+                    return (function(){
+                        rightRotation(true, false, 2);
+                    });
+                case 13:     // Top double
+                    if(!init)
+                        nextLbl.innerHTML = "u";
+                    return (function(){
+                        topRotation(false, false, 2);
+                    });
+                case 14:     // Bottom double
+                    if(!init)
+                        nextLbl.innerHTML = "d";
+                    return (function(){
+                        topRotation(true, false, 2);
+                    });
+                case 15:     // Front double
+                    if(!init)
+                        nextLbl.innerHTML = "f";
+                    return (function(){
+                        frontRotation(false, false, 2);
+                    });
+                case 16:     // Back double
+                    if(!init)
+                        nextLbl.innerHTML = "b";
+                    return (function() {
+                        frontRotation(true, false, 2);
                     });
                 default:
                     if(loop && !init) {
