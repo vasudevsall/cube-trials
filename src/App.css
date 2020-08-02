@@ -915,6 +915,12 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .border-right-lg {
+    border-right: 1px solid;
+  }
+}
+
 /* Algorithms */
 .tab-space {
   letter-spacing: 1em;

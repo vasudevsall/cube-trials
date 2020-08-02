@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import CubeThree from "../CubeThreeComponent";
 
 export const TwoOLL = (props) => {
     return(
@@ -37,6 +38,59 @@ export const TwoOLL = (props) => {
                             <strong> f, u, r, b, l, d </strong>. For example, <strong>r</strong> means
                             rotation of right two layers clockwise, and <strong>r'</strong> means rotation of right
                             two layers counter-clockwise
+                        </p>
+                        <p>
+                            Find the animations for r and r' moves below.
+                        </p>
+                    </div>
+                </div>
+
+                <div className='row align-self-center mt-5'>
+                    <div className='col-12 col-lg-6 cube-three-margin text-center border-right-lg'>
+                        <h5 style={{textDecoration: 'underline'}}>r Move</h5>
+                        <CubeThree cubeState = 'normal'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 32)[0]}
+                                   id='32' height='300px'
+                        />
+                    </div>
+                    <div className='col-12 col-lg-6 cube-three-margin text-center'>
+                        <h5 style={{textDecoration: 'underline'}}>r' Move</h5>
+                        <CubeThree cubeState = 'normal'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 33)[0]}
+                                   id='33' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row mt-3'>
+                    <div className='col-12'>
+                        <h3>Whole Cube Reorientation</h3>
+                        <p>
+                            The entire cube rotations are used in some algorithms. These are rotations of complete cube
+                            rather than a single layer or slice. The possible cube reorientations are:
+                        </p>
+                        <ol>
+                            <li>
+                                <strong>x -</strong> Rotate the entire cube on R, i.e., do a R move on all the three
+                                layers at once.
+                            </li>
+                            <li>
+                                <strong>y -</strong> Rotate the entire cube on U, i.e., do a U move on all the three
+                                layers at once.
+                            </li>
+                            <li>
+                                <strong>z -</strong> Rotate the entire cube on F, i.e., do a F move on all the three
+                                layers at once.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div className='row mt-3'>
+                    <div className='col-12'>
+                        <h3>Algorithms</h3>
+                        <p>
+                            There are 7 algorithms in this step.
                         </p>
                     </div>
                 </div>

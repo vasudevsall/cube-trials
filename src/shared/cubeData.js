@@ -1,5 +1,6 @@
 // 0 -> no rotation, 1 -> right, 2-> left, 3-> top, 4-> bottom, 5-> front, 6-> back
         // -1 -> rightPrime, -2-> leftPrime, -3->topPrime, etc.
+// 11 -> Right double layer, etc.
 const commonWaitTime = 1000;
 export const CUBE_DATA = [
     {
@@ -381,6 +382,31 @@ export const CUBE_DATA = [
             -1, -4, 1, 4, -1, -4, 1, 4, -1, -4, 1, 4, -1, -4, 1, 4, 3,
             -1, -4, 1, 4, -1, -4, 1, 4, -1, -4, 1, 4, -1, -4, 1, 4, 3],
         // (R' D' R D)x2 U (R' D' R D)x2 U (R' D' R D)x4 U (R' D' R D)x4
+        cubeControls: true,
+        initPaused: true
+    },
+    // Two Look
+    {
+        id: 32,
+        addControls: true,
+        moves: [11],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: 0,
+        resetFaces: false,
+        initMoves: [],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 33,
+        addControls: true,
+        moves: [-11],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: 0,
+        resetFaces: false,
+        initMoves: [],
         cubeControls: true,
         initPaused: true
     }
