@@ -24,7 +24,7 @@ class CustomCard extends Component {
                     <img src={this.props.details.image} className="custom-card-img" height="100%" width="100%" alt={this.props.details.title} />
                 </div>
                 <div className="badge-container">
-                    <span className={this.props.details.badgeClasses}>{this.props.details.difficuilty}</span>
+                    <span className={this.props.details.badgeClasses}>{this.props.details.difficulty}</span>
                 </div>
                 <div className="description-div">
                     <h4>{this.props.details.description}</h4>
