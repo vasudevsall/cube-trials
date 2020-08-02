@@ -84,7 +84,7 @@ export const TwoHome = (props) => {
                     <Link onClick = {props.scrollTop}
                           style={{width: '180px'}}
                           className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
-                          to={`${props.url}/last-layer-corners`}
+                          to={`${props.url}/beginner-basics`}
                     >
                         Cube Basics
                     </Link>

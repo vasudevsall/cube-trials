@@ -805,6 +805,10 @@ textarea::-webkit-scrollbar-thumb:hover {
 .aside-div h5{
   font-weight: bold;
 }
+.aside-div .aside-head-link{
+  text-decoration: none;
+  color: var(--light-col-2);
+}
 .aside-div .nav-link {
   color: var(--light-col-3);
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import {Stagger, Fade} from 'react-animation-components';
 import NavExpandList from "../NavExpandComponent";
 
@@ -27,7 +27,9 @@ class TwoLookNav extends Component{
                 <button className='beginner-nav-btn navbar-toggler' onClick={(e) => {this.handleClick(e, false)}}>
                     <span className='fa fa-bars'></span>
                 </button>
-                <h5 className='ml-auto text-center d-inline-block'>Beginner's Method</h5>
+                <Link to='/tutorial/2' className='aside-head-link'>
+                    <h5 className='ml-auto text-center d-inline-block'>Two Look OLL and PLL</h5>
+                </Link>
                 <aside className={`${(this.state.isNavOn)?'expand':''}`}>
                     <nav>
                         <ul style={{listStyle: 'none'}}>
