@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import CubeThree from "../CubeThreeComponent";
+import Cube from "../CubeComponent";
 
 export const TwoOLL = (props) => {
     return(
@@ -93,6 +94,149 @@ export const TwoOLL = (props) => {
                             There are 7 algorithms in this step.
                         </p>
                     </div>
+                </div>
+
+                <div className='row justify-content-center'>
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/1.gif"}
+                                 alt="Algorithm-1"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 1</h5>
+                                (R U R' U) R U2 R'
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/2.gif"}
+                                 alt="Algorithm-2"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 2</h5>
+                                (L' U' L U') L' U2 L
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='row justify-content-center'>
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/3.gif"}
+                                 alt="Algorithm-3"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 3</h5>
+                                y (R' U' R) U' (R' U R) U' (R' U2 R)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/4.gif"}
+                                 alt="Algorithm-4"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 4</h5>
+                                R U2 R2 U' R2 U' R2 U2 R
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='row justify-content-center'>
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/5.gif"}
+                                 alt="Algorithm-5"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 5</h5>
+                                y (R U R' U') (R U’ R’ U2)*2 (R U R’)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/6.gif"}
+                                 alt="Algorithm-6"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 6</h5>
+                                ( r U R' U') ( r' F R F')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <div className={'col-12 col-lg-6'}>
+                        <div className='media mt-3'>
+                            <img className='mr-0 mr-sm-5'
+                                 src={process.env.PUBLIC_URL + "/images/twoLook/7.png"}
+                                 alt="Algorithm-7"
+                                 width={'150px'}
+                                 height={'150px'}
+                            />
+                            <div className='media-body align-self-center mt-sm-3'>
+                                <h5>Case 7</h5>
+                                F' ( r U R' U') (r' F R )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='row mt-4'>
+                    <div className='col-12'>
+                        <h3>Final Result</h3>
+                        <p>Final Result after this step is as follows.</p>
+                    </div>
+                </div>
+            </div>
+            <Cube cubeId="id16"
+                  cubeClasses="cube"
+                  cubeTitle='front'
+                  Cross = {false}
+                  colors={props.colors.filter((color) => color.id === 16)[0]}
+            />
+            <div className='container'>
+                <div className='dual-btn-container row'>
+                    <Link onClick = {props.scrollTop}
+                          className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                          to={`${props.url}/last-layer`}
+                    >
+                        Two Look OLL: Cross
+                    </Link>
+
+                    <Link  onClick = {props.scrollTop}
+                           className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                           to={`${props.url}/two-pll`}
+                    >
+                        Two Look PLL
+                    </Link>
                 </div>
             </div>
         </>

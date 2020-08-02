@@ -893,7 +893,7 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 576px) {
   .dual-btn-container {
     width: 100%;
   }
@@ -906,6 +906,16 @@ textarea::-webkit-scrollbar-thumb:hover {
   }
   .prev-nav-button {
     margin: 20px auto;
+  }
+
+  .media {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .media .media-body {
+    text-align: center;
   }
 }
 
