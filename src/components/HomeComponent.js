@@ -41,9 +41,11 @@ function HomePage(props) {
                         <div className="row row-header">
                             <div className="col-12 col-md-6 align-self-center text-center">
                                 <h1>Cube Trials</h1>
-                                <p>
-                                    Let's go cubing!
-                                </p>
+                                <div className={'typewriter'}>
+                                    <div className={'typewriter-text'}>
+                                        Let's go cubing!
+                                    </div>
+                                </div>
                             </div>
                             <div className="d-none d-md-block col-12 col-md-6 home-cube">
                                 <CubeThree cubeData = {props.threeData} id={props.threeData.id} height='350px' />

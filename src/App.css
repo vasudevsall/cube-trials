@@ -355,6 +355,47 @@ bbe1fa
 }
 
 /** Home Card **/
+.typewriter {
+  display: inline-block;
+  color: #fff;
+  letter-spacing: 3px;
+}
+
+.typewriter-text {
+  display: inline-block;
+  overflow: hidden;
+  letter-spacing: 3px;
+  animation: typing 10s steps(16) infinite, blink .75s infinite;
+  white-space: nowrap;
+  border-right: 1px solid orange;
+  box-sizing: border-box;
+}
+
+@keyframes typing {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 100%;
+  }
+  75% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+
 .homeContainer {
   background-color: var(--dark-col);
   margin: 0;
