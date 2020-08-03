@@ -358,16 +358,15 @@ bbe1fa
 .typewriter {
   display: inline-block;
   color: #fff;
-  letter-spacing: 3px;
 }
 
 .typewriter-text {
   display: inline-block;
   overflow: hidden;
   letter-spacing: 3px;
-  animation: typing 10s steps(16) infinite, blink .75s infinite;
+  animation: typing 15s steps(16) infinite, blink .75s infinite;
   white-space: nowrap;
-  border-right: 1px solid orange;
+  border-right: 1px solid white;
   box-sizing: border-box;
 }
 
@@ -391,7 +390,7 @@ bbe1fa
     border-color: transparent
   }
   50% {
-    border-color: orange;
+    border-color: white;
   }
 }
 

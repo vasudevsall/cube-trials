@@ -62,7 +62,7 @@ class Contact extends Component {
                 <Jumbotron className='bg-secondary'>
                     <div className='container'>
                         <div className='row row-header'>
-                            <div className='col-12 col-md-6 align-self-center'>
+                            <div className='col-12 col-md-6 align-self-center text-center'>
                                 <h1>Hello!!</h1>
                                 <p>
                                     You there?
