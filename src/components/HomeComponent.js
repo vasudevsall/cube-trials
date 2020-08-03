@@ -18,7 +18,7 @@ function HomeCard(props) {
             </Link>
     }
     return(
-        <div className='home-card mr-auto ml-auto mt-2 mb-2'>
+        <div className='home-card mx-auto my-4'>
             <div className='home-card-img'>
                 <img src={props.image} alt={props.title} />
             </div>

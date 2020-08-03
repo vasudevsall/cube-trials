@@ -438,6 +438,7 @@ bbe1fa
   z-index: 0;
   background: linear-gradient(315deg, #0375f4, #7055bc);
   box-shadow: 0 0 5px 0 black;
+  filter: blur(3px);
 }
 .home-card::after {
   position: absolute;
@@ -449,6 +450,7 @@ bbe1fa
   width: inherit;
   z-index: 1;
   background-color: var(--dark-col);
+  border-radius: 50px 0;
 }
 
 .home-card-img {
