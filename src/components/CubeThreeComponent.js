@@ -407,7 +407,6 @@ class CubeThree extends Component {
             renderer.setClearColor(backColor);
             renderer.setSize(TH_WIDTH, TH_HEIGHT);
             renderer.shadowMap.enabled = true;
-            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
             /* Adding controls to the scene */
             if(addControls){
@@ -421,14 +420,15 @@ class CubeThree extends Component {
             if(addControls)
                 scene.add(new THREE.AmbientLight(0xffffff));
             else {
-                var spotLight = new THREE.SpotLight(0xffffff);
+                var spotLight = new THREE.DirectionalLight(0xffffff);
                 spotLight.position.set(-40, 40, 40);
                 scene.add(spotLight);
 
-                spotLight = new THREE.SpotLight(0xffffff);
-                spotLight.position.set(-10, 30, 10);
+                spotLight = new THREE.DirectionalLight(0xffffff, 0.46);
+                spotLight.position.set(-8, 30, 8);
                 spotLight.castShadow = true;
-                spotLight.distance = 80;
+                spotLight.shadow.radius = 13;
+                spotLight.shadow.normalBias = -2;
                 scene.add(spotLight);
             }
 
@@ -445,7 +445,7 @@ class CubeThree extends Component {
             plane.rotation.x = -Math.PI / 2;
             plane.receiveShadow = true;
 
-            plane.position.set(0, -10, 0);
+            plane.position.set(0, -8, 0);
 
             scene.add(plane);
 

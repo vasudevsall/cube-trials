@@ -70,10 +70,10 @@ class Cube extends Component{
         return(
             <div className = "container cube-div mb-2">
                 <div className = "row">
-                    <div className="cube-head col-12 text-center mb-3">
+                    <div className="cube-head col-11 text-center mb-3">
                         <h2>Current Face: {Capitalize(this.state.cubeTitle)}</h2>
                     </div>
-                    <div className="col-sm-7">
+                    <div className="col-sm-11">
                         <div className="scene" style={{height: this.props.height, width: this.props.width}}>
                             <div className={this.state.cubeClasses}>
                                 {renderFaces}
@@ -81,7 +81,7 @@ class Cube extends Component{
                         </div>
                     </div>
                     <div className="d-block d-sm-none col mt-5"></div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-1">
                         <div className="d-none d-md-inline-block btn-group-vertical">
                             {renderLabels}
                         </div>
