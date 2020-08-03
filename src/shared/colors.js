@@ -175,5 +175,16 @@ export const COLORS = [
             top: ['yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
             bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white']
         }
+    },
+    {
+        id: 17,
+        faces: {
+            front: ['blue', 'grey', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue'],
+            back: ['green', 'grey', 'green', 'green', 'green', 'green', 'green', 'green', 'green'],
+            left: ['red', 'grey', 'red', 'red', 'red', 'red', 'red', 'red', 'red'],
+            right: ['orange', 'grey', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange', 'orange'],
+            top: ['yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow'],
+            bottom: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'white', 'white'],
+        }
     }
 ]

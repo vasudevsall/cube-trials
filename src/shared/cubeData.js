@@ -409,5 +409,31 @@ export const CUBE_DATA = [
         initMoves: [],
         cubeControls: true,
         initPaused: true
+    },
+    {
+        id: 34,
+        addControls: true,
+        moves: [-1, 5, -1, 6, 6, 1, -5, -1, 6, 6, 1, 1],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        // Rev of above algorithm and changing of centers
+        initMoves: [1, 1, 6, 6, 1, 5, -1, 6, 6, 1, -5, 1,
+            5, 5, 3, 2, -1, 5, 5, -2, 1, 3, 5, 5],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 35,
+        addControls: true,
+        moves: [5, 5, 3, 2, -1, 5, 5, -2, 1, 3, 5, 5],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [5, 5, 3, 2, -1, 5, 5, -2, 1, 3, 5, 5, 5, 5, 3, 2, -1, 5, 5, -2, 1, 3, 5, 5],
+        cubeControls: true,
+        initPaused: true
     }
 ]

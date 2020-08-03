@@ -11,6 +11,7 @@ import {SecondLayer} from "../Beginner Components/SecondLayerComponent";
 import {LastCross} from "../Beginner Components/LastLayerComponents";
 import {TwoOLL} from "./TwoOllComponent";
 import {TwoHome} from "./TwoLookHomeComponent";
+import {TwoEdges, TwoPLL} from "./TwoPLLComponent";
 
 class TwoLookMain extends Component{
 
@@ -99,6 +100,18 @@ class TwoLookMain extends Component{
                                 <TwoOLL cubeData={this.state.cubeData} url={this.props.url}
                                            colors={this.state.colors}
                                            scrollTop = {this.handleScrollTop}
+                                />
+                            </Route>
+                            <Route path={`${this.props.path}/two-pll`}>
+                                <TwoPLL cubeData={this.state.cubeData} url={this.props.url}
+                                        colors={this.state.colors}
+                                        scrollTop = {this.handleScrollTop}
+                                />
+                            </Route>
+                            <Route path={`${this.props.path}/two-pll-edges`}>
+                                <TwoEdges cubeData={this.state.cubeData} url={this.props.url}
+                                        colors={this.state.colors}
+                                        scrollTop = {this.handleScrollTop}
                                 />
                             </Route>
                             <Redirect to={`${this.props.path}/two-oll`}/>

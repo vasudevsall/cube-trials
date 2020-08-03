@@ -109,10 +109,26 @@ class TwoLookNav extends Component{
                                                      className='nav-link sub-link'
                                                      to={`${this.props.url}/two-oll`}
                                             >
-                                                Completing Top Layer
+                                                Completing Top Face
                                             </NavLink>
                                         </NavExpandList>
                                     </li>
+                                </Fade>
+                                <Fade in>
+                                    <NavExpandList title='Two Look PLL'>
+                                        <NavLink onClick={this.handleClick}
+                                                 className='nav-link sub-link'
+                                                 to={`${this.props.url}/two-pll`}
+                                        >
+                                            Permute Corners
+                                        </NavLink>
+                                        <NavLink onClick={this.handleClick}
+                                                 className='nav-link sub-link'
+                                                 to={`${this.props.url}/two-pll-edges`}
+                                        >
+                                            Permute Edges
+                                        </NavLink>
+                                    </NavExpandList>
                                 </Fade>
                             </Stagger>
                         </ul>

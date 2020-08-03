@@ -235,7 +235,7 @@ export const TwoOLL = (props) => {
                            className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
                            to={`${props.url}/two-pll`}
                     >
-                        Two Look PLL
+                        Two Look PLL: Corners
                     </Link>
                 </div>
             </div>
