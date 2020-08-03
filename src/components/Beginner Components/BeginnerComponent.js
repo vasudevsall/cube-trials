@@ -93,6 +93,7 @@ class BeginnerMain extends Component {
                                 <LastCross cubeData={this.state.cubeData} url={this.props.url}
                                              colors={this.state.colors}
                                              scrollTop = {this.handleScrollTop}
+                                             twoOll = {false}
                                 />
                             </Route>
                             <Route path={`${this.props.path}/last-layer-edges`}>

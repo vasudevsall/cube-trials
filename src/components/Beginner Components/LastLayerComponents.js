@@ -4,6 +4,26 @@ import CubeThree from "../CubeThreeComponent";
 import {Link} from "react-router-dom";
 
 export const LastCross = (props) => {
+    let nextLink;
+        if(props.twoOll) {
+            nextLink = (
+                <Link  onClick = {props.scrollTop}
+                       className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                       to={`${props.url}/two-oll`}
+                >
+                    Two Look OLL
+                </Link>
+            );
+        } else {
+            nextLink = (
+                <Link onClick={props.scrollTop}
+                      className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                      to={`${props.url}/last-layer-edges`}
+                >
+                    Last Layer: Edges
+                </Link>
+            );
+        }
     return(
         <>
             <div className='container'>
@@ -176,12 +196,7 @@ export const LastCross = (props) => {
                         Second Layer
                     </Link>
 
-                    <Link  onClick = {props.scrollTop}
-                           className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
-                           to={`${props.url}/last-layer-edges`}
-                    >
-                        Last Layer: Edges
-                    </Link>
+                    {nextLink}
                 </div>
             </div>
         </>
