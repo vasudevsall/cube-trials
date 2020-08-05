@@ -197,6 +197,8 @@ class CubeThree extends Component {
                 var initArr = (left) ? leftArr : rightArr;
                 if(d === 1) {
                     initArr = rightMid;
+                } else if(d === 2) {
+                    initArr = (left) ? rightArr : leftArr;
                 }
 
                 finalArr = rotate(initArr);
@@ -258,6 +260,8 @@ class CubeThree extends Component {
                 var initArr = (back) ? backArr : frontArr;
                 if(d === 1) {
                     initArr = frontMid;
+                } else if(d === 2) {
+                    initArr = (back) ? frontArr : backArr;
                 }
 
                 finalArr = rotate(initArr);
@@ -320,6 +324,8 @@ class CubeThree extends Component {
                 var initArr = (down) ? downArr : topArr;
                 if(d === 1) {
                     initArr = topMid;
+                } else if(d === 2) {
+                    initArr = (down) ? topArr : downArr;
                 }
 
                 finalArr = rotate(initArr);
@@ -585,6 +591,24 @@ class CubeThree extends Component {
             }
 
             switch(next) {
+                case -23:   // z prime rotation
+                    if(!init)
+                        nextLbl.innerHTML = "z'";
+                    return (function() {
+                        frontRotation(false, true, 3);
+                    });
+                case -22:    // y prime rotation
+                    if(!init)
+                        nextLbl.innerHTML = "y'";
+                    return (function() {
+                        topRotation(false, true, 3);
+                    });
+                case -21:   // x prime rotation
+                    if(!init)
+                        nextLbl.innerHTML = "x'";
+                    return (function() {
+                        rightRotation(false, true, 3);
+                    });
                 case -16:    // Back Prime double
                     if(!init)
                         nextLbl.innerHTML = "b'";
@@ -728,6 +752,20 @@ class CubeThree extends Component {
                         nextLbl.innerHTML = "b";
                     return (function() {
                         frontRotation(true, false, 2);
+                    });
+                case 21:    // x Rotation
+                    if(!init)
+                        nextLbl.innerHTML = 'x';
+                    return (function() {
+                        rightRotation(false, false, 3);
+                    });
+                case 22:    // y Rotation
+                    return (function() {
+                        topRotation(false, false, 3);
+                    });
+                case 23:    // z Rotation
+                    return (function () {
+                        frontRotation(false, false, 3);
                     });
                 default:
                     if(loop && !init) {
