@@ -127,9 +127,9 @@ export const TwoPLL = (props) => {
                 <div className='dual-btn-container row'>
                     <Link onClick = {props.scrollTop}
                           className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
-                          to={`${props.url}/two-oll`}
+                          to={`${props.url}/two-oll-animation`}
                     >
-                        Two Look OLL
+                        Two Look OLL: Animations
                     </Link>
 
                     <Link  onClick = {props.scrollTop}

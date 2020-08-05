@@ -111,6 +111,12 @@ class TwoLookNav extends Component{
                                             >
                                                 Completing Top Face
                                             </NavLink>
+                                            <NavLink onClick={this.handleClick}
+                                                     className={'nav-link sub-link'}
+                                                     to={`${this.props.url}/two-oll-animation`}
+                                            >
+                                                Algorithms
+                                            </NavLink>
                                         </NavExpandList>
                                     </li>
                                 </Fade>

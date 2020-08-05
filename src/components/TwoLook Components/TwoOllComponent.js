@@ -209,6 +209,14 @@ export const TwoOLL = (props) => {
                     </div>
                 </div>
 
+                <div className={'row'}>
+                    <div className={'col-12'}>
+                        <p>
+                            The animations for all these algorithms are given in the next section.
+                        </p>
+                    </div>
+                </div>
+
                 <div className='row mt-4'>
                     <div className='col-12'>
                         <h3>Final Result</h3>
@@ -229,6 +237,44 @@ export const TwoOLL = (props) => {
                           to={`${props.url}/last-layer`}
                     >
                         Two Look OLL: Cross
+                    </Link>
+
+                    <Link  onClick = {props.scrollTop}
+                           className='dual-color-btn dual-color-blue shine-hope-anim next-nav-button'
+                           to={`${props.url}/two-oll-animation`}
+                    >
+                        Two Look OLL: Animations
+                    </Link>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export const TwoOLLAnimations = (props) => {
+    return (
+        <>
+            <div className={'container'}>
+                <div className={'row'}>
+                    <div className={'col-12'}>
+                        <h2>Algorithms</h2>
+                        <hr/>
+                    </div>
+                    <div className={'col-12'}>
+                        <p>
+                            As mentioned previously, there are a total of 7 cases for Two Look OLL. All cases with
+                            animations are given below:
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div className='container'>
+                <div className='dual-btn-container row'>
+                    <Link onClick = {props.scrollTop}
+                          className='dual-color-btn dual-color-blue shine-hope-anim prev-nav-button'
+                          to={`${props.url}/two-oll`}
+                    >
+                        Two Look OLL
                     </Link>
 
                     <Link  onClick = {props.scrollTop}

@@ -9,7 +9,7 @@ import {AlgorithmExample, Moves, PrimeMoves} from "../Beginner Components/Beginn
 import {FixCorners, FixCross} from "../Beginner Components/FirstLayerComponent";
 import {SecondLayer} from "../Beginner Components/SecondLayerComponent";
 import {LastCross} from "../Beginner Components/LastLayerComponents";
-import {TwoOLL} from "./TwoOllComponent";
+import {TwoOLL, TwoOLLAnimations} from "./TwoOllComponent";
 import {TwoHome} from "./TwoLookHomeComponent";
 import {TwoEdges, TwoPLL} from "./TwoPLLComponent";
 
@@ -100,6 +100,12 @@ class TwoLookMain extends Component{
                                 <TwoOLL cubeData={this.state.cubeData} url={this.props.url}
                                            colors={this.state.colors}
                                            scrollTop = {this.handleScrollTop}
+                                />
+                            </Route>
+                            <Route path={`${this.props.path}/two-oll-animation`}>
+                                <TwoOLLAnimations cubeData={this.state.cubeData} url={this.props.url}
+                                        colors={this.state.colors}
+                                        scrollTop = {this.handleScrollTop}
                                 />
                             </Route>
                             <Route path={`${this.props.path}/two-pll`}>
