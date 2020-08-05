@@ -68,7 +68,8 @@ export const Moves = (props) => {
                                 check the <strong>Steps</strong> checkbox.
                             </li>
                             <li>
-                                You can rotate the faces by dragging.
+                                You can rotate the faces by first enabling the <strong>camera controls </strong>
+                                from the <strong>Other Controls</strong>, and then dragging the cube.
                             </li>
                             <li>
                                 If you mess up the cube rotations and forget which face was front initially,

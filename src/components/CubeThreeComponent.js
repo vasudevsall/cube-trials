@@ -94,7 +94,8 @@ class CubeThree extends Component {
         /* Controls using dat.gui */
         var guiControls = {
             Speed : 0.1,
-            Steps: false
+            Steps: false,
+            cameraControls: false
         }
 
         function createCube() {
@@ -400,7 +401,7 @@ class CubeThree extends Component {
             /* Setting up scene, camera and renderer*/
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(50, TH_WIDTH/TH_HEIGHT, 0.1, 500);
-            camera.position.set(-3, 2, 6);
+            camera.position.set(-3, 3, 6);
             if(!addControls)
                 camera.position.set(-5, 5, 5);
             renderer = new THREE.WebGLRenderer({antialias: true, precision: 'highp'});
@@ -412,6 +413,7 @@ class CubeThree extends Component {
             if(addControls){
                 controls = new OrbitControls( camera, canvasDiv);
                 controls.enableZoom = false;
+                controls.enabled = false;
             }
             else
                 camera.lookAt(0, 0, 0);
@@ -527,6 +529,14 @@ class CubeThree extends Component {
                 f1.addInput(guiControls, 'Steps').on('change', function () {
                     f1.expanded = false;
                 });
+                f1.addSeparator();
+                f1.addInput(guiControls, 'cameraControls', {label:'Camera Controls'})
+                    .on('change', function() {
+                        if(addControls) {
+                            controls.enabled = !controls.enabled;
+                        }
+                        f1.expanded = false;
+                    });
                 f1.expanded = false;
             }
 
