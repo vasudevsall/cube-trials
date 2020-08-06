@@ -765,6 +765,10 @@ textarea::-webkit-scrollbar-thumb:hover {
   font-family: 'Montserrat', sans-serif;
 }
 
+canvas:focus {
+  outline: none;
+}
+
 .canvas-capsule {
   margin-bottom: 50px;
   overflow: hidden;
@@ -772,6 +776,9 @@ textarea::-webkit-scrollbar-thumb:hover {
 .canvasDiv {
   position: relative;
   z-index: 1;
+}
+.canvasDiv:focus {
+  outline: none;
 }
 .gui-div {
   width: 100%;

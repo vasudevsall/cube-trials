@@ -45,6 +45,9 @@ class CubeThree extends Component {
             case 'final_layer_edges':
                 cubeState = STATE.CUBE_STATE_FINAL_LAYER_EDGES;
                 break;
+            case 'two_oll_final_layer':
+                cubeState = STATE.CUBE_STATE_TWO_OLL_FINAL;
+                break;
             default:
                 cubeState = STATE.CUBE_STATE;
         }

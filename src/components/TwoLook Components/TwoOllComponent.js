@@ -263,11 +263,166 @@ export const TwoOLLAnimations = (props) => {
                     <div className={'col-12'}>
                         <p>
                             As mentioned previously, there are a total of 7 cases for Two Look OLL. All cases with
-                            animations are given below:
+                            animations are given in this section.
                         </p>
                     </div>
                 </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 1:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className='tab-space'>
+                            <span className='tab-space-clear'>( R</span>&nbsp;
+                            <span className='tab-space-clear'>U</span>&nbsp;
+                            <span className='tab-space-clear'>R'</span>&nbsp;
+                            <span className='tab-space-clear'>U )</span>&nbsp;
+                            <span className='tab-space-clear'>R</span>&nbsp;
+                            <span className='tab-space-clear'>U 2</span>&nbsp;
+                            <span className='tab-space-clear'>R'</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 36)[0]}
+                                   id='36' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 2:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className='tab-space'>
+                            <span className='tab-space-clear'>( L'</span>&nbsp;
+                            <span className='tab-space-clear'>U'</span>&nbsp;
+                            <span className='tab-space-clear'>L</span>&nbsp;
+                            <span className='tab-space-clear'>U' )</span>&nbsp;
+                            <span className='tab-space-clear'>L'</span>&nbsp;
+                            <span className='tab-space-clear'>U 2</span>&nbsp;
+                            <span className='tab-space-clear'>L</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 37)[0]}
+                                   id='37' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 3:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong>
+                            y (R' U' R) U' (R' U R) U' (R' U2 R)
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 38)[0]}
+                                   id='38' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 4:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className={'tab-space'}>
+                            <span className='tab-space-clear'>R</span>&nbsp;
+                            <span className='tab-space-clear'>U 2</span>&nbsp;
+                            <span className='tab-space-clear'>R 2</span>&nbsp;
+                            <span className='tab-space-clear'>U'</span>&nbsp;
+                            <span className='tab-space-clear'>R 2</span>&nbsp;
+                            <span className='tab-space-clear'>U'</span>&nbsp;
+                            <span className='tab-space-clear'>R 2</span>&nbsp;
+                            <span className='tab-space-clear'>U 2</span>&nbsp;
+                            <span className='tab-space-clear'>R</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 39)[0]}
+                                   id='39' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 5:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong>
+                            y (R U R' U') (R U’ R’ U2)*2 (R U R’)
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 40)[0]}
+                                   id='40' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 6:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className={'tab-space'}>
+                            <span className='tab-space-clear'>( r</span>&nbsp;
+                            <span className='tab-space-clear'>U</span>&nbsp;
+                            <span className='tab-space-clear'>R'</span>&nbsp;
+                            <span className='tab-space-clear'>U' )</span>&nbsp;
+                            <span className='tab-space-clear'>( r'</span>&nbsp;
+                            <span className='tab-space-clear'>F</span>&nbsp;
+                            <span className='tab-space-clear'>R</span>&nbsp;
+                            <span className='tab-space-clear'>F' )</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 41)[0]}
+                                   id='41' height='300px'
+                        />
+                    </div>
+                </div>
+
+                <div className='row align-self-center'>
+                    <div className={'col-12'}>
+                        <h5>Case 7:</h5>
+                    </div>
+                    <p className='col-12 col-lg-6 align-self-center text-center'>
+                        <strong className={'tab-space'}>
+                            <span className='tab-space-clear'>F'</span>&nbsp;
+                            <span className='tab-space-clear'>( r</span>&nbsp;
+                            <span className='tab-space-clear'>U</span>&nbsp;
+                            <span className='tab-space-clear'>R'</span>&nbsp;
+                            <span className='tab-space-clear'>U' )</span>&nbsp;
+                            <span className='tab-space-clear'>( r'</span>&nbsp;
+                            <span className='tab-space-clear'>F</span>&nbsp;
+                            <span className='tab-space-clear'>R )</span>
+                        </strong>
+                    </p>
+                    <div className='col-12 col-lg-6 cube-three-margin'>
+                        <CubeThree cubeState = 'two_oll_final_layer'
+                                   cubeData = {props.cubeData.filter((data) => data.id === 42)[0]}
+                                   id='42' height='300px'
+                        />
+                    </div>
+                </div>
+
             </div>
+
             <div className='container'>
                 <div className='dual-btn-container row'>
                     <Link onClick = {props.scrollTop}

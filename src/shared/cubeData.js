@@ -435,5 +435,93 @@ export const CUBE_DATA = [
         initMoves: [5, 5, 3, 2, -1, 5, 5, -2, 1, 3, 5, 5, 5, 5, 3, 2, -1, 5, 5, -2, 1, 3, 5, 5],
         cubeControls: true,
         initPaused: true
+    },
+    //Two OLL animations
+    {
+        id: 36,
+        addControls: true,
+        moves: [1, 3, -1, 3, 1, 3, 3, -1],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [1, -3, -3, -1, -3, 1, -3, -1],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 37,
+        addControls: true,
+        moves: [-2, -3, 2, -3, -2, 3, 3, 2],
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [-2, -3, -3, 2, 3, -2, 3, 2],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 38,
+        addControls: true,
+        moves: [22, -1, -3, 1, -3, -1, 3, 1, -3, -1, 3, 3, 1],//y (R' U' R) U' (R' U R) U' (R' U2 R)
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [-22, -1, -3, -3, 1, 3, -1, -3, 1, 3, -1, 3, 1, 22],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 39,
+        addControls: true,
+        moves: [1, 3, 3, 1, 1, -3, 1, 1, -3, 1, 1, 3, 3, 1],// R U2 R2 U' R2 U' R2 U2 R
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [-1, 3, 3, 1, 1, 3, 1, 1, 3, 1, 1, 3, 3, -1],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 40,
+        addControls: true,
+        moves: [22, 1, 3, -1, -3,
+            1, -3, -1, 3, 3,
+            1, -3, -1, 3, 3,
+            1, 3, -1],// y (R U R' U') (R U’ R’ U2)*2 (R U R’)
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [22, 1, -3, -1, 3, 3, 1, 3, -1, 3, 3, 1, 3, -1, 3, 1, -3, -1, -22],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 41,
+        addControls: true,
+        moves: [11, 3, -1, -3, -11, 5, 1, -5],// ( r U R' U') ( r' F R F')
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [5, -1, -5, 11, 3, 1, -3, -11],
+        cubeControls: true,
+        initPaused: true
+    },
+    {
+        id: 42,
+        addControls: true,
+        moves: [-5, 11, 3, -1, -3, -11, 5, 1],// F' ( r U R' U') (r' F R )
+        backColor: 0xffffff,
+        loop: true,
+        waitTime: commonWaitTime,
+        resetFaces: true,
+        initMoves: [-1, -5, 11, 3, 1, -3, -11, 5],
+        cubeControls: true,
+        initPaused: true
     }
 ]

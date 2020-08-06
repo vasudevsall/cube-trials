@@ -381,3 +381,60 @@ export const CUBE_STATE_FINAL_LAYER_EDGES = [
     // # 26: (right, top, front)
     [grey, black, grey, black, grey, black]
 ];
+
+export const CUBE_STATE_TWO_OLL_FINAL = [
+    // # 0 : (left, bottom, back)
+    [black, red, black, white, black, green],
+    // # 1: (left, back)
+    [black, red, black, black, black, green],
+    // # 2: (left, top, back)
+    [black, grey, yellow, black, black, grey],
+    // # 3: (bottom , back)
+    [black, black, black, white, black, green],
+    // # 4: (back)
+    [black, black, black, black, black, green],
+    // # 5: (top, back)
+    [black, black, yellow, black, black, grey],
+    // # 6: (right, bottom, back)
+    [orange, black, black, white, black, green],
+    // # 7: (right, back)
+    [orange, black, black, black, black, green],
+    // # 8: (right, top, back)
+    [grey, black, yellow, black, black, grey],
+    // # 9: (left, bottom)
+    [black, red, black, white, black, black],
+    // # 10: (left)
+    [black, red, black, black, black, black],
+    // # 11: (left, top)
+    [black, grey, yellow, black, black, black],
+    // # 12: (bottom)
+    [black, black, black, white, black, black],
+    // # 13: ()
+    [black, black, black, black, black, black],
+    // # 14: (top)
+    [black, black, yellow, black, black, black],
+    // # 15: (right, bottom)
+    [orange, black, black, white, black, black],
+    // # 16: (right)
+    [orange, black, black, black, black, black],
+    // # 17: (right, top)
+    [grey, black, yellow, black, black, black],
+    // # 18: (left, bottom, front)
+    [black, red, black, white, blue, black],
+    // # 19: (left, front)
+    [black, red, black, black, blue, black],
+    // # 20: (left, top, front)
+    [black, grey, yellow, black, grey, black],
+    // # 21: (bottom, front)
+    [black, black, black, white, blue, black],
+    // # 22: (front)
+    [black, black, black, black, blue, black],
+    // # 23: (top, front)
+    [black, black, yellow, black, grey, black],
+    // # 24: (right, bottom, front)
+    [orange, black, black, white, blue, black],
+    // # 25: (right, front)
+    [orange, black, black, black, blue, black],
+    // # 26: (right, top, front)
+    [grey, black, yellow, black, grey, black]
+];
