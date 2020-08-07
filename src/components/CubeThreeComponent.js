@@ -21,9 +21,8 @@ class CubeThree extends Component {
         var scene, camera, renderer;
         var controls;
 
-        var cubeGeometry, cubeMaterial, cubeBorderGeometry ,cube, cubeBorder;
+        var cubeGeometry, cubeMaterial ,cube;
         var cubeArray = [];
-        var cubeBorderArray = [];
         var cubeState;
 
         switch(this.props.cubeState) {
@@ -82,6 +81,7 @@ class CubeThree extends Component {
          * true means cube is in paused state
         */
         var cubePaused = this.props.cubeData.initPaused;
+        const faceIndexArr = [98, 198, 200, 202, 96, 196];
 
         /* Creating a label to add when cube is paused */
         var lbl = document.createElement('label');
@@ -101,23 +101,123 @@ class CubeThree extends Component {
             cameraControls: false
         }
 
+        function RoundEdgedBox(width, height, depth, radius, widthSegments, heightSegments, depthSegments, smoothness) {
+
+            width = width || 1;
+            height = height || 1;
+            depth = depth || 1;
+            radius = radius || (Math.min(Math.min(width, height), depth) * .25);
+            widthSegments = Math.floor(widthSegments) || 1;
+            heightSegments = Math.floor(heightSegments) || 1;
+            depthSegments = Math.floor(depthSegments) || 1;
+            smoothness = Math.max(3, Math.floor(smoothness) || 3);
+
+            let halfWidth = width * .5 - radius;
+            let halfHeight = height * .5 - radius;
+            let halfDepth = depth * .5 - radius;
+
+            var geometry = new THREE.Geometry();
+
+            var corner1 = new THREE.SphereGeometry(radius, smoothness, smoothness, 0, Math.PI * .5, 0, Math.PI * .5);
+            corner1.translate(-halfWidth, halfHeight, halfDepth);
+            var corner2 = new THREE.SphereGeometry(radius, smoothness, smoothness, Math.PI * .5, Math.PI * .5, 0, Math.PI * .5);
+            corner2.translate(halfWidth, halfHeight, halfDepth);
+            var corner3 = new THREE.SphereGeometry(radius, smoothness, smoothness, 0, Math.PI * .5, Math.PI * .5, Math.PI * .5);
+            corner3.translate(-halfWidth, -halfHeight, halfDepth);
+            var corner4 = new THREE.SphereGeometry(radius, smoothness, smoothness, Math.PI * .5, Math.PI * .5, Math.PI * .5, Math.PI * .5);
+            corner4.translate(halfWidth, -halfHeight, halfDepth);
+
+            geometry.merge(corner1);
+            geometry.merge(corner2);
+            geometry.merge(corner3);
+            geometry.merge(corner4);
+
+            var edge = new THREE.CylinderGeometry(radius, radius, width - radius * 2, smoothness, widthSegments, true, 0, Math.PI * .5);
+            edge.rotateZ(Math.PI * .5);
+            edge.translate(0, halfHeight, halfDepth);
+            var edge2 = new THREE.CylinderGeometry(radius, radius, width - radius * 2, smoothness, widthSegments, true, Math.PI * 1.5, Math.PI * .5);
+            edge2.rotateZ(Math.PI * .5);
+            edge2.translate(0, -halfHeight, halfDepth);
+
+            // height
+            var edge3 = new THREE.CylinderGeometry(radius, radius, height - radius * 2, smoothness, heightSegments, true, 0, Math.PI * .5);
+            edge3.translate(halfWidth, 0, halfDepth);
+            var edge4 = new THREE.CylinderGeometry(radius, radius, height - radius * 2, smoothness, heightSegments, true, Math.PI * 1.5, Math.PI * .5);
+            edge4.translate(-halfWidth, 0, halfDepth);
+
+            // depth
+            var edge5 = new THREE.CylinderGeometry(radius, radius, depth - radius * 2, smoothness, depthSegments, true, 0, Math.PI * .5);
+            edge5.rotateX(-Math.PI * .5);
+            edge5.translate(halfWidth, halfHeight, 0);
+            var edge6 = new THREE.CylinderGeometry(radius, radius, depth - radius * 2, smoothness, depthSegments, true, Math.PI * .5, Math.PI * .5);
+            edge6.rotateX(-Math.PI * .5);
+            edge6.translate(halfWidth, -halfHeight, 0);
+
+            edge.merge(edge2);
+            edge.merge(edge3);
+            edge.merge(edge4);
+            edge.merge(edge5);
+            edge.merge(edge6);
+
+            // sides
+            // front
+            var side = new THREE.PlaneGeometry(width - radius * 2, height - radius * 2, widthSegments, heightSegments);
+            side.translate(0, 0, depth * .5);
+
+            // right
+            var side2 = new THREE.PlaneGeometry(depth - radius * 2, height - radius * 2, depthSegments, heightSegments);
+            side2.rotateY(Math.PI * .5);
+            side2.translate(width * .5, 0, 0);
+
+            side.merge(side2);
+
+            geometry.merge(edge);
+            geometry.merge(side);
+
+            // duplicate and flip
+            var secondHalf = geometry.clone();
+            secondHalf.rotateY(Math.PI);
+            geometry.merge(secondHalf);
+
+            // top
+            var top = new THREE.PlaneGeometry(width - radius * 2, depth - radius * 2, widthSegments, depthSegments);
+            top.rotateX(-Math.PI * .5);
+            top.translate(0, height * .5, 0);
+
+            // bottom
+            var bottom = new THREE.PlaneGeometry(width - radius * 2, depth - radius * 2, widthSegments, depthSegments);
+            bottom.rotateX(Math.PI * .5);
+            bottom.translate(0, -height * .5, 0);
+
+            geometry.merge(top);
+            geometry.merge(bottom);
+
+            geometry.mergeVertices();
+
+            return geometry;
+        }
+
         function createCube() {
             /* Create cube */
 
-            var positionX = -2;
-            var positionY = -2;
-            var positionZ = -2;
+            var positionX = -20;
+            var positionY = -20;
+            var positionZ = -20;
             var index = 0;
 
             for(var i=0; i<3; i++) {
-                positionX = -2;
-                positionZ += 1;
+                positionX = -20;
+                positionZ += 10;
                 for(var j=0; j<3; j++) {
-                    positionX += 1;
-                    positionY = -2;
+                    positionX += 10;
+                    positionY = -20;
                     for(var k=0; k<3; k++){
-                        positionY += 1;
-                        cubeGeometry = new THREE.BoxGeometry(.88, .88, .88);
+                        positionY += 10;
+                        cubeGeometry = RoundEdgedBox(10, 10, 10, 1, 1, 1, 1, 1);
+                        var faces = cubeGeometry.faces;
+                        for(let x = 0; x<faces.length; x++) {
+                            faces[x].color.setHex(0x000000);
+                        }
 
                         cubeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, vertexColors: true});
                         cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
@@ -125,35 +225,28 @@ class CubeThree extends Component {
                         cube.castShadow = true;
                         scene.add(cube);
 
-                        cubeBorderGeometry = new THREE.EdgesGeometry( cube.geometry );
-                        cubeBorder = new THREE.LineSegments(cubeBorderGeometry, new THREE.LineBasicMaterial({color: 0x0000, linewidth: 3}));
-                        cubeBorder.position.set(positionX, positionY, positionZ);
-                        cubeBorder.castShadow = true;
-                        scene.add(cubeBorder);
-
                         cubeArray.push(cube);
-                        cubeBorderArray.push(cubeBorder);
 
                         /* Pushing the index to the required Array */
-                        if(positionZ === -1) { // back
+                        if(positionZ === -10) { // back
                             backArr.push(index);
-                        } else if(positionZ === 1) { // front
+                        } else if(positionZ === 10) { // front
                             frontArr.push(index);
                         } else { // front Mid
                             frontMid.push(index);
                         }
 
-                        if(positionX === -1) { // left
+                        if(positionX === -10) { // left
                             leftArr.push(index);
-                        } else if(positionX === 1) { // right
+                        } else if(positionX === 10) { // right
                             rightArr.push(index);
                         } else { // right Mid
                             rightMid.push(index);
                         }
 
-                        if(positionY === -1) { // down
+                        if(positionY === -10) { // down
                             downArr.push(index);
-                        } else if(positionY === 1) { // top
+                        } else if(positionY === 10) { // top
                             topArr.push(index);
                         } else { // top Mid
                             topMid.push(index);
@@ -218,7 +311,6 @@ class CubeThree extends Component {
 
                         /* Add to group */
                         cubeGroup.add(cubeArray[initArr[i]]);
-                        cubeGroup.add(cubeBorderArray[initArr[i]]);
                     }
                     rotationCoeff = -1 * guiControls.Speed;
                 } else {
@@ -232,7 +324,6 @@ class CubeThree extends Component {
 
                         /* Add to group */
                         cubeGroup.add(cubeArray[initArr[i]]);
-                        cubeGroup.add(cubeBorderArray[initArr[i]]);
                     }
                     rotationCoeff = 1 * guiControls.Speed;
                 }
@@ -281,7 +372,6 @@ class CubeThree extends Component {
 
                         /* Add to group */
                         cubeGroup.add(cubeArray[initArr[i]]);
-                        cubeGroup.add(cubeBorderArray[initArr[i]]);
                     }
                     rotationCoeff = -1 * guiControls.Speed;
                 } else {
@@ -296,7 +386,6 @@ class CubeThree extends Component {
 
                         /* Add to group */
                         cubeGroup.add(cubeArray[initArr[i]]);
-                        cubeGroup.add(cubeBorderArray[initArr[i]]);
                     }
                     rotationCoeff = 1 * guiControls.Speed;
                 }
@@ -344,7 +433,6 @@ class CubeThree extends Component {
 
                         /* Add to group */
                         cubeGroup.add(cubeArray[initArr[i]]);
-                        cubeGroup.add(cubeBorderArray[initArr[i]]);
                     }
                     rotationCoeff = -1 * guiControls.Speed;
                 } else {
@@ -359,7 +447,6 @@ class CubeThree extends Component {
 
                         /* Add to group */
                         cubeGroup.add(cubeArray[initArr[i]]);
-                        cubeGroup.add(cubeBorderArray[initArr[i]]);
                     }
                     rotationCoeff = 1 * guiControls.Speed;
                 }
@@ -378,8 +465,8 @@ class CubeThree extends Component {
                 var faces = thisCube.geometry.faces;
 
                 for(var x=0; x<6; x++) {
-                    faces[2*x].color.setHex(cubeState[i][x]);
-                    faces[2*x+1].color.setHex(cubeState[i][x]);
+                    faces[faceIndexArr[x]].color.setHex(cubeState[i][x]);
+                    faces[faceIndexArr[x] + 1].color.setHex(cubeState[i][x]);
                 }
 
                 thisCube.geometry.elementsNeedUpdate = true;
@@ -410,9 +497,9 @@ class CubeThree extends Component {
             /* Setting up scene, camera and renderer*/
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(50, TH_WIDTH/TH_HEIGHT, 0.1, 500);
-            camera.position.set(-3, 3, 6);
+            camera.position.set(-30, 25, 60);
             if(!addControls)
-                camera.position.set(-5, 5, 5);
+                camera.position.set(-65, 35, 65);
             renderer = new THREE.WebGLRenderer({antialias: true, precision: 'highp'});
             renderer.setClearColor(backColor);
             renderer.setSize(TH_WIDTH, TH_HEIGHT);
@@ -435,11 +522,11 @@ class CubeThree extends Component {
                 spotLight.position.set(-40, 40, 40);
                 scene.add(spotLight);
 
-                spotLight = new THREE.DirectionalLight(0xffffff, 0.46);
-                spotLight.position.set(-8, 30, 8);
+                spotLight = new THREE.PointLight(0xffffff, 0.44);
+                spotLight.position.set(0, 200, 0);
                 spotLight.castShadow = true;
-                spotLight.shadow.radius = 13;
-                spotLight.shadow.normalBias = -2;
+                spotLight.shadow.radius = 5;
+                spotLight.shadow.normalBias = 10;
                 scene.add(spotLight);
             }
 
@@ -449,14 +536,14 @@ class CubeThree extends Component {
             vectorZ = new THREE.Vector3(0, 0, 1).normalize();
 
             /* Adding plane */
-            var planeGeometry = new THREE.PlaneGeometry(20, 20, 20);
+            var planeGeometry = new THREE.PlaneGeometry(100, 100, 100);
             var planeMaterial = new THREE.MeshLambertMaterial({color: backColor});
             var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
             plane.rotation.x = -Math.PI / 2;
             plane.receiveShadow = true;
 
-            plane.position.set(0, -8, 0);
+            plane.position.set(0, -27, 0);
 
             scene.add(plane);
 
