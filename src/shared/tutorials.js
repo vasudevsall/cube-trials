@@ -1,6 +1,8 @@
-import React from 'react';
-import Beginner from '../components/Beginner Components/BeginnerComponent';
-import TwoLook from "../components/TwoLook Components/TwoLookComponent";
+import React, {lazy} from 'react';
+
+const Beginner = lazy(() => import('../components/Beginner Components/BeginnerComponent'));
+const TwoLook = lazy(() => import('../components/TwoLook Components/TwoLookComponent'));
+
 
 export const TUTORIALS = [
     {
@@ -10,7 +12,7 @@ export const TUTORIALS = [
         difficulty: 'Easy',
         description: 'The Beginners Method',
         image: 'images/cube-5.jpg',
-        tuteComponent: <Beginner />
+        tuteComponent: <Beginner/>
     },
     {
         id: 2,
@@ -19,6 +21,6 @@ export const TUTORIALS = [
         difficulty: 'Medium',
         description: 'Two look OLL and PLL',
         image: 'images/cube-4.jpg',
-        tuteComponent: <TwoLook />
+        tuteComponent: <TwoLook/>
     }
 ];

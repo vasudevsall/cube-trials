@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { COLORS } from '../shared/colors';
 import { TUTORIALS } from '../shared/tutorials';
-import TutePage from './TuteComponent';
 import Header from './HeaderComponent';
-import HomePage from './HomeComponent';
 import { Switch, Redirect, Route } from 'react-router-dom';
 import Footer from './FooterComponent';
 import { CUBE_DATA } from '../shared/cubeData';
-import Contact from './ContactComponent';
+import { Loader } from "./LoadingComponent";
+import ErrorBoundary from "./ErrorBoundaryCopnonent";
+
+const HomePage = lazy(() => import('./HomeComponent'));
+const TutePage = lazy(() => import('./TuteComponent'));
+const Contact = lazy(() => import('./ContactComponent'));
 
 class Main extends Component {
 
@@ -39,23 +42,27 @@ class Main extends Component {
         return(
             <>
                 <Header />
-                <Switch>
-                    <Route path="/home" component={() => <HomePage 
-                        threeData={this.state.cubeData.filter((data) => data.id === 1)[0]} 
-                        cubeData={this.state.colors.filter((color) => color.id === 1)[0]}
-                    /> } />
-                    <Route exact path="/tutorial" 
-                        component={() => <TutePage colors={this.state.colors} 
-                                            tutorials={this.state.tutorials}
-                                            scrollTop = {this.handleScrollTop}
-                                        /> } 
-                    />
-                    <Route path="/tutorial/:tuteId" component={TutorialComponent} />
-                    <Route path='/contact'>
-                        <Contact />
-                    </Route>
-                    <Redirect to="/home" />
-                </Switch>
+                <ErrorBoundary>
+                    <Suspense fallback={<Loader/>}>
+                        <Switch>
+                            <Route path="/home" component={() => <HomePage
+                                threeData={this.state.cubeData.filter((data) => data.id === 1)[0]}
+                                cubeData={this.state.colors.filter((color) => color.id === 1)[0]}
+                            /> } />
+                            <Route exact path="/tutorial"
+                                component={() => <TutePage colors={this.state.colors}
+                                                    tutorials={this.state.tutorials}
+                                                    scrollTop = {this.handleScrollTop}
+                                                /> }
+                            />
+                            <Route path="/tutorial/:tuteId" component={TutorialComponent} />
+                            <Route path='/contact'>
+                                <Contact />
+                            </Route>
+                            <Redirect to="/home" />
+                        </Switch>
+                    </Suspense>
+                </ErrorBoundary>
                 <Footer />
             </>
         );
