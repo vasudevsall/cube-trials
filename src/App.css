@@ -1058,9 +1058,11 @@ nav .nav-link:hover span {
 .loader-text {
   font-family: 'Orbitron', sans-serif;
   color: white;
-  position: absolute;
-  left: 46.75%;
+  position: relative;
   top: 65%;
+  width: 100vw;
+  text-align: center;
+  margin: 0 auto;
   font-size: 20px;
   letter-spacing: 1px;
 }
@@ -1206,4 +1208,29 @@ nav .nav-link:hover span {
   100% {
     transform: translate3d(-50%, -50%, 0) scaleX(1);
   }
+}
+
+/* Error */
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-mess-div {
+  width: 100vw!important;
+  text-align: center;
+}
+
+.error-mess {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  font-size: 20px;
+}
+
+.error-mess button, .error-mess button:active, .error-mess button:focus {
+  color: var(--sec-col);
+  border: none;
+  outline: none;
+  background: none;
 }

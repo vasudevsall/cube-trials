@@ -64,6 +64,8 @@ class Main extends Component {
                     </Suspense>
                 </ErrorBoundary>
                 <Footer />
+                <img src={process.env.PUBLIC_URL + "/images/error.png"} className={'error-img'} alt="Error"
+                     style={{display: 'none'}}/> {/*Added so that on Error image is available*/}
             </>
         );
     }
