@@ -19,11 +19,12 @@ class Contact extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.handleFormButtonClick(event, 'bottom');
-        var submitJson = {
-            name: this.state.name,
-            feedback: this.state.feedback
-        };
-        alert('Form Submitted:\n'+JSON.stringify(submitJson));
+        return fetch(
+            "https://docs.google.com/forms/d/e/1FAIpQLSe-cEMiu5QfGShxmhsnh_iGbDXWzTUF1M8HBkG_z3dZ8sON4Q/formResponse?"+
+            "entry.1062778694="+this.state.name + "&entry.2136053165=" + this.state.feedback + "&submit=Submit"
+        , {
+            method: 'GET'
+        });
     }
 
     handleFormButtonClick(event, toFace) {
