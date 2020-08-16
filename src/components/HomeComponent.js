@@ -72,7 +72,7 @@ function HomePage(props) {
                                 toLink='/tutorial'
                             />
                         </div>
-                        <div className='row mt-5'>
+                        <div className='row mt-5 mb-5'>
                             <div className='col-12'>
                                 <h3>Cube Trials Mobile App</h3>
                                 <hr/>
@@ -90,8 +90,20 @@ function HomePage(props) {
                                 </a>
                             </div>
                         </div>
-                        <div className='row'>
-                            <div className='col-12 mt-5'>
+                        <div className='row mt-5 mb-5'>
+                            <div className='col-12'>
+                                <h3>Feedback</h3>
+                                <hr/>
+                            </div>
+                            <div className='col-12'>
+                                <p>
+                                    Please do provide your valuable feedback <Link to={'/contact'}>here</Link>,
+                                     as it helps to constantly upgrade and remove various bugs and issues.
+                                </p>
+                            </div>
+                        </div>
+                        <div className='row mt-5'>
+                            <div className='col-12'>
                                 <h3>Home</h3>
                                 <hr/>
                             </div>
