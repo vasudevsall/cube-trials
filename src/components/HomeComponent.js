@@ -72,6 +72,24 @@ function HomePage(props) {
                                 toLink='/tutorial'
                             />
                         </div>
+                        <div className='row mt-5'>
+                            <div className='col-12'>
+                                <h3>Cube Trials Mobile App</h3>
+                                <hr/>
+                            </div>
+                            <div className='col-12'>
+                                <p>
+                                    You can download the Cube Trials app from the Amazon App Store, developed by my
+                                    colleague
+                                    <a href={'https://in.linkedin.com/in/nikhil-saini-36209617a'}> Nikhil Saini</a>.
+                                </p>
+                                <a className="btn btn-social btn-amazon mr-1"
+                                   href="https://www.amazon.com/dp/B08FYP97PD/ref=apps_sf_sta"
+                                >
+                                    <span className="fa fa-cube"></span>
+                                </a>
+                            </div>
+                        </div>
                         <div className='row'>
                             <div className='col-12 mt-5'>
                                 <h3>Home</h3>

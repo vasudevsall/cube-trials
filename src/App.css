@@ -425,7 +425,7 @@ bbe1fa
   background-color: var(--dark-col);
   z-index: 2;
 }
-.home-card::before {
+.home-card::before, .btn-amazon::before {
   content: '';
   position: absolute;
   top: -2px;
@@ -439,7 +439,7 @@ bbe1fa
   box-shadow: 0 0 5px 0 black;
   filter: blur(3px);
 }
-.home-card::after {
+.home-card::after, .btn-amazon::after {
   position: absolute;
   content: '';
   display: block;
@@ -449,7 +449,6 @@ bbe1fa
   width: inherit;
   z-index: 1;
   background-color: var(--dark-col);
-  border-radius: 50px 0;
 }
 
 .home-card-img {
@@ -611,11 +610,39 @@ bbe1fa
   border-radius: 10px;
 }
 
-/** Contact **/
+/* Overriding Bootstrap Social */
+.btn-amazon {
+  display: block!important;
+  position: relative;
+  color: white;
+  background-color: var(--dark-col)!important;
+  z-index: 2;
+  width: 200px;
+  height: 40px;
+  overflow: visible;
+}
+.btn-amazon::after {
+  content: 'Cube Trials'!important;
+  padding-left: 50px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  padding-top: 5px;
+}
+.btn-amazon span {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none!important;
+  left: 5px!important;
+}
+
 .btn-email {
   background-color: var(--dark-col-2);
   color: white;
 }
+
+/** Contact **/
 
 .scene-form {
   display: block;
