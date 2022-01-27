@@ -21,7 +21,7 @@
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
     "reactstrap": "^8.5.1",
-    "three": "^0.125.0",
+    "three": "^0.137.0",
     "tweakpane": "^1.5.3"
   },
   "scripts": {
